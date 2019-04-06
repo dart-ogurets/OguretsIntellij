@@ -28,8 +28,8 @@ import org.jetbrains.plugins.cucumber.CucumberUtil;
 import org.jetbrains.plugins.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.plugins.cucumber.psi.GherkinFileType;
 
-public class CucumberJavaMethodUsageSearcher extends QueryExecutorBase<PsiReference, MethodReferencesSearch.SearchParameters> {
-  public CucumberJavaMethodUsageSearcher() {
+public class CucumberDartMethodUsageSearcher extends QueryExecutorBase<PsiReference, MethodReferencesSearch.SearchParameters> {
+  public CucumberDartMethodUsageSearcher() {
     super(true);
   }
 
@@ -42,18 +42,18 @@ public class CucumberJavaMethodUsageSearcher extends QueryExecutorBase<PsiRefere
 
     final PsiMethod method = p.getMethod();
 
-    final PsiAnnotation stepAnnotation = CucumberDartUtil.getCucumberStepAnnotation(method);
-    final String regexp = stepAnnotation != null ? CucumberDartUtil.getPatternFromStepDefinition(stepAnnotation) : null;
-    if (regexp == null) {
-      return;
-    }
-    final String word = CucumberUtil.getTheBiggestWordToSearchByIndex(regexp);
-    if (StringUtil.isEmpty(word)) {
-      return;
-    }
-
-    final GlobalSearchScope restrictedScope = GlobalSearchScope.getScopeRestrictedByFileTypes((GlobalSearchScope)scope,
-                                                                                              GherkinFileType.INSTANCE);
-    ReferencesSearch.search(new ReferencesSearch.SearchParameters(method, restrictedScope, false, p.getOptimizer())).forEach(consumer);
+//    final PsiAnnotation stepAnnotation = CucumberDartUtil.getCucumberStepAnnotation(method);
+//    final String regexp = stepAnnotation != null ? CucumberDartUtil.getPatternFromStepDefinition(stepAnnotation) : null;
+//    if (regexp == null) {
+//      return;
+//    }
+//    final String word = CucumberUtil.getTheBiggestWordToSearchByIndex(regexp);
+//    if (StringUtil.isEmpty(word)) {
+//      return;
+//    }
+//
+//    final GlobalSearchScope restrictedScope = GlobalSearchScope.getScopeRestrictedByFileTypes((GlobalSearchScope)scope,
+//                                                                                              GherkinFileType.INSTANCE);
+//    ReferencesSearch.search(new ReferencesSearch.SearchParameters(method, restrictedScope, false, p.getOptimizer())).forEach(consumer);
   }
 }

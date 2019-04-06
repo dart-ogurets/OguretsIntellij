@@ -41,9 +41,7 @@ import java.util.Properties;
 
 abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefinitionCreator {
   private static final String STEP_DEFINITION_SUFFIX = "MyStepdefs";
-  private static final String FILE_TEMPLATE_CUCUMBER_DART_STEP_DEFINITION_JAVA = "Cucumber Dart Step Definition.dart";
   private static final String DART_TEMPLATE = "Dart File.dart";
-  private static final String DEFAULT_STEP_KEYWORD = "Given";
 
   private final static Logger LOG = Logger.getInstance("#" + BaseDartStepDefinitionCreator.class.getName());
 
@@ -112,69 +110,69 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
 //    return true;
 //  }
 
-  void runTemplateBuilderOnAddedStep(@NotNull Editor editor,
-                                     @NotNull PsiElement addedElement,
-                                     PsiElement regexpElement,
-                                     PsiParameterList blockVars,
-                                     PsiCodeBlock body) {
-    Project project = regexpElement.getProject();
-    final TemplateBuilderImpl builder = (TemplateBuilderImpl)TemplateBuilderFactory.getInstance().createTemplateBuilder(addedElement);
-
-    final TextRange range = new TextRange(1, regexpElement.getTextLength() - 1);
-    builder.replaceElement(regexpElement, range, regexpElement.getText().substring(range.getStartOffset(), range.getEndOffset()));
-
-    for (PsiParameter var : blockVars.getParameters()) {
-      final PsiElement nameIdentifier = var.getNameIdentifier();
-      if (nameIdentifier != null) {
-        builder.replaceElement(nameIdentifier, nameIdentifier.getText());
-      }
-    }
-
-    if (body.getStatements().length > 0) {
-      final PsiElement firstStatement = body.getStatements()[0];
-      final TextRange pendingRange = new TextRange(0, firstStatement.getTextLength() - 1);
-      builder.replaceElement(firstStatement, pendingRange,
-                             firstStatement.getText().substring(pendingRange.getStartOffset(), pendingRange.getEndOffset()));
-    }
-
-    Template template = builder.buildInlineTemplate();
-
-    final PsiDocumentManager documentManager = PsiDocumentManager.getInstance(project);
-    documentManager.doPostponedOperationsAndUnblockDocument(editor.getDocument());
-
-    editor.getCaretModel().moveToOffset(addedElement.getTextRange().getStartOffset());
-    TemplateEditingAdapter adapter = new TemplateEditingAdapter() {
-        @Override
-        public void templateFinished(@NotNull Template template, boolean brokenOff) {
-          ApplicationManager.getApplication().runWriteAction(() -> {
-            PsiDocumentManager.getInstance(project).commitDocument(editor.getDocument());
-            PsiFile psiFile = PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument());
-            if (psiFile == null) {
-              return;
-            }
-            int offset = editor.getCaretModel().getOffset() - 1;
-            PsiCodeBlock codeBlock = null;
-            PsiLambdaExpression lambda = PsiTreeUtil.findElementOfClassAtOffset(psiFile, offset, PsiLambdaExpression.class, false);
-            if (lambda != null) {
-              PsiElement body = lambda.getBody();
-              codeBlock = body instanceof PsiCodeBlock ? (PsiCodeBlock)body : null;
-            }
-            if (codeBlock == null) {
-              PsiMethod method = PsiTreeUtil.findElementOfClassAtOffset(psiFile, offset, PsiMethod.class, false);
-              if (method != null) {
-                codeBlock = method.getBody();
-              }
-            }
-
-            if (codeBlock != null) {
-              CreateFromUsageUtils.setupEditor(codeBlock, editor);
-            }
-          });
-        }
-      };
-
-    TemplateManager.getInstance(project).startTemplate(editor, template, adapter);
-  }
+//  void runTemplateBuilderOnAddedStep(@NotNull Editor editor,
+//                                     @NotNull PsiElement addedElement,
+//                                     PsiElement regexpElement,
+//                                     PsiParameterList blockVars,
+//                                     PsiCodeBlock body) {
+//    Project project = regexpElement.getProject();
+//    final TemplateBuilderImpl builder = (TemplateBuilderImpl)TemplateBuilderFactory.getInstance().createTemplateBuilder(addedElement);
+//
+//    final TextRange range = new TextRange(1, regexpElement.getTextLength() - 1);
+//    builder.replaceElement(regexpElement, range, regexpElement.getText().substring(range.getStartOffset(), range.getEndOffset()));
+//
+//    for (PsiParameter var : blockVars.getParameters()) {
+//      final PsiElement nameIdentifier = var.getNameIdentifier();
+//      if (nameIdentifier != null) {
+//        builder.replaceElement(nameIdentifier, nameIdentifier.getText());
+//      }
+//    }
+//
+//    if (body.getStatements().length > 0) {
+//      final PsiElement firstStatement = body.getStatements()[0];
+//      final TextRange pendingRange = new TextRange(0, firstStatement.getTextLength() - 1);
+//      builder.replaceElement(firstStatement, pendingRange,
+//                             firstStatement.getText().substring(pendingRange.getStartOffset(), pendingRange.getEndOffset()));
+//    }
+//
+//    Template template = builder.buildInlineTemplate();
+//
+//    final PsiDocumentManager documentManager = PsiDocumentManager.getInstance(project);
+//    documentManager.doPostponedOperationsAndUnblockDocument(editor.getDocument());
+//
+//    editor.getCaretModel().moveToOffset(addedElement.getTextRange().getStartOffset());
+//    TemplateEditingAdapter adapter = new TemplateEditingAdapter() {
+//        @Override
+//        public void templateFinished(@NotNull Template template, boolean brokenOff) {
+//          ApplicationManager.getApplication().runWriteAction(() -> {
+//            PsiDocumentManager.getInstance(project).commitDocument(editor.getDocument());
+//            PsiFile psiFile = PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument());
+//            if (psiFile == null) {
+//              return;
+//            }
+//            int offset = editor.getCaretModel().getOffset() - 1;
+//            PsiCodeBlock codeBlock = null;
+//            PsiLambdaExpression lambda = PsiTreeUtil.findElementOfClassAtOffset(psiFile, offset, PsiLambdaExpression.class, false);
+//            if (lambda != null) {
+//              PsiElement body = lambda.getBody();
+//              codeBlock = body instanceof PsiCodeBlock ? (PsiCodeBlock)body : null;
+//            }
+//            if (codeBlock == null) {
+//              PsiMethod method = PsiTreeUtil.findElementOfClassAtOffset(psiFile, offset, PsiMethod.class, false);
+//              if (method != null) {
+//                codeBlock = method.getBody();
+//              }
+//            }
+//
+//            if (codeBlock != null) {
+//              CreateFromUsageUtils.setupEditor(codeBlock, editor);
+//            }
+//          });
+//        }
+//      };
+//
+//    TemplateManager.getInstance(project).startTemplate(editor, template, adapter);
+//  }
 
   @Override
   public boolean validateNewStepDefinitionFileName(@NotNull final Project project, @NotNull final String name) {
@@ -283,7 +281,9 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
   }
 
   public static String processGeneratedStepDefinition(@NotNull String stepDefinition, @NotNull PsiElement context) {
-    return stepDefinition.replace("PendingException", CucumberDartUtil.getCucumberPendingExceptionFqn(context));
+    return stepDefinition
+          .replace("PendingException", CucumberDartUtil.getCucumberPendingExceptionFqn(context))
+          .replace('"', '\'');
   }
 
   @NotNull

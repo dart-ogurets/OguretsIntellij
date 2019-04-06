@@ -3,9 +3,7 @@ package org.jetbrains.plugins.cucumber.dart.steps;
 import com.google.common.primitives.Primitives;
 import cucumber.runtime.snippets.Snippet;
 
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
 
 public class DartSnippet implements Snippet {
   protected String getArgType(Class<?> argType) {
@@ -14,7 +12,7 @@ public class DartSnippet implements Snippet {
 
   @Override
   public String template() {
-    return "@{0}(\"{1}\")\nvoid {2}({3}) async \'{\'\n    // {4}\n{5}    throw new PendingException();\n\'}\'\n";
+    return "@{0}(r\"{1}\")\nvoid {2}({3}) async \'{\'\n    // {4}\n{5}\n\'}\'\n";
   }
 
   @Override

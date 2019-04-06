@@ -8,31 +8,16 @@ import com.intellij.lang.Language;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.JVMElementFactories;
-import com.intellij.psi.JVMElementFactory;
-import com.intellij.psi.JavaTokenType;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiClassOwner;
-import com.intellij.psi.PsiCodeBlock;
+import com.intellij.pom.Navigatable;
 import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiExpression;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiLambdaExpression;
-import com.intellij.psi.PsiMethod;
 import com.intellij.psi.PsiMethodCallExpression;
-import com.intellij.psi.PsiParameterList;
-import com.intellij.psi.TokenType;
-import com.intellij.psi.codeStyle.JavaCodeStyleManager;
-import com.intellij.psi.impl.source.tree.Factory;
-import com.intellij.psi.impl.source.tree.LeafElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.psi.DartFile;
-import com.jetbrains.lang.dart.psi.DartFunctionBody;
-import com.jetbrains.lang.dart.psi.DartFunctionDeclarationWithBodyOrNative;
-import com.jetbrains.lang.dart.psi.DartStatements;
-import com.jetbrains.lang.dart.psi.IDartBlock;
 import com.jetbrains.lang.dart.util.DartElementGenerator;
 import cucumber.runtime.snippets.CamelCaseConcatenator;
 import cucumber.runtime.snippets.FunctionNameGenerator;
@@ -47,8 +32,6 @@ import java.util.ArrayList;
 import static com.jetbrains.lang.dart.util.DartElementGenerator.createDummyFile;
 
 public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
-  public static final String CUCUMBER_API_JAVA8_EN = "cucumber.api.dart2.En";
-  private static final String FILE_TEMPLATE_CUCUMBER_JAVA_8_STEP_DEFINITION_JAVA = "Cucumber Dart Step Definition.dart";
 
   @Override
   public boolean createStepDefinition(@NotNull GherkinStep step, @NotNull PsiFile file) {
@@ -85,6 +68,10 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 //
     Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
     assert editor != null;
+
+    if (stepDef instanceof Navigatable) {
+      ((Navigatable)stepDef).navigate(true);
+    }
 //
 //    if (!(addedStepDef instanceof PsiMethodCallExpression)) {
 //      return false;
@@ -125,11 +112,8 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 //    JVMElementFactory factory = JVMElementFactories.requireFactory(language, step.getProject());
 //    PsiElement expression =  factory.createExpressionFromText(snippet, step);
 
-    try {
-      return createStepDefinitionFromSnippet(expression, step);
-    } catch (Exception e) {
-      return expression;
-    }
+
+    return expression;
   }
 
   @Nullable
@@ -143,23 +127,5 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 //      return statements == null ? null : statements.getFirstChild();
 //    }
     return child;
-  }
-
-  private static PsiElement createStepDefinitionFromSnippet(@NotNull PsiElement snippetExpression, @NotNull GherkinStep step) {
-    PsiMethodCallExpression callExpression = (PsiMethodCallExpression)snippetExpression;
-    PsiExpression[] arguments = callExpression.getArgumentList().getExpressions();
-    PsiLambdaExpression lambda = (PsiLambdaExpression)arguments[1];
-
-    FileTemplateDescriptor fileTemplateDescriptor = new FileTemplateDescriptor(FILE_TEMPLATE_CUCUMBER_JAVA_8_STEP_DEFINITION_JAVA);
-    FileTemplate fileTemplate = FileTemplateManager.getInstance(snippetExpression.getProject()).getCodeTemplate(fileTemplateDescriptor.getFileName());
-    String text = fileTemplate.getText().replace("${STEP_KEYWORD}", callExpression.getMethodExpression().getText())
-      .replace("${STEP_REGEXP}", arguments[0].getText())
-      .replace("${PARAMETERS}", lambda.getParameterList().getText())
-      .replace("${BODY}\n", "");
-
-    text = processGeneratedStepDefinition(text, snippetExpression);
-
-    return DartElementGenerator.createExpressionFromText(snippetExpression.getProject(), text);
-//    return factory.createExpressionFromText(text, step);
   }
 }
