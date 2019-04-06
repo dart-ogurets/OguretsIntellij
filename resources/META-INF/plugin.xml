@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<idea-plugin>
+  <id>cucumber-dart</id>
+  <name>Cucumber for Dart</name>
+  <description>
+      <![CDATA[
+      This plugin enables <a href="http://cukes.info/">Cucumber</a> support with step definitions written in Dart.
+        The following coding assistance features are available:
+        <ul>
+          <li>Code completion.</li>
+          <li>Search for usages.</li>
+        </ul>
+      ]]>
+   </description>
+  <depends>gherkin</depends>
+  <depends>Dart</depends>
+  <vendor>JetBrains</vendor>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <referencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
+    <methodReferencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaMethodUsageSearcher"/>
+	  <!--
+    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaFeatureRunConfigurationProducer"/>
+    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaScenarioRunConfigurationProducer"/>
+    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaAllFeaturesInFolderRunConfigurationProducer"/>
+    <configurationType implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaRunConfigurationType"/>
+    -->
+
+    <implicitUsageProvider implementation="org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
+
+	  <!--
+    <localInspection language="Dart" shortName="CucumberJavaStepDefClassIsPublic" displayName="Step definition class is not public"
+                     groupBundle="org.jetbrains.plugins.cucumber.CucumberBundle" groupKey="cucumber.inspection.group.name" enabledByDefault="true"
+                     level="WARNING" implementationClass="org.jetbrains.plugins.cucumber.dart.inspections.CucumberJavaStepDefClassIsPublicInspections"/>
+    <localInspection language="Dart" shortName="CucumberJavaStepDefClassInDefaultPackage" displayName="Step definition class is in default package"
+                     groupBundle="org.jetbrains.plugins.cucumber.CucumberBundle" groupKey="cucumber.inspection.group.name" enabledByDefault="true"
+                     level="WARNING" implementationClass="org.jetbrains.plugins.cucumber.dart.inspections.CucumberJavaStepDefClassInDefaultPackageInspection"/>
+     -->
+
+    <multiHostInjector implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartInjector"/>
+    <psi.referenceContributor implementation="org.jetbrains.plugins.cucumber.org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaReferenceContributor"/>
+    <pom.declarationSearcher implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaPomDeclarationSearcher"/>
+    <fileBasedIndex implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartStepIndex"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
+    <!--<cucumberJvmExtensionPoint implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartExtension"/>-->
+    <cucumberJvmExtensionPoint implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartNIExtension"/>
+  </extensions>
+</idea-plugin>

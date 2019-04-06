@@ -1,0 +1,6 @@
+
+import 'package:dherkin2/dherkin.dart';
+
+class ${CLASS_NAME} {
+
+}

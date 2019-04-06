@@ -1,0 +1,4 @@
+@${STEP_KEYWORD}(${STEP_REGEXP})
+void ${METHOD_NAME}${PARAMETERS} async {
+  ${BODY}
+}

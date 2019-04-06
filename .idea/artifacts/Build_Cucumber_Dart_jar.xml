@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Build Cucumber Dart.jar">
+    <output-path>$PROJECT_DIR$/target/artifacts/Build_CucumberDart_jar</output-path>
+    <root id="archive" name="CucumberDart-plugin.jar">
+      <element id="module-output" name="CucumberDart-plugin" />
+    </root>
+  </artifact>
+</component>
