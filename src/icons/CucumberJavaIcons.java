@@ -15,4 +15,5 @@ public final class CucumberJavaIcons {
   }
 
   /** 16x16 */ public static final Icon CucumberJavaRunConfiguration = load("/org/jetbrains/plugins/cucumber/cucumberJavaRunConfiguration.png");
+  public static final Icon DartTest = load("/org/jetbrains/plugins/cucumber/dart_test.svg");
 }

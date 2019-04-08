@@ -121,6 +121,12 @@ public class CucumberDartUtil {
       CucumberJavaAnnotationProvider.STEP_MARKERS.contains(meta.getReferenceExpression().getFirstChild().getText());
   }
 
+  public static boolean isTextOfCucumberAnnotation(PsiElement d) {
+    return d.getParent() != null && d.getParent().getParent() != null && d.getParent().getParent().getParent() != null &&
+      d.getParent().getParent().getParent() instanceof DartMetadata;
+  }
+
+
   protected static String stripQuotes(String str) {
     // raw string?
     if (str.startsWith("r\"") || str.startsWith("r'")) {

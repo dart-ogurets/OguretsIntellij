@@ -10,6 +10,7 @@ import com.intellij.psi.PsiLiteralExpression;
 import com.intellij.psi.PsiNewExpression;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.Consumer;
+import com.jetbrains.lang.dart.psi.DartStringLiteralExpression;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaParameterPomTarget;
@@ -17,6 +18,13 @@ import org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaParameter
 public class CucumberJavaPomDeclarationSearcher extends PomDeclarationSearcher {
   @Override
   public void findDeclarationsAt(@NotNull PsiElement element, int offsetInElement, Consumer<PomTarget> consumer) {
+
+    // i can't see this being useful because annotations are regex's and this search isn't searching by regex but by
+    // text?
+
+//    if (!(element instanceof DartStringLiteralExpression)) {
+//      if (CucumberDartUtil.isTextOfCucumberAnnotation(element))
+//    }
 
 //    consumer.consume(new CucumberJavaParameterPomTarget(element, element.getText()));
 

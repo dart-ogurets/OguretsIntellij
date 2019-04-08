@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/Dart-plugin.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/Dart-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cucumber-dart.iml" filepath="$PROJECT_DIR$/.idea/cucumber-dart.iml" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber-groovy/intellij.cucumber.groovy.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber-groovy/intellij.cucumber.groovy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" group="intellij" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-community/intellij.idea.community.main.iml" filepath="$PROJECT_DIR$/../intellij-community/intellij.idea.community.main.iml" />
     </modules>

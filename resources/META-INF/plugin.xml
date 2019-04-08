@@ -19,6 +19,10 @@
   <extensions defaultExtensionNs="com.intellij">
     <referencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
     <methodReferencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberDartMethodUsageSearcher"/>
+	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
+	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
+	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
+	  <configurationType implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
 	  <!--
     <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaFeatureRunConfigurationProducer"/>
     <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaScenarioRunConfigurationProducer"/>
