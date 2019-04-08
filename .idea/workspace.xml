@@ -7,27 +7,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64afb804-ea4e-4852-a7a1-6de2c393aef5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/org/jetbrains/plugins/cucumber/dart_test.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cucumber-dart.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/cd/connect/idea/plugins/cucumber/cucumberJavaRunConfiguration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/cd/connect/idea/plugins/cucumber/dart_test.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/inspectionDescriptions/CucumberJavaStepDefClassInDefaultPackage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/inspectionDescriptions/CucumberJavaStepDefClassIsPublic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/org/jetbrains/plugins/cucumber/cucumberJavaRunConfiguration.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/org/jetbrains/plugins/cucumber/dart_test.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/icons/CucumberJavaIcons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/icons/CucumberJavaIcons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberJavaPomDeclarationSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberJavaPomDeclarationSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartBundle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartBundle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartNIExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartStepIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartStepIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/AbstractDartStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/AbstractDartStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/AnnotationPackageProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/AnnotationPackageProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/DartAnnotatedStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartAnnotatedStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/DartSnippet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartSnippet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/DartStep2XDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartStep2XDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/DartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartStepDefinitionCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/DherkinVersionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DherkinVersionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/DartStep2xDefinitionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/factory/DartStep2xDefinitionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/DartStepDefinitionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/factory/DartStepDefinitionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaAnnotationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaAnnotationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaImplicitUsageProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaImplicitUsageProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaParameterPomTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaParameterPomTarget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaParameterTypeReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaParameterTypeReference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberDartReferenceContributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberDartMethodUsageSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartMethodUsageSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberJavaPomDeclarationSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartPomDeclarationSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberJavaStepDefinitionSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberJavaStepDefinitionSearch.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,10 +59,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="101" />
+            <state relative-caret-position="442">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#752#753#0" expanded="true" />
@@ -51,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="667">
+              <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,14 +87,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="134" selection-start-line="23" selection-start-column="134" selection-end-line="23" selection-end-column="134" />
+            <state relative-caret-position="357">
+              <caret line="21" column="127" selection-start-line="21" selection-start-column="127" selection-end-line="21" selection-end-column="127" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartPomDeclarationSearcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberDartReferenceContributor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
@@ -88,10 +127,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+            <state relative-caret-position="201">
+              <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,10 +139,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java/run/CucumberJavaAllFeaturesInFolderRunConfigurationProducer.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="69" selection-start-line="69" selection-end-line="73" selection-end-column="16" />
+            <state relative-caret-position="170">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/icons/CucumberJavaIcons.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+              <folding>
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -119,7 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>\\d</find>
       <find>processParameterTypesInCucumberExpression</find>
       <find>PsiMethod</find>
       <find>STEP_REGEXP</find>
@@ -149,6 +209,7 @@
       <find>getFileP</find>
       <find>scope</find>
       <find>getNameFil</find>
+      <find>cucumberJavaicon</find>
     </findStrings>
     <replaceStrings>
       <replace>cucumber.dart</replace>
@@ -168,6 +229,7 @@
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java/run</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber/src</dir>
+      <dir>$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -176,14 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/AnnotationPackageProvider.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/run/CucumberJavaRunConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/run/CucumberJavaApplicationConfigurable.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/run/CucumberDartApplicationConfigurable.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/run/CucumberDartConfigurationOptions.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/run/CucumberDartRunConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/JavaStep2xDefinitionFactory.java" />
-        <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/DartStep2xDefinitionFactory.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/JavaStepDefinitionFactory.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/factory/DartStepDefinitionFactory.java" />
         <option value="$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/psi/structure/GherkinStructureViewElement.java" />
@@ -216,7 +270,6 @@
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartUtil.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartInjector.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberJavaPomDeclarationSearcher.java" />
-        <option value="$PROJECT_DIR$/src/icons/CucumberJavaIcons.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" />
@@ -225,8 +278,17 @@
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" />
-        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceContributor.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberDartReferenceContributor.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberJavaPomDeclarationSearcher.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartPomDeclarationSearcher.java" />
+        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" />
+        <option value="$PROJECT_DIR$/src/icons/CucumberJavaIcons.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -343,6 +405,12 @@
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="library" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -350,12 +418,6 @@
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -373,62 +435,6 @@
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="icons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="reference" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="CucumberDartConfigurationEditorForm" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -560,7 +566,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="488" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554712747121" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554713604317" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -676,7 +682,7 @@
       <workItem from="1553943016108" duration="13424000" />
       <workItem from="1554506633124" duration="41455000" />
       <workItem from="1554623855426" duration="8005000" />
-      <workItem from="1554707410100" duration="4299000" />
+      <workItem from="1554707410100" duration="5240000" />
     </task>
     <task id="LOCAL-00001" summary="- dart template working with raw text&#10;- handles expressions and regexs properly&#10;- injects regex support into annotation strings">
       <created>1554591220344</created>
@@ -685,11 +691,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554591220344</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="basics of the run configurations starting to work">
+      <created>1554712788948</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554712788948</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78164000" />
+    <option name="totallyTimeSpent" value="79105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
@@ -703,14 +716,14 @@
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.33584905" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33584905" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32830188" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2664151" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.12603773" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.17433962" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.41207546" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32964426" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -738,13 +751,14 @@
       <path value="$PROJECT_DIR$/../intellij-community" />
     </ignored-roots>
     <MESSAGE value="- dart template working with raw text&#10;- handles expressions and regexs properly&#10;- injects regex support into annotation strings" />
-    <option name="LAST_COMMIT_MESSAGE" value="- dart template working with raw text&#10;- handles expressions and regexs properly&#10;- injects regex support into annotation strings" />
+    <MESSAGE value="basics of the run configurations starting to work" />
+    <option name="LAST_COMMIT_MESSAGE" value="basics of the run configurations starting to work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/CucumberDartStepIndex.java</url>
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartStepIndex.java</url>
           <line>100</line>
           <properties />
           <option name="timeStamp" value="19" />
@@ -756,22 +770,16 @@
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/search/CucumberDartMethodUsageSearcher.java</url>
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartMethodUsageSearcher.java</url>
           <line>37</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceProvider.java</url>
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceProvider.java</url>
           <line>23</line>
           <properties />
           <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceContributor.java</url>
-          <line>12</line>
-          <properties />
-          <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/steps/AbstractStepDefinition.java</url>
@@ -780,16 +788,37 @@
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/reference/CucumberJavaImplicitUsageProvider.java</url>
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaImplicitUsageProvider.java</url>
           <line>16</line>
           <properties />
           <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="142" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(context.getPsiLocation(), GherkinScenario.class, GherkinScenarioOutline.class);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>context.getPsiLocation().getContainingFile() instanceof GherkinFile</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>context.getPsiLocation()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>var3</expression-string>
         <language-id>JAVA</language-id>
@@ -821,48 +850,9 @@
         <custom-info>com.intellij.pom.Navigatable</custom-info>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>stepDef</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>com.intellij.ui.tree.Navigatable</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>addedStepDef</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>com.intellij.ui.tree.Navigatable</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>addedStepDef instanceof Navigatable</expression-string>
-        <language-id>JAVA</language-id>
-        <custom-info>com.intellij.ui.tree.Navigatable</custom-info>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeConstructorAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/extensions.jar!/com/intellij/util/pico/CachingConstructorInjectionComponentAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/actionSystem/ex/ActionUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/actions/GherkinStepParameterSelectioner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -911,30 +901,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/resources/icons/dart_test.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/library/cucumber-jvm-deps.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/icons/CucumberJavaIcons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="92" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
-          <folding>
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/actions/ConfigurationContext.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -1070,7 +1036,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
@@ -1101,7 +1067,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
           <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
@@ -1127,7 +1093,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.form">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.form">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="130" selection-start-line="1" selection-start-column="130" selection-end-line="1" selection-end-column="130" />
@@ -1153,7 +1119,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="711">
           <caret line="156" selection-start-line="156" selection-end-line="156" />
@@ -1177,14 +1143,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+    <entry file="file://$PROJECT_DIR$/resources/library/cucumber-jvm-deps.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberDartReferenceContributor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="134" selection-start-line="23" selection-start-column="134" selection-end-line="23" selection-end-column="134" />
+        <state relative-caret-position="85">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartPomDeclarationSearcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="127" selection-start-line="21" selection-start-column="127" selection-end-line="21" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
@@ -1197,35 +1202,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+        <state relative-caret-position="201">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="101" />
+        <state relative-caret-position="170">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/icons/CucumberJavaIcons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>

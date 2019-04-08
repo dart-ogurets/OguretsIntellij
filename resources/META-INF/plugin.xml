@@ -9,20 +9,21 @@
         <ul>
           <li>Code completion.</li>
           <li>Search for usages.</li>
+          <li>Run configurations</li>
         </ul>
       ]]>
    </description>
   <depends>gherkin</depends>
   <depends>Dart</depends>
-  <vendor>JetBrains</vendor>
+  <vendor>ClearPoint NZ</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
-    <referencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
-    <methodReferencesSearch implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberDartMethodUsageSearcher"/>
-	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
-	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
-	  <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
-	  <configurationType implementation="org.jetbrains.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
+    <referencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
+    <methodReferencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberDartMethodUsageSearcher"/>
+	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
+	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
+	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
+	  <configurationType implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
 	  <!--
     <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaFeatureRunConfigurationProducer"/>
     <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaScenarioRunConfigurationProducer"/>
@@ -30,7 +31,7 @@
     <configurationType implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaRunConfigurationType"/>
     -->
 
-    <implicitUsageProvider implementation="org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
+    <implicitUsageProvider implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
 
 	  <!--
     <localInspection language="Dart" shortName="CucumberJavaStepDefClassIsPublic" displayName="Step definition class is not public"
@@ -41,14 +42,14 @@
                      level="WARNING" implementationClass="org.jetbrains.plugins.cucumber.dart.inspections.CucumberJavaStepDefClassInDefaultPackageInspection"/>
      -->
 
-    <multiHostInjector implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartInjector"/>
-    <psi.referenceContributor implementation="org.jetbrains.plugins.cucumber.org.jetbrains.plugins.cucumber.dart.steps.reference.CucumberJavaReferenceContributor"/>
-    <pom.declarationSearcher implementation="org.jetbrains.plugins.cucumber.dart.steps.search.CucumberJavaPomDeclarationSearcher"/>
-    <fileBasedIndex implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartStepIndex"/>
+    <multiHostInjector implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartInjector"/>
+    <psi.referenceContributor implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberDartReferenceContributor"/>
+    <pom.declarationSearcher implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberDartPomDeclarationSearcher"/>
+    <fileBasedIndex implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartStepIndex"/>
   </extensions>
 
   <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
     <!--<cucumberJvmExtensionPoint implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartExtension"/>-->
-    <cucumberJvmExtensionPoint implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartNIExtension"/>
+    <cucumberJvmExtensionPoint implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartNIExtension"/>
   </extensions>
 </idea-plugin>
