@@ -6,7 +6,6 @@ import com.intellij.execution.actions.RunConfigurationProducer;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
-import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.VfsUtilCore;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
@@ -16,18 +15,12 @@ import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScopesCore;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.jetbrains.lang.dart.DartFileType;
-import com.jetbrains.lang.dart.ide.runner.util.TestUtil;
-import com.jetbrains.lang.dart.psi.DartCallExpression;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
-import com.jetbrains.lang.dart.psi.DartFile;
-import com.jetbrains.lang.dart.util.DartResolveUtil;
 import com.jetbrains.lang.dart.util.DartUrlResolver;
 import com.jetbrains.lang.dart.util.PubspecYamlUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.psi.GherkinFileType;
-
-import java.util.List;
 
 abstract public class CucumberDartRunConfigurationProducer extends RunConfigurationProducer<CucumberDartRunConfiguration> {
   public CucumberDartRunConfigurationProducer() {
@@ -47,7 +40,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     final PsiElement location = context.getPsiLocation();
     if (location instanceof PsiDirectory) {
       ok = setupRunnerParametersForFolderIfApplicable(configuration.getProject(), configuration.getRunnerParameters(),
-        ((PsiDirectory)location).getVirtualFile());
+        ((PsiDirectory)location));
     }
     else {
       ok = setupRunnerParametersForFileIfApplicable(configuration.getRunnerParameters(), context, sourceElement);
@@ -60,6 +53,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
 
     return ok;
   }
+
 
   protected abstract String getConfigurationName(final @NotNull ConfigurationContext context);
 
@@ -95,51 +89,26 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   // ensure the dart test package + dherkin2 is available to us
   private boolean setupRunnerParametersForFolderIfApplicable(@NotNull final Project project,
                                                                     @NotNull final CucumberDartRunnerParameters params,
-                                                                    @NotNull final VirtualFile dir) {
+                                                                    @NotNull final PsiDirectory dir) {
 
-    if (!isProjectADherkinProject(project, dir)) return false;
+    VirtualFile virtualDir = dir.getVirtualFile();
+    if (!isTestableProject(params, project, virtualDir)) return false;
 
     // whatever directory we are in has some gherkin files
     if (dir.isDirectory()) {
-      if (!FileTypeIndex.containsFileOfType(GherkinFileType.INSTANCE, GlobalSearchScopesCore.directoryScope(project, dir, true))) {
+      if (!FileTypeIndex.containsFileOfType(GherkinFileType.INSTANCE, GlobalSearchScopesCore.directoryScope(project, virtualDir, true))) {
         return false;
       }
     }
 
-    if (weAreInsideATestFolder(project, dir)) {
-      return setupRunnerParametersForFolder(params, dir);
-    }
+    final PsiFile dartFile = findDherkinRunner(dir);
 
-    return false;
-  }
+    if (dartFile == null) return false;
 
-  public boolean weAreInsideATestFolder(@NotNull final Project project, @NotNull  VirtualFile dir) {
-    final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, dir);
+    params.setDartFilePath(dartFile.getVirtualFile().getPath());
+    setScope(params);
+    params.setCucumberFilePath(virtualDir.getPath());
 
-    final VirtualFile pubspec = urlResolver.getPubspecYamlFile();
-    final VirtualFile rootDir = pubspec == null ? null : pubspec.getParent();
-    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
-    final VirtualFile testDriverDir = rootDir == null ? null : rootDir.findChild("test_driver");
-    // if both the test and test_driver folders are non existent or not directories, fail
-    if ((testDir == null || !testDir.isDirectory()) && (testDriverDir == null || !testDriverDir.isDirectory())) return false;
-
-    if ((testDir != null && VfsUtilCore.isAncestor(testDir, dir, false)) ||
-      (testDriverDir != null && VfsUtilCore.isAncestor(testDriverDir, dir, false))) {
-      return true;
-    }
-
-    return false;
-  }
-
-  private boolean setupRunnerParametersForFolder(@NotNull final CucumberDartRunnerParameters params, @NotNull VirtualFile dir) {
-    if ("test".equals(dir.getName()) &&
-      dir.findChild(PubspecYamlUtil.PUBSPEC_YAML) == null &&
-      dir.getParent().findChild(PubspecYamlUtil.PUBSPEC_YAML) != null) {
-      dir = dir.getParent(); // anyway test engine looks for tests in 'test' subfolder only
-    }
-
-    params.setScope(CucumberDartRunnerParameters.Scope.FOLDER);
-    params.setCucumberFilePath(dir.getPath());
     return true;
   }
 
@@ -151,32 +120,25 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
       return false;
     }
 
-    if (!isProjectADherkinProject(context.getProject(),
-      context.getPsiLocation().getContainingFile().getVirtualFile())) return false;
+    Project project = context.getProject();
+    VirtualFile sourceFile = context.getPsiLocation().getContainingFile().getVirtualFile();
+    
+    if (!isTestableProject(params, project, sourceFile)) return false;
 
 
     final PsiFile dartFile = findDherkinRunner(context.getPsiLocation().getContainingFile().getContainingDirectory());
 
     if (dartFile == null) return false;
 
-    params.setCucumberFilePath(context.getPsiLocation().getContainingFile().getVirtualFile().getPath());
+    params.setCucumberFilePath(sourceFile.getPath());
     params.setDartFilePath(dartFile.getVirtualFile().getPath());
     params.setNameFilter(getNameFilter(context));
 
+    setScope(params);
 
-
-    final DartClassDefinition clazz = PsiTreeUtil.getChildOfType(dartFile, DartClassDefinition.class);
+//    final DartClassDefinition clazz = PsiTreeUtil.getChildOfType(dartFile, DartClassDefinition.class);
 
     return true;
-//
-//
-//    final PsiElement testElement = TestUtil.findTestElement(context.getPsiLocation());
-//    if (testElement == null || !setupRunnerParametersForFile(params, testElement)) {
-//      return false;
-//    }
-//
-//    sourceElement.set(testElement);
-//    return true;
   }
 
   protected abstract void setScope(CucumberDartRunnerParameters parameters);
@@ -185,9 +147,14 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   /*
    * walk up the tree trying to find the first dart file we can and use that to run it.
    */
-  public static PsiFile findDherkinRunner(PsiDirectory dir) {
+  @Nullable
+  public static PsiFile findDherkinRunner(@Nullable PsiDirectory dir) {
+    if (dir == null) {
+      return null;
+    }
+
     for(PsiFile df : dir.getFiles()) {
-      if (df.getFileType() instanceof DartFileType) {
+      if (df.getFileType() instanceof DartFileType && df.getName().endsWith(".config.dart")) {
         return df;
       }
     }
@@ -199,57 +166,46 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     return findDherkinRunner(dir.getParent());
   }
 
-  public static boolean isProjectADherkinProject(@NotNull final Project project, final VirtualFile file) {
-    final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
-    final VirtualFile dherkinTestLib = urlResolver.findFileByDartUrl("package:dherkin2/dherkin.dart");
-    if (dherkinTestLib == null) return false;
 
-    final VirtualFile dartTestLib = urlResolver.findFileByDartUrl("package:test/test.dart");
-    return (dartTestLib != null);
+  private boolean isTestableProject(@NotNull final CucumberDartRunnerParameters params,
+                                    @NotNull Project project,
+                                    @NotNull final VirtualFile file) {
+    final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
+
+    final VirtualFile dherkinTestLib = urlResolver.findFileByDartUrl("package:dherkin2/dherkin.dart");
+
+    if (dherkinTestLib == null) {
+      return false;
+    }
+
+    if (isFileInTestDirAndTestPackageExists(project, file, "package:flutter_test/flutter_test.dart", "test")) {
+      params.setFlutterEnabled(true);
+      params.setTestType(CucumberDartRunnerParameters.TestType.Test);
+    } else if (isFileInTestDirAndTestPackageExists(project, file, "package:test/test.dart", "test")) {
+      params.setFlutterEnabled(false);
+      params.setTestType(CucumberDartRunnerParameters.TestType.Test);
+    } else if (isFileInTestDirAndTestPackageExists(project, file, "package:flutter_driver/flutter_driver.dart", "test_driver")) {
+      params.setFlutterEnabled(true);
+      params.setTestType(CucumberDartRunnerParameters.TestType.Integration);
+    } else {
+      return false;
+    }
+
+    return true;
   }
 
-  public static boolean isFileInTestDirAndTestPackageExists(@NotNull final Project project, @NotNull final VirtualFile file) {
+  public static boolean isFileInTestDirAndTestPackageExists(
+    @NotNull final Project project, @NotNull final VirtualFile file,
+        @NotNull final String packageName, @NotNull final String rootDirChild) {
     final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
-    final VirtualFile dartTestLib = urlResolver.findFileByDartUrl("package:test/test.dart");
+//    final VirtualFile dartTestLib = urlResolver.findFileByDartUrl("package:test/test.dart");
+    final VirtualFile dartTestLib = urlResolver.findFileByDartUrl(packageName);
     if (dartTestLib == null) return false;
 
     final VirtualFile pubspec = urlResolver.getPubspecYamlFile();
     final VirtualFile rootDir = pubspec == null ? null : pubspec.getParent();
-    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
+//    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
+    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild(rootDirChild);
     return testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, file, true);
-  }
-
-  private static boolean setupRunnerParametersForFile(@NotNull final CucumberDartRunnerParameters runnerParams,
-                                                      @NotNull final PsiElement psiElement) {
-    if (psiElement instanceof DartCallExpression) {
-      final String testName = TestUtil.findGroupOrTestName((DartCallExpression)psiElement);
-      final List<VirtualFile> virtualFiles = DartResolveUtil.findLibrary(psiElement.getContainingFile());
-      if (testName == null || virtualFiles.isEmpty()) {
-        return false;
-      }
-
-//      runnerParams.setTestName(testName);
-//      runnerParams.setScope(DartTestRunnerParameters.Scope.GROUP_OR_TEST_BY_NAME);
-      final VirtualFile dartFile = virtualFiles.iterator().next();
-      final String dartFilePath = dartFile.getPath();
-      runnerParams.setFilePath(dartFilePath);
-      return true;
-    }
-    else {
-      final PsiFile psiFile = psiElement.getContainingFile();
-      if (psiFile instanceof DartFile) {
-        final VirtualFile virtualFile = DartResolveUtil.getRealVirtualFile((DartFile)psiElement);
-        if (virtualFile == null || !DartResolveUtil.isLibraryRoot((DartFile)psiElement)) {
-          return false;
-        }
-
-//        runnerParams.setTestName(DartResolveUtil.getLibraryName((DartFile)psiElement));
-//        runnerParams.setScope(DartTestRunnerParameters.Scope.FILE);
-        final String dartFilePath = FileUtil.toSystemIndependentName(virtualFile.getPath());
-        runnerParams.setFilePath(dartFilePath);
-        return true;
-      }
-    }
-    return false;
   }
 }

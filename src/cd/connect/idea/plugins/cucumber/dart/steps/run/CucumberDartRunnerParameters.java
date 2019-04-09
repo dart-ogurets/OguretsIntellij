@@ -11,6 +11,9 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   @Nullable private String nameFilter = null;
   @Nullable private String cucumberFilePath = null;
   @Nullable private String dartFilePath = null;
+  private boolean flutterEnabled = false;
+  private int flutterObservatoryPort = 8888;
+  private TestType testType;
 
   @NotNull
   public Scope getScope() {
@@ -59,6 +62,30 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     this.nameFilter = nameFilter;
   }
 
+  public boolean isFlutterEnabled() {
+    return flutterEnabled;
+  }
+
+  public void setFlutterEnabled(boolean flutterEnabled) {
+    this.flutterEnabled = flutterEnabled;
+  }
+
+  public int getFlutterObservatoryPort() {
+    return flutterObservatoryPort;
+  }
+
+  public void setFlutterObservatoryPort(int flutterObservatoryPort) {
+    this.flutterObservatoryPort = flutterObservatoryPort;
+  }
+
+  public TestType getTestType() {
+    return testType;
+  }
+
+  public void setTestType(TestType testType) {
+    this.testType = testType;
+  }
+
   public enum Scope {
     FOLDER("All in folder"),
     FEATURE("All scenarioes in feature file"),
@@ -74,5 +101,10 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     public String getPresentableName() {
       return myPresentableName;
     }
+  }
+
+  // difference important because of which directory they are in and what kind of runner we use.
+  public enum TestType {
+    Test, Integration
   }
 }

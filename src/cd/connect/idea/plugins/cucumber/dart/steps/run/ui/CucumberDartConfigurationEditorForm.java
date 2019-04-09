@@ -39,7 +39,10 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   private EnvironmentVariablesComponent myEnvironmentVariables;
   private TextFieldWithBrowseButton myDartFile;
   private JLabel scenarioLabel;
+  private JTextField txtObservatoryPort;
+  private JLabel observatoryPortLabel;
   private CucumberDartRunnerParameters.Scope scope;
+  private boolean flutterEnabled;
 
   public CucumberDartConfigurationEditorForm(@NotNull final Project project) {
     try {
@@ -117,6 +120,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myDherkinOptionsField.setText(parameters.getTestRunnerOptions());
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
+    txtObservatoryPort.setText(Integer.toString(parameters.getFlutterObservatoryPort()));
+
+    flutterEnabled = configuration.getRunnerParameters().isFlutterEnabled();
 
     scope = parameters.getScope();
 
@@ -137,13 +143,16 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     parameters.setTestRunnerOptions(StringUtil.nullize(myDherkinOptionsField.getText().trim()));
     parameters.setEnvs(myEnvironmentVariables.getEnvs());
     parameters.setIncludeParentEnvs(myEnvironmentVariables.isPassParentEnvs());
+
+    try {
+      parameters.setFlutterObservatoryPort(Integer.parseInt(txtObservatoryPort.getText().length() == 0 ? "8888" : txtObservatoryPort.getText()));
+    } catch (Exception e) {
+      parameters.setFlutterObservatoryPort(8888);
+    }
   }
 
   private void onScopeChanged() {
-    final CucumberDartRunnerParameters.Scope scope = (CucumberDartRunnerParameters.Scope) myScenario.getSelectedItem();
 //    myDherkinMainFileNameLabel.setVisible(scope == GROUP_OR_TEST_BY_NAME);
-    myFileField.setVisible(scope != CucumberDartRunnerParameters.Scope.FOLDER);
-
     boolean folderMode = scope == CucumberDartRunnerParameters.Scope.FOLDER;
     boolean projectWithoutPubspec = Registry.is("dart.projects.without.pubspec", false);
     myFileField.setVisible(!folderMode);
@@ -152,6 +161,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myDirLabel.setVisible(folderMode);
     myScenario.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     scenarioLabel.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
+    txtObservatoryPort.setEnabled(flutterEnabled);
   }
 
   private void onTestDirChanged(Project project) {
