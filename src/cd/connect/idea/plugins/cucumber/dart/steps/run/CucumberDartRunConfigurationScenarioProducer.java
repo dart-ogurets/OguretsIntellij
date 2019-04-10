@@ -19,7 +19,7 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
 
   @Override
   protected void setScope(CucumberDartRunnerParameters parameters) {
-    parameters.setScope(CucumberDartRunnerParameters.Scope.SCENARIO);
+    parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.SCENARIO);
   }
 
   @Override

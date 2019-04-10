@@ -36,7 +36,7 @@ public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRun
 
   @Override
   protected void setScope(CucumberDartRunnerParameters parameters) {
-    parameters.setScope(CucumberDartRunnerParameters.Scope.FEATURE);
+    parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.FEATURE);
   }
 
   @Override

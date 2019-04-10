@@ -41,6 +41,6 @@ public class CucumberDartRunConfiguration extends DartRunConfigurationBase {
   @Nullable
   @Override
   public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment executionEnvironment) throws ExecutionException {
-    return null;
+    return new CucumberDartRunningTestState(executionEnvironment);
   }
 }

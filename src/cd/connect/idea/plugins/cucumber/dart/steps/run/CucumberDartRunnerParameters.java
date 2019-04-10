@@ -4,9 +4,11 @@ import com.jetbrains.lang.dart.ide.runner.server.DartCommandLineRunnerParameters
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
+
 public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameters implements Cloneable {
   @NotNull
-  private Scope myScope = Scope.FEATURE;
+  private Scope cucumberScope = Scope.FEATURE;
   @Nullable private String testRunnerOptions = null;
   @Nullable private String nameFilter = null;
   @Nullable private String cucumberFilePath = null;
@@ -16,13 +18,13 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   private TestType testType;
 
   @NotNull
-  public Scope getScope() {
-    return myScope;
+  public Scope getCucumberScope() {
+    return cucumberScope;
   }
 
-  public void setScope(final Scope scope) {
+  public void setCucumberScope(final Scope scope) {
     if (scope != null) { // null in case of corrupted storage
-      myScope = scope;
+      cucumberScope = scope;
     }
   }
 
@@ -44,8 +46,9 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   public String getDartFilePath() {
     return dartFilePath;
   }
-
+  
   public void setDartFilePath(@Nullable String dartFilePath) {
+    setFilePath(dartFilePath);
     this.dartFilePath = dartFilePath;
   }
 
@@ -86,6 +89,12 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     this.testType = testType;
   }
 
+  @Nullable
+  @Override
+  public String getVMOptions() {
+    return super.getVMOptions() + (flutterEnabled ? (" --observe:" + Integer.toString(flutterObservatoryPort)) : "");
+  }
+
   public enum Scope {
     FOLDER("All in folder"),
     FEATURE("All scenarioes in feature file"),
@@ -101,6 +110,28 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     public String getPresentableName() {
       return myPresentableName;
     }
+  }
+
+  @Override
+  protected DartCommandLineRunnerParameters clone() {
+    DartCommandLineRunnerParameters p = super.clone();
+
+    CucumberDartRunnerParameters myRunnerParameters = this;
+
+    Map<String, String> env  = p.getEnvs();
+    if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
+      env.put("CUCUMBER_FOLDER", myRunnerParameters.getCucumberFilePath());
+      env.put("CUCUMBER", "FOLDER");
+    } else if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FEATURE) {
+      env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      env.put("CUCUMBER", "FEATURE");
+    } else { // if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.SCENARIO) {
+      env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      env.put("CUCUMBER_SCENARIO", myRunnerParameters.getNameFilter());
+      env.put("CUCUMBER", "SCENARIO");
+    }
+
+    return p;
   }
 
   // difference important because of which directory they are in and what kind of runner we use.

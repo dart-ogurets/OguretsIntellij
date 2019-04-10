@@ -27,7 +27,7 @@ public class CucumberDartRunConfigurationFolderProducer extends CucumberDartRunC
 
   @Override
   protected void setScope(CucumberDartRunnerParameters parameters) {
-    parameters.setScope(CucumberDartRunnerParameters.Scope.FOLDER);
+    parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.FOLDER);
   }
 
   @Override

@@ -102,11 +102,11 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   protected void resetEditorFrom(@NotNull final CucumberDartRunConfiguration configuration) {
     final CucumberDartRunnerParameters parameters = configuration.getRunnerParameters();
 
-//    myScenario.setSelectedItem(parameters.getScope());
+//    myScenario.setSelectedItem(parameters.getCucumberScope());
 
     // what is the cucumber file we are using?
     String cukeFilePath = FileUtil.toSystemDependentName(StringUtil.notNullize(parameters.getCucumberFilePath()));
-    if (parameters.getScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
+    if (parameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
       myDirField.setText(cukeFilePath);
     }
     else {
@@ -116,7 +116,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myDartFile.setText(StringUtil.notNullize(parameters.getDartFilePath()));
 
 //    myDartFileNameField.setText(
-//      parameters.getScope() != FOLDER ? StringUtil.notNullize(parameters.getNameFilter()) : "");
+//      parameters.getCucumberScope() != FOLDER ? StringUtil.notNullize(parameters.getNameFilter()) : "");
     myDherkinOptionsField.setText(parameters.getTestRunnerOptions());
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
@@ -124,7 +124,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 
     flutterEnabled = configuration.getRunnerParameters().isFlutterEnabled();
 
-    scope = parameters.getScope();
+    scope = parameters.getCucumberScope();
 
     onScopeChanged();
   }
@@ -134,7 +134,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     final CucumberDartRunnerParameters parameters = configuration.getRunnerParameters();
 
 //    final CucumberDartRunnerParameters.Scope scope = (CucumberDartRunnerParameters.Scope) myScenario.getSelectedItem();
-    parameters.setScope(scope);
+    parameters.setCucumberScope(scope);
     TextFieldWithBrowseButton pathSource = scope == CucumberDartRunnerParameters.Scope.FOLDER ? myDirField : myFileField;
     parameters.setFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
 //    parameters.setNameFilter(StringUtil.nullize(myDartFileNameField.getText().trim()));
