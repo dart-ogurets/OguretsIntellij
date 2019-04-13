@@ -64,9 +64,8 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
     Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
     assert editor != null;
 
-    if (stepDef instanceof Navigatable) {
-      ((Navigatable)stepDef).navigate(true);
-    }
+    ((Navigatable)clazz.getClassBody().getClassMembers().getLastChild()).navigate(true);
+    
 //
 //    if (!(addedStepDef instanceof PsiMethodCallExpression)) {
 //      return false;
