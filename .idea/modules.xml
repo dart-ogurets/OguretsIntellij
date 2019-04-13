@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/Dart-plugin.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/Dart-plugin.iml" />
+      <module fileurl="file://$USER_HOME$/projects/dart/cucumber-jvm/core/cucumber-core.iml" filepath="$USER_HOME$/projects/dart/cucumber-jvm/core/cucumber-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cucumber-dart.iml" filepath="$PROJECT_DIR$/.idea/cucumber-dart.iml" />
+      <module fileurl="file://$USER_HOME$/projects/dart/dherkin2/dherkin2.iml" filepath="$USER_HOME$/projects/dart/dherkin2/dherkin2.iml" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber-groovy/intellij.cucumber.groovy.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber-groovy/intellij.cucumber.groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" group="intellij" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" />

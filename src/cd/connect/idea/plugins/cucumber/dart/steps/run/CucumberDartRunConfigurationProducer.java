@@ -172,7 +172,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
                                     @NotNull final VirtualFile file) {
     final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
 
-    final VirtualFile dherkinTestLib = urlResolver.findFileByDartUrl("package:dherkin2/dherkin.dart");
+    final VirtualFile dherkinTestLib = urlResolver.findFileByDartUrl("package:dherkin3/dherkin.dart");
 
     if (dherkinTestLib == null) {
       return false;

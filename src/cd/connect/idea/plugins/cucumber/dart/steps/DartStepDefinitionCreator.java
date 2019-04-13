@@ -1,5 +1,6 @@
 package cd.connect.idea.plugins.cucumber.dart.steps;
 
+import cd.connect.idea.plugins.cucumber.dart.steps.snippets.SnippetGenerator;
 import com.intellij.codeInsight.CodeInsightUtilCore;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.Editor;
@@ -12,15 +13,16 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.psi.DartFile;
+import cucumber.runtime.snippets.ArgumentPattern;
 import cucumber.runtime.snippets.CamelCaseConcatenator;
 import cucumber.runtime.snippets.FunctionNameGenerator;
-import cucumber.runtime.snippets.SnippetGenerator;
 import gherkin.pickles.PickleStep;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.psi.GherkinStep;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import static com.jetbrains.lang.dart.util.DartElementGenerator.createDummyFile;
 
@@ -92,6 +94,7 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 
     return true;
   }
+
 
   private static PsiElement buildStepDefinitionByStep(@NotNull final GherkinStep step, Language language) {
     final PickleStep cucumberStep = new PickleStep(step.getStepName(), new ArrayList<>(), new ArrayList<>());

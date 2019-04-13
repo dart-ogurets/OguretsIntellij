@@ -186,13 +186,15 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
       }
 
       PsiDirectory stepDefs = Arrays.stream(psiDirectory.getSubdirectories())
-        .filter(sd -> sd.getName().equals("stepdefs"))
+        .filter(sd -> sd.getName().equals("steps"))
         .findFirst()
         .orElse(null);
 
       if (stepDefs == null) {
-        stepDefs = psiDirectory.createSubdirectory("stepdefs");
+        stepDefs = psiDirectory.createSubdirectory("steps");
       }
+
+      return ObjectUtils.assertNotNull(stepDefs);
 //
 //      final Project project = step.getProject();
 //      if (psiDirectory != null) {
@@ -266,6 +268,7 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
 
   public static String processGeneratedStepDefinition(@NotNull String stepDefinition, @NotNull PsiElement context) {
     return stepDefinition
+          .replace("Integer ", "int ")
           .replace("PendingException", CucumberDartUtil.getCucumberPendingExceptionFqn(context))
           .replace('"', '\'');
   }
