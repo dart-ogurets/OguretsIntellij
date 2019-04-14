@@ -56,22 +56,6 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
         FileChooserDescriptorFactory.createSingleFolderDescriptor());
       myDartFile.addActionListener(e -> onTestDirChanged(project));
 
-//      myScenario.setModel(
-//        new DefaultComboBoxModel<>(new CucumberDartRunnerParameters.Scope[]{FOLDER, FEATURE, SCENARIO}));
-//
-//      myScenario.setRenderer(new ListCellRendererWrapper<CucumberDartRunnerParameters.Scope>() {
-//        @Override
-//        public void customize(final JList list,
-//                              final CucumberDartRunnerParameters.Scope value,
-//                              final int index,
-//                              final boolean selected,
-//                              final boolean hasFocus) {
-//          setText(value.getPresentableName());
-//        }
-//      });
-
-//      myScenario.addActionListener(e -> onScopeChanged());
-
       final DocumentAdapter dirListener = new DocumentAdapter() {
         @Override
         protected void textChanged(@NotNull final DocumentEvent e) {
@@ -133,13 +117,10 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   protected void applyEditorTo(@NotNull final CucumberDartRunConfiguration configuration) throws ConfigurationException {
     final CucumberDartRunnerParameters parameters = configuration.getRunnerParameters();
 
-//    final CucumberDartRunnerParameters.Scope scope = (CucumberDartRunnerParameters.Scope) myScenario.getSelectedItem();
     parameters.setCucumberScope(scope);
     TextFieldWithBrowseButton pathSource = scope == CucumberDartRunnerParameters.Scope.FOLDER ? myDirField : myFileField;
     parameters.setDartFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
-//    parameters.setNameFilter(StringUtil.nullize(myDartFileNameField.getText().trim()));
     parameters.setCucumberFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(pathSource.getText().trim())));
-//    parameters.setTargetName(scope == FOLDER ? StringUtil.nullize(myTargetNameField.getText().trim()) : null);
     parameters.setTestRunnerOptions(StringUtil.nullize(myDherkinOptionsField.getText().trim()));
     parameters.setEnvs(myEnvironmentVariables.getEnvs());
     parameters.setIncludeParentEnvs(myEnvironmentVariables.isPassParentEnvs());
@@ -152,7 +133,6 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   }
 
   private void onScopeChanged() {
-//    myDherkinMainFileNameLabel.setVisible(scope == GROUP_OR_TEST_BY_NAME);
     boolean folderMode = scope == CucumberDartRunnerParameters.Scope.FOLDER;
     boolean projectWithoutPubspec = Registry.is("dart.projects.without.pubspec", false);
     myFileField.setVisible(!folderMode);
