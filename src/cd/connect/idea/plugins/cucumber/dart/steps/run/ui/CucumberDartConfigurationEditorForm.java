@@ -136,7 +136,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 //    final CucumberDartRunnerParameters.Scope scope = (CucumberDartRunnerParameters.Scope) myScenario.getSelectedItem();
     parameters.setCucumberScope(scope);
     TextFieldWithBrowseButton pathSource = scope == CucumberDartRunnerParameters.Scope.FOLDER ? myDirField : myFileField;
-    parameters.setFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
+    parameters.setDartFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
 //    parameters.setNameFilter(StringUtil.nullize(myDartFileNameField.getText().trim()));
     parameters.setCucumberFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(pathSource.getText().trim())));
 //    parameters.setTargetName(scope == FOLDER ? StringUtil.nullize(myTargetNameField.getText().trim()) : null);

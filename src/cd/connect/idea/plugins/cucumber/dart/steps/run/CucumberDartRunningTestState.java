@@ -47,19 +47,9 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	private static final String EXPANDED_REPORTER_OPTION = "-r json";
 	public static final String DART_VM_OPTIONS_ENV_VAR = "DART_VM_OPTIONS";
 
-//	@NotNull
-//	private final ExecutionEnvironment env;
-//	private CucumberDartRunnerParameters myRunnerParameters;
-
 	public CucumberDartRunningTestState(@NotNull ExecutionEnvironment env) throws ExecutionException {
 		super(env);
-//
-//		this.env = env;
-//
-//		myRunnerParameters = ((CucumberDartRunConfiguration) env.getRunProfile()).getRunnerParameters();
 	}
-
-
 
 	@Override
 	@NotNull
@@ -115,18 +105,24 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		CucumberDartRunnerParameters params = getParameters();
 
 		StringBuilder builder = new StringBuilder();
-		builder.append(RUN_COMMAND);
-
-		final boolean projectWithoutPubspec = Registry.is("dart.projects.without.pubspec", false);
-
-		builder.append(' ').append(TEST_PACKAGE_SPEC);
-		builder.append(' ').append(EXPANDED_REPORTER_OPTION);
+		if (params.isFlutterEnabled()) {
+			if (params.getCucumberFilePath().contains("test_driver")) {
+				builder.append("driver --target=");
+			} else {
+				builder.append("test ");
+			}
+		} else {
+			builder.append(RUN_COMMAND);
+			builder.append(' ').append(TEST_PACKAGE_SPEC);
+			builder.append(' ').append(EXPANDED_REPORTER_OPTION);
+			builder.append(" ");
+		}
 
 		final String filePath = params.getDartFilePath();
 		if (filePath != null && filePath.contains(" ")) {
-			builder.append(" \"").append(filePath).append('\"');
+			builder.append("\"").append(filePath).append('\"');
 		} else {
-			builder.append(' ').append(filePath);
+			builder.append(filePath);
 		}
 
 		params.setArguments(builder.toString());
@@ -134,14 +130,17 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		// working directory is not configurable in UI because there's only one valid value that we calculate ourselves
 		params.setWorkingDirectory(params.computeProcessWorkingDirectory(project));
 
-
 		return super.startProcess();
 	}
-
 
 	@NotNull
 	@Override
 	protected String getExePath(@NotNull final DartSdk sdk) {
+		final CucumberDartRunnerParameters runnerParameters = getParameters();
+		if (runnerParameters.isFlutterEnabled()) {
+			return FlutterSdk.getFlutterSdk(getEnvironment().getProject()).getExePath();
+		}
+
 		return DartSdkUtil.getPubPath(sdk);
 	}
 
