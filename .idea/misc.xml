@@ -6,7 +6,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="Local IDEA [/Users/richard/clearpoint/connect/intellij-community]" project-jdk-type="IDEA JDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="IntelliJ IDEA IU-191.6707.61" project-jdk-type="IDEA JDK">
     <output url="file://$PROJECT_DIR$/target" />
   </component>
 </project>

@@ -7,6 +7,7 @@ import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
 import com.intellij.execution.executors.DefaultRunExecutor;
+import com.intellij.execution.filters.Filter;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.runners.ProgramRunner;
@@ -34,12 +35,17 @@ import com.jetbrains.lang.dart.util.DartUrlResolver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 public class CucumberDartRunningTestState extends DartCommandLineRunningState {
-	public static final String DART_FRAMEWORK_NAME = "DartTestRunner";
+	public static final String DART_FRAMEWORK_NAME = "cucumber";
 	private static final String RUN_COMMAND = "run";
 	private static final String TEST_PACKAGE_SPEC = "test";
 	private static final String EXPANDED_REPORTER_OPTION = "-r json";
 	public static final String DART_VM_OPTIONS_ENV_VAR = "DART_VM_OPTIONS";
+  private final Collection<Filter> myConsoleFilters = new ArrayList<>();
 
 	public CucumberDartRunningTestState(@NotNull ExecutionEnvironment env) throws ExecutionException {
 		super(env);
@@ -49,7 +55,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	@NotNull
 	public ExecutionResult execute(final @NotNull Executor executor, final @NotNull ProgramRunner runner) throws ExecutionException {
 		final ProcessHandler processHandler = startProcess();
-		final ConsoleView consoleView = createConsole(getEnvironment());
+		final ConsoleView consoleView = createConsole(getEnvironment(), processHandler, myConsoleFilters);
 		consoleView.attachToProcess(processHandler);
 
 		final DefaultExecutionResult executionResult =
@@ -68,7 +74,13 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		return executionResult;
 	}
 
-	private static ConsoleView createConsole(@NotNull ExecutionEnvironment env) {
+  @Override
+  public void addConsoleFilters(Filter... filters) {
+    myConsoleFilters.addAll(Arrays.asList(filters));
+  }
+
+  private static ConsoleView createConsole(@NotNull ExecutionEnvironment env, ProcessHandler processHandler, Collection<Filter> myConsoleFilters)
+    throws ExecutionException {
 		final Project project = env.getProject();
 		final DartRunConfiguration runConfiguration = (DartRunConfiguration) env.getRunProfile();
 		final CucumberDartRunnerParameters runnerParameters = (CucumberDartRunnerParameters) runConfiguration.getRunnerParameters();
@@ -79,6 +91,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		try {
 			final VirtualFile dartFile = runnerParameters.getDartFileOrDirectory();
 			consoleView.addMessageFilter(new DartConsoleFilter(project, dartFile));
+      myConsoleFilters.forEach((filter) -> consoleView.addMessageFilter(filter));
 //			consoleView.addMessageFilter(new DartRelativePathsConsoleFilter(project, runnerParameters.computeProcessWorkingDirectory(project)));
 //			consoleView.addMessageFilter(new UrlFilter());
 		} catch (RuntimeConfigurationError ignore) {/* can't happen because already checked */}
@@ -172,7 +185,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		DartConsoleProperties(DartRunConfiguration runConfiguration, ExecutionEnvironment env) {
 			super(runConfiguration, DART_FRAMEWORK_NAME, env.getExecutor());
 			setUsePredefinedMessageFilter(false);
-			setIdBasedTestTree(true);
+			setIdBasedTestTree(false);
 		}
 
 		@Nullable
@@ -184,13 +197,13 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		@Override
 		public OutputToGeneralTestEventsConverter createTestEventsConverter(@NotNull String testFrameworkName,
 		                                                                    @NotNull TestConsoleProperties consoleProperties) {
-			final DartRunConfiguration runConfiguration = (DartRunConfiguration) getConfiguration();
-			try {
-				final VirtualFile file = runConfiguration.getRunnerParameters().getDartFileOrDirectory();
-				return new DartTestEventsConverter(testFrameworkName, consoleProperties, DartUrlResolver.getInstance(getProject(), file));
-			} catch (RuntimeConfigurationError error) {
-				throw new RuntimeException(error); // can't happen, already checked
-			}
+//			final DartRunConfiguration runConfiguration = (DartRunConfiguration) getConfiguration();
+//			try {
+//				final VirtualFile file = runConfiguration.getRunnerParameters().getDartFileOrDirectory();
+				return new OutputToGeneralTestEventsConverter(testFrameworkName, consoleProperties);
+//			} catch (RuntimeConfigurationError error) {
+//				throw new RuntimeException(error); // can't happen, already checked
+//			}
 		}
 
 		@Nullable
