@@ -131,6 +131,10 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
       env.put("CUCUMBER", "SCENARIO");
     }
 
+    if (isFlutterEnabled()) {
+      env.put("VM_SERVICE_URL", "http://127.0.0.1:${flutterObservatoryPort}/");
+    }
+
     return p;
   }
 

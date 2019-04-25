@@ -100,6 +100,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		return consoleView;
 	}
 
+	// using: https://medium.com/flutter-community/hot-reload-for-flutter-integration-tests-e0478b63bd54
 	@NotNull
 	@Override
 	protected ProcessHandler startProcess() throws ExecutionException {
@@ -112,20 +113,20 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		CucumberDartRunnerParameters params = getParameters();
 
 		StringBuilder builder = new StringBuilder();
-		if (params.isFlutterEnabled()) {
-			if (params.getCucumberFilePath().contains("test_driver")) {
-				builder.append("driver --target=");
-			} else {
-				builder.append("test ");
-			}
-		} else {
-			builder.append(RUN_COMMAND);
-			builder.append(' ').append(TEST_PACKAGE_SPEC);
-			builder.append(' ').append(EXPANDED_REPORTER_OPTION);
-			builder.append(" ");
-		}
+//		if (params.isFlutterEnabled()) {
+//			if (params.getCucumberFilePath().contains("test_driver")) {
+//			  builder.append("test_driver/");
+//      } else {
+//			  builder.append("test");
+//      }
+//		} else {
+//			builder.append(RUN_COMMAND);
+//			builder.append(' ').append(TEST_PACKAGE_SPEC);
+//			builder.append(' ').append(EXPANDED_REPORTER_OPTION);
+//			builder.append(" ");
+//		}
 
-		final String filePath = params.getDartFilePath();
+		final String filePath = params.getFilePath();
 		if (filePath != null && filePath.contains(" ")) {
 			builder.append("\"").append(filePath).append('\"');
 		} else {
@@ -144,11 +145,12 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	@Override
 	protected String getExePath(@NotNull final DartSdk sdk) {
 		final CucumberDartRunnerParameters runnerParameters = getParameters();
-		if (runnerParameters.isFlutterEnabled()) {
-			return FlutterSdk.getFlutterSdk(getEnvironment().getProject()).getExePath();
-		}
+//		if (runnerParameters.isFlutterEnabled()) {
+		  return DartSdkUtil.getDartExePath(sdk);
+//			return FlutterSdk.getFlutterSdk(getEnvironment().getProject()).getExePath();
+//		}
 
-		return DartSdkUtil.getPubPath(sdk);
+//		return DartSdkUtil.getPubPath(sdk);
 	}
 
 	@Override
