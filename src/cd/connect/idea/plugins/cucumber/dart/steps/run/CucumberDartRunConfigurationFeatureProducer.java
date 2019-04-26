@@ -34,11 +34,12 @@ public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRun
   protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
     final PsiElement element = context.getPsiLocation();
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
+
     if (scenario != null) {
       return null;
     }
-    final GherkinFeature feature = PsiTreeUtil.getParentOfType(element, GherkinFeature.class);
-    if (element != null && feature != null && element.getContainingFile() instanceof GherkinFile) {
+
+    if (element != null && element.getContainingFile() instanceof GherkinFile) {
       return element.getContainingFile();
     }
 

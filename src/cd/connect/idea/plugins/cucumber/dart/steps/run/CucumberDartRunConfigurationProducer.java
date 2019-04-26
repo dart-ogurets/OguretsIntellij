@@ -182,7 +182,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     }
 
     for(PsiFile df : dir.getFiles()) {
-      if (df.getFileType() instanceof DartFileType && df.getName().endsWith(".config.dart")) {
+      if (df.getFileType() instanceof DartFileType && df.getName().endsWith("_test.dart")) {
         return df;
       }
     }
