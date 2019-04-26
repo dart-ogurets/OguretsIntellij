@@ -3,9 +3,11 @@ package cd.connect.idea.plugins.cucumber.dart.steps.run;
 import com.intellij.execution.actions.ConfigurationContext;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFileSystemItem;
 import com.intellij.psi.util.PsiTreeUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.plugins.cucumber.psi.GherkinFeature;
 import org.jetbrains.plugins.cucumber.psi.GherkinFile;
 import org.jetbrains.plugins.cucumber.psi.GherkinScenario;
 import org.jetbrains.plugins.cucumber.psi.GherkinScenarioOutline;
@@ -14,21 +16,30 @@ import org.jetbrains.plugins.cucumber.psi.GherkinStepsHolder;
 public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRunConfigurationProducer {
   @Override
   protected String getConfigurationName(@NotNull ConfigurationContext context) {
-    final VirtualFile featureFile = getFileToRun(context);
-    if (featureFile == null) {
-      System.out.println("failed");
+    final PsiElement element = context.getPsiLocation();
+    final GherkinFeature feature = PsiTreeUtil.getParentOfType(element, GherkinFeature.class);
+
+    if (feature != null && feature.getFeatureName() != null && feature.getFeatureName().trim().length() > 0) {
+      return "Dart Feature: " + feature.getFeatureName().trim();
     }
+
+    final VirtualFile featureFile = getFileToRun(context);
+    
     assert featureFile != null;
-    return "Feature: " + featureFile.getNameWithoutExtension();
+    return "Dart Feature: " + featureFile.getNameWithoutExtension();
   }
 
   @Nullable
   @Override
-  protected VirtualFile getFileToRun(ConfigurationContext context) {
+  protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
     final PsiElement element = context.getPsiLocation();
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
-    if (element != null && scenario == null && element.getContainingFile() instanceof GherkinFile) {
-      return element.getContainingFile().getVirtualFile();
+    if (scenario != null) {
+      return null;
+    }
+    final GherkinFeature feature = PsiTreeUtil.getParentOfType(element, GherkinFeature.class);
+    if (element != null && feature != null && element.getContainingFile() instanceof GherkinFile) {
+      return element.getContainingFile();
     }
 
     return null;

@@ -13,9 +13,6 @@ import org.jetbrains.plugins.cucumber.psi.GherkinScenarioOutline;
 import org.jetbrains.plugins.cucumber.psi.GherkinStepsHolder;
 
 public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRunConfigurationProducer {
-  private static final String SCENARIO_OUTLINE_PARAMETER_REGEXP = "\\\\<.*?\\\\>";
-  private static final String ANY_STRING_REGEXP = ".*";
-  private static final String NAME_FILTER_TEMPLATE = "^%s$";
 
   @Override
   protected void setScope(CucumberDartRunnerParameters parameters) {
@@ -27,16 +24,7 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
     final PsiElement sourceElement = context.getPsiLocation();
 
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
-    if (scenario != null) {
-      String nameFilter = String.format(NAME_FILTER_TEMPLATE, StringUtil.escapeToRegexp(scenario.getScenarioName()));
-      if (scenario instanceof GherkinScenarioOutline) {
-        nameFilter = nameFilter.replaceAll(SCENARIO_OUTLINE_PARAMETER_REGEXP, ANY_STRING_REGEXP);
-      }
-
-      return nameFilter;
-    }
-
-    return "";
+    return scenario.getScenarioName();
   }
 
   @Override
@@ -44,14 +32,14 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
     final PsiElement sourceElement = context.getPsiLocation();
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
 
-    return "Scenario: " + (scenario != null ? scenario.getScenarioName() : "");
+    return "Dart Scenario: " + (scenario != null ? scenario.getScenarioName() : "");
   }
-  
+
   @Nullable
-  protected VirtualFile getFileToRun(ConfigurationContext context) {
+  protected PsiFile getPsiFileToRun(ConfigurationContext context) {
     final PsiElement element = context.getPsiLocation();
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
-    final PsiFile psiFile = scenario != null ? scenario.getContainingFile() : null;
-    return psiFile != null ? psiFile.getVirtualFile() : null;
+    return scenario != null ? scenario.getContainingFile() : null;
+
   }
 }

@@ -43,4 +43,11 @@ public class CucumberDartRunConfiguration extends DartRunConfigurationBase {
   public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment executionEnvironment) throws ExecutionException {
     return new CucumberDartRunningTestState(executionEnvironment);
   }
+
+  @Override
+  public RunConfiguration clone() {
+    CucumberDartRunConfiguration c = (CucumberDartRunConfiguration)super.clone();
+    c.parameters = (CucumberDartRunnerParameters)parameters.clone();
+    return c;
+  }
 }

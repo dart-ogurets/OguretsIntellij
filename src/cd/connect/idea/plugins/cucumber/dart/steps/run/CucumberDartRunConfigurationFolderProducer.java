@@ -1,9 +1,9 @@
 package cd.connect.idea.plugins.cucumber.dart.steps.run;
 
 import com.intellij.execution.actions.ConfigurationContext;
-import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFileSystemItem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.CucumberBundle;
@@ -17,10 +17,10 @@ public class CucumberDartRunConfigurationFolderProducer extends CucumberDartRunC
 
   @Nullable
   @Override
-  protected VirtualFile getFileToRun(ConfigurationContext context) {
+  protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
     final PsiElement element = context.getPsiLocation();
     if (element instanceof PsiDirectory) {
-      return ((PsiDirectory) element).getVirtualFile();
+      return ((PsiDirectory) element);
     }
     return null;
   }

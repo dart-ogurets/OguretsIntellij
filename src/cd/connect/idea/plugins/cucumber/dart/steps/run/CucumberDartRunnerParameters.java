@@ -114,7 +114,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
 
   @Override
   protected DartCommandLineRunnerParameters clone() {
-    DartCommandLineRunnerParameters p = super.clone();
+    CucumberDartRunnerParameters p = (CucumberDartRunnerParameters)super.clone();
 
     CucumberDartRunnerParameters myRunnerParameters = this;
 

@@ -11,6 +11,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiFileSystemItem;
 import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScopesCore;
 import com.intellij.psi.util.PsiTreeUtil;
@@ -31,19 +32,20 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   protected boolean setupConfigurationFromContext(final @NotNull CucumberDartRunConfiguration configuration,
                                                   final @NotNull ConfigurationContext context,
                                                   final @NotNull Ref<PsiElement> sourceElement) {
-    if (getFileToRun(context) == null) {
+    PsiFileSystemItem file = getPsiFileToRun(context);
+
+    if (file == null) {
       return false;
     }
 
     final boolean ok;
 
-    final PsiElement location = context.getPsiLocation();
-    if (location instanceof PsiDirectory) {
+    if (file instanceof PsiDirectory) {
       ok = setupRunnerParametersForFolderIfApplicable(configuration.getProject(), configuration.getRunnerParameters(),
-        ((PsiDirectory)location));
+        ((PsiDirectory)file));
     }
     else {
-      ok = setupRunnerParametersForFileIfApplicable(configuration.getRunnerParameters(), context, sourceElement);
+      ok = setupRunnerParametersForFileIfApplicable(configuration.getRunnerParameters(), context, (PsiFile)file);
     }
 
     if (ok) {
@@ -54,7 +56,6 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     return ok;
   }
 
-
   protected abstract String getConfigurationName(final @NotNull ConfigurationContext context);
 
   @Override
@@ -64,16 +65,40 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
       return false;
     }
 
-    final VirtualFile fileToRun = getFileToRun(context);
-    if (fileToRun == null) {
+    final PsiFileSystemItem file = getPsiFileToRun(context);
+
+    if (file == null) return false;
+
+    boolean ok = false;
+    CucumberDartRunnerParameters paramsForContext = new CucumberDartRunnerParameters();
+
+    if (file instanceof PsiDirectory) {
+      ok = setupRunnerParametersForFolderIfApplicable(context.getProject(), paramsForContext,
+        ((PsiDirectory)file));
+    }
+    else {
+      ok = setupRunnerParametersForFileIfApplicable(paramsForContext, context, (PsiFile)file);
+    }
+
+    if (!ok) return false;
+
+    if (!Comparing.strEqual(getConfigurationName(context), runConfiguration.getName())) {
       return false;
     }
 
-    if (!fileToRun.getPath().equals(runConfiguration.getRunnerParameters().getCucumberFilePath())) {
+    if (!Comparing.strEqual(paramsForContext.getNameFilter(), runConfiguration.getRunnerParameters().getNameFilter())) {
       return false;
     }
 
-    if (!Comparing.strEqual(getNameFilter(context), runConfiguration.getRunnerParameters().getNameFilter())) {
+    if (!Comparing.strEqual(paramsForContext.getCucumberFilePath(), runConfiguration.getRunnerParameters().getCucumberFilePath())) {
+      return false;
+    }
+
+    if (runConfiguration.getRunnerParameters().getCucumberScope() != paramsForContext.getCucumberScope()) {
+      return false;
+    }
+
+    if (!Comparing.strEqual(runConfiguration.getRunnerParameters().getDartFilePath(), paramsForContext.getDartFilePath())) {
       return false;
     }
 
@@ -81,10 +106,13 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   }
 
   @Nullable
-  protected abstract VirtualFile getFileToRun(ConfigurationContext context);
+  protected abstract PsiFileSystemItem getPsiFileToRun(ConfigurationContext context);
 
-
-
+  @Nullable
+  protected VirtualFile getFileToRun(ConfigurationContext context) {
+    final PsiFileSystemItem psiFile = getPsiFileToRun(context);
+    return psiFile != null ? psiFile.getVirtualFile() : null;
+  }
 
   // ensure the dart test package + dherkin2 is available to us
   private boolean setupRunnerParametersForFolderIfApplicable(@NotNull final Project project,
@@ -113,25 +141,25 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   }
 
   private boolean setupRunnerParametersForFileIfApplicable(@NotNull final CucumberDartRunnerParameters params,
-                                                                  @NotNull final ConfigurationContext context,
-                                                                  @NotNull final Ref<PsiElement> sourceElement) {
-    if (context.getPsiLocation() == null) return false;
-    if (!(context.getPsiLocation().getContainingFile().getFileType() instanceof GherkinFileType)) {
+                                                           @NotNull final ConfigurationContext context,
+                                                           @NotNull PsiFile file) {
+    if (file.getContainingFile() == null || !(file.getContainingFile().getFileType() instanceof GherkinFileType)) {
       return false;
     }
 
     Project project = context.getProject();
-    VirtualFile sourceFile = context.getPsiLocation().getContainingFile().getVirtualFile();
+    VirtualFile sourceFile = file.getVirtualFile();
     
     if (!isTestableProject(params, project, sourceFile)) return false;
 
+    if (params.getDartFilePath() == null) {
+      final PsiFile dartFile = findDherkinRunner(file.getContainingFile().getContainingDirectory());
 
-    final PsiFile dartFile = findDherkinRunner(context.getPsiLocation().getContainingFile().getContainingDirectory());
-
-    if (dartFile == null) return false;
+      if (dartFile == null) return false;
+      params.setDartFilePath(dartFile.getVirtualFile().getPath());
+    }
 
     params.setCucumberFilePath(sourceFile.getPath());
-    params.setDartFilePath(dartFile.getVirtualFile().getPath());
     params.setNameFilter(getNameFilter(context));
 
     setScope(params);
