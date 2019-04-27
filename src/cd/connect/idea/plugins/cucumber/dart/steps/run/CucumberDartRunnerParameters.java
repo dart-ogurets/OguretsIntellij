@@ -15,6 +15,8 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   @Nullable private String dartFilePath = null;
   private boolean flutterEnabled = false;
   private int flutterObservatoryPort = 8888;
+  @Nullable
+  private String flutterObservatoryToken = "";
   private TestType testType;
 
   @NotNull
@@ -26,6 +28,15 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     if (scope != null) { // null in case of corrupted storage
       cucumberScope = scope;
     }
+  }
+
+  @Nullable
+  public String getFlutterObservatoryToken() {
+    return flutterObservatoryToken;
+  }
+
+  public void setFlutterObservatoryToken(@Nullable String flutterObservatoryToken) {
+    this.flutterObservatoryToken = flutterObservatoryToken;
   }
 
   @Nullable
@@ -97,9 +108,8 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
 
   public enum Scope {
     FOLDER("All in folder"),
-    FEATURE("All scenarioes in feature file"),
-    SCENARIO("Group or test by name"),
-    MULTIPLE_NAMES("Multiple names"); // Used by test re-runner action; not visible in UI
+    FEATURE("All scenarios in feature file"),
+    SCENARIO("A scenario"); // Used by test re-runner action; not visible in UI
 
     private final String myPresentableName;
 
@@ -119,6 +129,9 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     CucumberDartRunnerParameters myRunnerParameters = this;
 
     Map<String, String> env  = p.getEnvs();
+    env.remove("CUCUMBER_FOLDER");
+    env.remove("CUCUMBER");
+    env.remove("CUCUMBER_SCENARIO");
     if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
       env.put("CUCUMBER_FOLDER", myRunnerParameters.getCucumberFilePath());
       env.put("CUCUMBER", "FOLDER");
@@ -132,7 +145,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     }
 
     if (isFlutterEnabled()) {
-      env.put("VM_SERVICE_URL", "http://127.0.0.1:${flutterObservatoryPort}/");
+      env.put("VM_SERVICE_URL", String.format("http://127.0.0.1:%d/%s", flutterObservatoryPort, flutterObservatoryToken));
     }
 
     return p;

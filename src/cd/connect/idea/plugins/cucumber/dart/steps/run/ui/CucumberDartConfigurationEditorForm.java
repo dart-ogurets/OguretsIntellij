@@ -28,7 +28,7 @@ import javax.swing.event.DocumentEvent;
 public class CucumberDartConfigurationEditorForm extends SettingsEditor<CucumberDartRunConfiguration> {
 
   private JPanel myMainPanel;
-  private JComboBox myScenario;
+  private JLabel myScenario;
   private JLabel myTestFileLabel;
   private TextFieldWithBrowseButton myFileField;
   private JLabel myDirLabel;
@@ -39,8 +39,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   private EnvironmentVariablesComponent myEnvironmentVariables;
   private TextFieldWithBrowseButton myDartFile;
   private JLabel scenarioLabel;
-  private JTextField txtObservatoryPort;
+  private JTextField txtObservatoryToken;
   private JLabel observatoryPortLabel;
+  private JTextField txtObservatoryPort;
   private CucumberDartRunnerParameters.Scope scope;
   private boolean flutterEnabled;
 
@@ -86,7 +87,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   protected void resetEditorFrom(@NotNull final CucumberDartRunConfiguration configuration) {
     final CucumberDartRunnerParameters parameters = configuration.getRunnerParameters();
 
-//    myScenario.setSelectedItem(parameters.getCucumberScope());
+    if (parameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.SCENARIO) {
+      myScenario.setText(parameters.getNameFilter());
+    }
 
     // what is the cucumber file we are using?
     String cukeFilePath = FileUtil.toSystemDependentName(StringUtil.notNullize(parameters.getCucumberFilePath()));
@@ -105,6 +108,12 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
     txtObservatoryPort.setText(Integer.toString(parameters.getFlutterObservatoryPort()));
+    
+    if (parameters.getFlutterObservatoryToken() == null) {
+      txtObservatoryToken.setText("");
+    } else {
+      txtObservatoryToken.setText(parameters.getFlutterObservatoryToken());
+    }
 
     flutterEnabled = configuration.getRunnerParameters().isFlutterEnabled();
 
@@ -130,6 +139,8 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     } catch (Exception e) {
       parameters.setFlutterObservatoryPort(8888);
     }
+
+    parameters.setFlutterObservatoryToken(txtObservatoryToken.getText().trim());
   }
 
   private void onScopeChanged() {
@@ -142,6 +153,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myScenario.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     scenarioLabel.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     txtObservatoryPort.setEnabled(flutterEnabled);
+    txtObservatoryToken.setEnabled(flutterEnabled);
   }
 
   private void onTestDirChanged(Project project) {
