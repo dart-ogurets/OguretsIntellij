@@ -6,6 +6,7 @@ import com.intellij.execution.ExecutionResult;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.configurations.RuntimeConfigurationError;
+import com.intellij.execution.executors.DefaultDebugExecutor;
 import com.intellij.execution.executors.DefaultRunExecutor;
 import com.intellij.execution.filters.Filter;
 import com.intellij.execution.process.ProcessHandler;
@@ -24,6 +25,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.net.NetUtils;
+import com.jetbrains.lang.dart.coverage.DartCoverageProgramRunner;
 import com.jetbrains.lang.dart.ide.runner.DartConsoleFilter;
 import com.jetbrains.lang.dart.ide.runner.base.DartRunConfiguration;
 import com.jetbrains.lang.dart.ide.runner.server.DartCommandLineRunningState;
@@ -35,9 +38,11 @@ import com.jetbrains.lang.dart.util.DartUrlResolver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	public static final String DART_FRAMEWORK_NAME = "cucumber";
@@ -46,6 +51,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	private static final String EXPANDED_REPORTER_OPTION = "-r json";
 	public static final String DART_VM_OPTIONS_ENV_VAR = "DART_VM_OPTIONS";
   private final Collection<Filter> myConsoleFilters = new ArrayList<>();
+  private int myObservatoryPort;
 
 	public CucumberDartRunningTestState(@NotNull ExecutionEnvironment env) throws ExecutionException {
 		super(env);
@@ -112,7 +118,7 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 
 		CucumberDartRunnerParameters params = getParameters();
 
-		StringBuilder builder = new StringBuilder();
+    List<String> commands = new ArrayList<>();
 //		if (params.isFlutterEnabled()) {
 //			if (params.getCucumberFilePath().contains("test_driver")) {
 //			  builder.append("test_driver/");
@@ -126,14 +132,33 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 //			builder.append(" ");
 //		}
 
+    if (DefaultDebugExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId())) {
+      commands.add("--pause_isolates_on_start");
+      try {
+        this.myObservatoryPort = NetUtils.findAvailableSocketPort();
+      }
+      catch (IOException e) {
+        throw new ExecutionException(e);
+      }
+
+      commands.add("--enable-vm-service:" + myObservatoryPort);
+    }
+
+
+//      if (getEnvironment().getRunner() instanceof DartCoverageProgramRunner) {
+//        addVmOption(commandLine, "--pause-isolates-on-exit");
+//      }
+
+    
 		final String filePath = params.getFilePath();
 		if (filePath != null && filePath.contains(" ")) {
-			builder.append("\"").append(filePath).append('\"');
+		  commands.add("\"" + filePath + "\"");
 		} else {
-			builder.append(filePath);
+			commands.add(filePath);
 		}
 
-		params.setArguments(builder.toString());
+
+		params.setArguments(String.join(" ", commands));
 		params.setCheckedModeOrEnableAsserts(false);
 		// working directory is not configurable in UI because there's only one valid value that we calculate ourselves
 		params.setWorkingDirectory(params.computeProcessWorkingDirectory(project));

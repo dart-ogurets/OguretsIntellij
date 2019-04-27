@@ -18,6 +18,7 @@
   <vendor>ClearPoint NZ</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
+	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>
     <referencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
     <methodReferencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberDartMethodUsageSearcher"/>
 	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>

@@ -18,14 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64afb804-ea4e-4852-a7a1-6de2c393aef5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/dherkin2/example/steps/sum.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/dherkin2/example/steps/sum.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" afterDir="false" />
       <change beforePath="$USER_HOME$/projects/dart/dherkin2/lib/dherkin.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/dherkin2/lib/dherkin.dart" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/projects/dart/cucumber-jvm/core/target/" />
@@ -41,103 +37,109 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
+        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/resources/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="330">
+              <caret line="214" column="4" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/actions/PreferredProducerFind.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+            <state relative-caret-position="291">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1167#1168#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#9301#9302#0" expanded="true" />
+                <element signature="e#9364#9365#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
+        <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunningState.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+            <state relative-caret-position="341">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding>
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2330#2331#0" expanded="true" />
+                <element signature="e#11978#11979#0" expanded="true" />
+                <element signature="e#12017#12018#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunConfigurationProducer.java">
+        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/DartRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="614">
+              <caret line="159" column="3" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="159" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunConfigurationType.java">
+        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="107" column="72" selection-start-line="107" selection-start-column="72" selection-end-line="107" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunnerParameters.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="168" column="21" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunningState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="17" column="77" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="77" />
+              <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunningState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="212" selection-start-line="212" selection-end-line="232" selection-end-column="5" />
               <folding>
-                <element signature="e#1718#1719#0" expanded="true" />
-                <element signature="e#1743#1744#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
+        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartRemoteDebugConfigurationType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="323">
+              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunnerParameters.java">
+        <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+            <state relative-caret-position="340">
+              <caret line="20" column="96" lean-forward="true" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -153,13 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>example/gherkin/everything.feature:25</find>
-      <find>ConsoleView</find>
-      <find>executor</find>
-      <find>getState</find>
-      <find>myConsoleBuilder</find>
-      <find>Filter</find>
-      <find>fireOnTestStarted</find>
       <find>TEMPLATE_SCENARIO_COUNTING_STARTED</find>
       <find>running</find>
       <find>createConsole</find>
@@ -183,6 +178,13 @@
       <find>RunConfigurationProducer</find>
       <find>ConfigurationTypeBase</find>
       <find>print</find>
+      <find>ConfigurationFactory</find>
+      <find>getConfigurationF</find>
+      <find>debug</find>
+      <find>programRunner</find>
+      <find>getOver</find>
+      <find>DefaultDebugExecutor</find>
+      <find>setMyOb</find>
     </findStrings>
     <replaceStrings>
       <replace>cucumber.dart</replace>
@@ -192,14 +194,11 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
-      <dir>$PROJECT_DIR$/../intellij-plugins/Dart/src</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/psi</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/Dart/gen/com/jetbrains/lang/dart/psi</dir>
       <dir>$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart</dir>
       <dir>$PROJECT_DIR$/src/org/jetbrains/plugins/cucumber/dart/steps/run</dir>
-      <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java/run</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber/src</dir>
-      <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps</dir>
       <dir>$USER_HOME$/projects/dart/dherkin2/lib/src</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java</dir>
@@ -211,13 +210,16 @@
       <dir>$USER_HOME$/projects/dart/dherkin2/lib/src/model</dir>
       <dir>$USER_HOME$/projects/dart/dherkin2/lib</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java</dir>
-      <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber</dir>
       <dir>$USER_HOME$/projects/dart/dherkin2/example/steps</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber</dir>
-      <dir>$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart</dir>
       <dir>$PROJECT_DIR$/../intellij-plugins/Dart</dir>
       <dir>$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run</dir>
+      <dir>$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart</dir>
+      <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java/run</dir>
+      <dir>$PROJECT_DIR$/../intellij-plugins/cucumber-java/src</dir>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/../intellij-plugins/Dart/src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -226,8 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/model/background.dart" />
-        <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/output/console_buffer.dart" />
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/output/output.dart" />
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/gherkin_parser.dart" />
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/task.dart" />
@@ -268,15 +268,17 @@
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/dherkin_core.dart" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/snippets/SnippetGenerator.java" />
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/src/output/formatter.dart" />
-        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" />
         <option value="$USER_HOME$/projects/dart/dherkin2/example/steps/sum.dart" />
         <option value="$USER_HOME$/projects/dart/dherkin2/lib/dherkin.dart" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFolderProducer.java" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunnerParameters.java" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationScenarioProducer.java" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java" />
+        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" />
+        <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" />
       </list>
     </option>
   </component>
@@ -299,7 +301,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-22" />
     <option name="y" value="47" />
-    <option name="width" value="1486" />
+    <option name="width" value="2279" />
     <option name="height" value="1396" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -315,7 +317,48 @@
           <expand>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="intellij" type="9c53a853:ProjectViewModuleGroupNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="intellij" type="9c53a853:ProjectViewModuleGroupNode" />
+              <item name="cucumber-java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="intellij" type="9c53a853:ProjectViewModuleGroupNode" />
+              <item name="cucumber-java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="intellij" type="9c53a853:ProjectViewModuleGroupNode" />
+              <item name="cucumber-java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="intellij" type="9c53a853:ProjectViewModuleGroupNode" />
+              <item name="cucumber-java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="run" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -342,6 +385,54 @@
               <item name="dart" type="462c0819:PsiDirectoryNode" />
               <item name="steps" type="462c0819:PsiDirectoryNode" />
               <item name="run" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dart" type="462c0819:PsiDirectoryNode" />
+              <item name="ide" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dart" type="462c0819:PsiDirectoryNode" />
+              <item name="ide" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dart" type="462c0819:PsiDirectoryNode" />
+              <item name="ide" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dart" type="462c0819:PsiDirectoryNode" />
+              <item name="ide" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -478,6 +569,10 @@
       <option name="workingDirectory" value="$USER_HOME$/projects/dart/dherkin2" />
       <method v="2" />
     </configuration>
+    <configuration name="Unnamed" type="DartRemoteDebugConfigurationType" factoryName="Dart Remote Debug">
+      <option name="dartProjectPath" value="$PROJECT_DIR$/../intellij-plugins/Dart/testData/analysisServer/completion/UriCompletionByTab" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -524,6 +619,7 @@
       <item itemvalue="Dart Command Line App.missing_step_fail.dart" />
       <item itemvalue="Dart Command Line App.old_style_run.dart" />
       <item itemvalue="Dart Command Line App.run.dart" />
+      <item itemvalue="Dart Remote Debug.Unnamed" />
       <item itemvalue="PHPUnit.intellij-community" />
       <item itemvalue="Plugin.Plugin" />
       <item itemvalue="Plugin.Unnamed" />
@@ -559,7 +655,7 @@
       <workItem from="1555984890294" duration="18493000" />
       <workItem from="1556160527145" duration="62000" />
       <workItem from="1556227560304" duration="559000" />
-      <workItem from="1556256785572" duration="12800000" />
+      <workItem from="1556256785572" duration="21284000" />
     </task>
     <task id="LOCAL-00001" summary="- dart template working with raw text&#10;- handles expressions and regexs properly&#10;- injects regex support into annotation strings">
       <created>1554591220344</created>
@@ -694,17 +790,31 @@
       <option name="project" value="LOCAL" />
       <updated>1556185013714</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="- cleaned up a lot of common code in producers&#10;- rerunning from test menu now works and creates profiles without&#10;overwriting the original one it was copied from">
+      <created>1556277897414</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556277897414</updated>
+    </task>
+    <task id="LOCAL-00021" summary="- allow dart feature files to be selected from files menu">
+      <created>1556278943705</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1556278943705</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201294000" />
+    <option name="totallyTimeSpent" value="209778000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-22" y="47" width="1486" height="1396" extended-state="0" />
+    <frame x="-22" y="47" width="2279" height="1396" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.38019392" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23021904" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -712,13 +822,13 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.20092024" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.20092024" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.4709434" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40030676" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29217792" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3554717" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.35506135" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.41132075" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32964426" />
@@ -781,7 +891,9 @@
     <MESSAGE value="- basic test formatting is now working and the tests are running.&#10;- failure isn't working and coming back, and there is no debugging." />
     <MESSAGE value="- failure now working as we are waiting for  the correct future&#10;- formatter now outputting stack trace as expected&#10;- snippet recognizing parameterized examples for ints and floats in IDE" />
     <MESSAGE value="- properly support hotreload for flutter apps and ignore dart&#10;style testing with expects as we aren't using it with cucumber." />
-    <option name="LAST_COMMIT_MESSAGE" value="- properly support hotreload for flutter apps and ignore dart&#10;style testing with expects as we aren't using it with cucumber." />
+    <MESSAGE value="- cleaned up a lot of common code in producers&#10;- rerunning from test menu now works and creates profiles without&#10;overwriting the original one it was copied from" />
+    <MESSAGE value="- allow dart feature files to be selected from files menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="- allow dart feature files to be selected from files menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -836,7 +948,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java</url>
-          <line>78</line>
+          <line>84</line>
           <properties />
           <option name="timeStamp" value="180" />
         </line-breakpoint>
@@ -850,6 +962,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>!ok</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ok</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>RunManager.getInstance(context.getProject())</expression-string>
         <language-id>JAVA</language-id>
@@ -885,117 +1007,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>configuration.getRunnerParameters()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>file.getContainingFile().getContainingDirectory()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/snippets/SnippetGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/CucumberUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/dherkin2/lib/src/output/formatter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/DartLineBreakpointType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/client/DartWebDebugAware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/vmService/DartVmServiceBreakpointHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/vmService/DartVmServiceDebugProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/DartRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/dherkin2/example/run.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#26#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/dherkin2/example/steps/sum.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#3#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/dherkin2/example/expression_compare.dart">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartRemoteDebugConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/projects/dart/dherkin2/example/gherkin/everything.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1077,20 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/openapi/actionSystem/impl/ActionUpdater.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/actionSystem/ex/ActionUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/RunManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1137,20 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunnerParameters.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="213" column="44" selection-start-line="213" selection-start-column="44" selection-end-line="213" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunningState.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/configurations/RunConfigurationBase.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1756">
@@ -1169,18 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8436#8437#0" expanded="true" />
-            <element signature="e#8499#8500#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1216,24 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunConfigurationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="17" column="77" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="77" />
-          <folding>
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#1743#1744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/actions/PreferredProducerFind.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -1241,28 +1197,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/actions/RunConfigurationProducer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="248" column="74" selection-start-line="248" selection-start-column="74" selection-end-line="248" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-          <folding>
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationFeatureProducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#2311#2312#0" expanded="true" />
             <element signature="e#2330#2331#0" expanded="true" />
@@ -1277,17 +1215,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="918">
+          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/openapi/actionSystem/impl/ActionUpdater.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+        <state relative-caret-position="268">
+          <caret line="445" selection-start-line="445" selection-end-line="445" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/actionSystem/ex/ActionUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/execution/actions/RunConfigurationProducer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+          <folding>
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber-java/src/org/jetbrains/plugins/cucumber/java/run/CucumberJavaRunConfigurationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="e#1565#1566#0" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/execution/runners/RunConfigurationWithSuppressedDefaultRunAction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartRemoteDebugConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="25" column="105" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunConfigurationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+          <folding>
+            <element signature="e#1718#1719#0" expanded="true" />
+            <element signature="e#1743#1744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartRemoteDebugConfigurationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/DartRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="159" column="3" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="159" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/analyzer/DartAnalysisServerService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-628">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/execution/runners/DefaultRunProgramRunner.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1167#1168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunnerParameters.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="168" column="21" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="214" column="4" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="96" lean-forward="true" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunningState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="212" selection-start-line="212" selection-end-line="232" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../intellij-plugins/Dart/src/com/jetbrains/lang/dart/ide/runner/test/DartTestRunningState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="107" column="72" selection-start-line="107" selection-start-column="72" selection-end-line="107" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/dart/Dart.jar!/com/jetbrains/lang/dart/ide/runner/server/DartCommandLineRunningState.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding>
+            <element signature="e#11978#11979#0" expanded="true" />
+            <element signature="e#12017#12018#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9301#9302#0" expanded="true" />
+            <element signature="e#9364#9365#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
