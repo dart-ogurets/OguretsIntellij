@@ -33,9 +33,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   private TextFieldWithBrowseButton myFileField;
   private JLabel myDirLabel;
   private TextFieldWithBrowseButton myDirField;
-  private JLabel myDherkinMainFileNameLabel;
+  private JLabel myOguretsMainFileNameLabel;
   private JTextField myDartFileNameField;
-  private JTextField myDherkinOptionsField;
+  private JTextField myOguretsOptionsField;
   private EnvironmentVariablesComponent myEnvironmentVariables;
   private TextFieldWithBrowseButton myDartFile;
   private JLabel scenarioLabel;
@@ -104,7 +104,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 
 //    myDartFileNameField.setText(
 //      parameters.getCucumberScope() != FOLDER ? StringUtil.notNullize(parameters.getNameFilter()) : "");
-    myDherkinOptionsField.setText(parameters.getTestRunnerOptions());
+    myOguretsOptionsField.setText(parameters.getTestRunnerOptions());
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
     txtObservatoryPort.setText(Integer.toString(parameters.getFlutterObservatoryPort()));
@@ -130,7 +130,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     TextFieldWithBrowseButton pathSource = scope == CucumberDartRunnerParameters.Scope.FOLDER ? myDirField : myFileField;
     parameters.setDartFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
     parameters.setCucumberFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(pathSource.getText().trim())));
-    parameters.setTestRunnerOptions(StringUtil.nullize(myDherkinOptionsField.getText().trim()));
+    parameters.setTestRunnerOptions(StringUtil.nullize(myOguretsOptionsField.getText().trim()));
     parameters.setEnvs(myEnvironmentVariables.getEnvs());
     parameters.setIncludeParentEnvs(myEnvironmentVariables.isPassParentEnvs());
 

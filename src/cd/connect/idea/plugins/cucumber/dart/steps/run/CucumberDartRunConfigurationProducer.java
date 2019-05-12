@@ -14,11 +14,8 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileSystemItem;
 import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScopesCore;
-import com.intellij.psi.util.PsiTreeUtil;
 import com.jetbrains.lang.dart.DartFileType;
-import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.util.DartUrlResolver;
-import com.jetbrains.lang.dart.util.PubspecYamlUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.psi.GherkinFileType;
@@ -114,7 +111,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     return psiFile != null ? psiFile.getVirtualFile() : null;
   }
 
-  // ensure the dart test package + dherkin2 is available to us
+  // ensure the dart test package + ogurets is available to us
   private boolean setupRunnerParametersForFolderIfApplicable(@NotNull final Project project,
                                                                     @NotNull final CucumberDartRunnerParameters params,
                                                                     @NotNull final PsiDirectory dir) {
@@ -129,7 +126,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
       }
     }
 
-    final PsiFile dartFile = findDherkinRunner(dir);
+    final PsiFile dartFile = findOguretsRunner(dir);
 
     if (dartFile == null) return false;
 
@@ -153,7 +150,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     if (!isTestableProject(params, project, sourceFile)) return false;
 
     if (params.getDartFilePath() == null) {
-      final PsiFile dartFile = findDherkinRunner(file.getContainingFile().getContainingDirectory());
+      final PsiFile dartFile = findOguretsRunner(file.getContainingFile().getContainingDirectory());
 
       if (dartFile == null) return false;
       params.setDartFilePath(dartFile.getVirtualFile().getPath());
@@ -176,7 +173,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
    * walk up the tree trying to find the first dart file we can and use that to run it.
    */
   @Nullable
-  public static PsiFile findDherkinRunner(@Nullable PsiDirectory dir) {
+  public static PsiFile findOguretsRunner(@Nullable PsiDirectory dir) {
     if (dir == null) {
       return null;
     }
@@ -191,7 +188,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
       return null;
     }
 
-    return findDherkinRunner(dir.getParent());
+    return findOguretsRunner(dir.getParent());
   }
 
 
@@ -200,9 +197,9 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
                                     @NotNull final VirtualFile file) {
     final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
 
-    final VirtualFile dherkinTestLib = urlResolver.findFileByDartUrl("package:dherkin3/dherkin.dart");
+    final VirtualFile oguretsTestLib = urlResolver.findFileByDartUrl("package:ogurets/ogurets.dart");
 
-    if (dherkinTestLib == null) {
+    if (oguretsTestLib == null) {
       return false;
     }
 

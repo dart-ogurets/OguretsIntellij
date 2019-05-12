@@ -25,7 +25,7 @@ import static com.intellij.psi.impl.source.tree.JavaElementType.*;
 
 public class CucumberDartStepIndex extends FileBasedIndexExtension<Boolean, List<Integer>> implements PsiDependentIndex {
   public static final ID<Boolean, List<Integer>> INDEX_ID = ID.create("dart.cucumber.step");
-  private static final String DHERKIN3_PACKAGE = "package:dherkin3/dherkin.dart";
+  private static final String OGURETS_PACKAGE = "package:ogurets/ogurets.dart";
 
   private static final List<String> STEP_KEYWORDS = Arrays.asList("Әмма", "Нәтиҗәдә", "Вә", "Әйтик", "Һәм", "Ләкин", "Әгәр",  "Und",
                                                                   "Angenommen", "Gegeben seien",  "Dann", "Aber", "Wenn", "Gegeben sei",
@@ -98,7 +98,7 @@ public class CucumberDartStepIndex extends FileBasedIndexExtension<Boolean, List
   @Override
   public DataIndexer<Boolean, List<Integer>, FileContent> getIndexer() {
     return inputData -> {
-      StringSearcher searcher = new StringSearcher(DHERKIN3_PACKAGE, true, true);
+      StringSearcher searcher = new StringSearcher(OGURETS_PACKAGE, true, true);
       CharSequence text = inputData.getContentAsText();
       LighterAST lighterAst = ((FileContentImpl)inputData).getLighterASTForPsiDependentIndex();
       if (!isCucumberStepDefinitionFile(searcher, text)) {

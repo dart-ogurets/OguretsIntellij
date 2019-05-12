@@ -7,11 +7,11 @@ import static java.lang.String.format;
 
 public class AnnotationPackageProvider {
   public AnnotationPackageProvider() {
-    this(new DherkinVersionProvider());
+    this(new OguretsVersionProvider());
   }
 
-  public AnnotationPackageProvider(DherkinVersionProvider dherkinVersionProvider) {
-    myVersionProvider = dherkinVersionProvider;
+  public AnnotationPackageProvider(OguretsVersionProvider oguretsVersionProvider) {
+    myVersionProvider = oguretsVersionProvider;
   }
 
   public String getAnnotationPackageFor(GherkinStep step) {
@@ -23,7 +23,7 @@ public class AnnotationPackageProvider {
     return file.getLocaleLanguage().replaceAll("-", "_");
   }
 
-  private final DherkinVersionProvider myVersionProvider;
+  private final OguretsVersionProvider myVersionProvider;
 
   private String annotationBasePackage(GherkinStep step) {
     final String version = myVersionProvider.getVersion(step);

@@ -119,20 +119,11 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 		CucumberDartRunnerParameters params = getParameters();
 
     List<String> commands = new ArrayList<>();
-//		if (params.isFlutterEnabled()) {
-//			if (params.getCucumberFilePath().contains("test_driver")) {
-//			  builder.append("test_driver/");
-//      } else {
-//			  builder.append("test");
-//      }
-//		} else {
-//			builder.append(RUN_COMMAND);
-//			builder.append(' ').append(TEST_PACKAGE_SPEC);
-//			builder.append(' ').append(EXPANDED_REPORTER_OPTION);
-//			builder.append(" ");
-//		}
 
-    if (DefaultDebugExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId())) {
+    if (CucumberDartRunnerParameters.isFlutterDriverExecutable(params)) {
+      commands.add("driver");
+    } else if (DefaultDebugExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId())) {
+      // cannot support debugging with flutter driver, no idea which one they want to debug!!
       commands.add("--pause_isolates_on_start");
       try {
         this.myObservatoryPort = NetUtils.findAvailableSocketPort();
@@ -170,10 +161,13 @@ public class CucumberDartRunningTestState extends DartCommandLineRunningState {
 	@Override
 	protected String getExePath(@NotNull final DartSdk sdk) {
 		final CucumberDartRunnerParameters runnerParameters = getParameters();
-//		if (runnerParameters.isFlutterEnabled()) {
-		  return DartSdkUtil.getDartExePath(sdk);
-//			return FlutterSdk.getFlutterSdk(getEnvironment().getProject()).getExePath();
-//		}
+		if (runnerParameters.isFlutterEnabled()) {
+		  if (CucumberDartRunnerParameters.isFlutterDriverExecutable(runnerParameters)) {
+			  return FlutterSdk.getFlutterSdk(getEnvironment().getProject()).getExePath();
+      }
+		}
+
+    return DartSdkUtil.getDartExePath(sdk);
 
 //		return DartSdkUtil.getPubPath(sdk);
 	}

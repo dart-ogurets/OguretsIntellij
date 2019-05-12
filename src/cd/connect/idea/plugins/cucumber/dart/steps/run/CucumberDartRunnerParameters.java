@@ -4,7 +4,9 @@ import com.jetbrains.lang.dart.ide.runner.server.DartCommandLineRunnerParameters
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameters implements Cloneable {
   @NotNull
@@ -103,7 +105,27 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   @Nullable
   @Override
   public String getVMOptions() {
-    return super.getVMOptions() + (flutterEnabled ? (" --observe:" + Integer.toString(flutterObservatoryPort)) : "");
+    String extra = (flutterEnabled ? (" --observe:" + Integer.toString(flutterObservatoryPort)) : "");
+    String vmOptions = super.getVMOptions();
+    if (vmOptions != null) {
+      // if it is already there, remove it
+      if (vmOptions.contains("--observe") || vmOptions.contains("null")) {
+        vmOptions = Arrays.stream(vmOptions.split(" ")).filter(s -> !s.startsWith("--observe") && s.equals("null") ).collect(Collectors.joining(" "));
+      }
+
+      vmOptions += extra;
+    } else {
+      vmOptions = extra.trim();
+    }
+    
+    return vmOptions;
+  }
+
+  // how do i make this a property that is not persisted?
+  public static boolean isFlutterDriverExecutable(CucumberDartRunnerParameters runnerParameters) {
+    return runnerParameters.getDartFilePath() != null &&
+      !runnerParameters.getDartFilePath().endsWith("_test.dart") &&
+      runnerParameters.getDartFilePath().contains("test_driver");
   }
 
   public enum Scope {
@@ -144,8 +166,10 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
       env.put("CUCUMBER", "SCENARIO");
     }
 
-    if (isFlutterEnabled()) {
+    if (isFlutterEnabled() && dartFilePath != null && dartFilePath.endsWith("_test.dart")) {
       env.put("VM_SERVICE_URL", String.format("http://127.0.0.1:%d/%s", flutterObservatoryPort, flutterObservatoryToken));
+    } else {
+      env.remove("VM_SERVICE_URL");
     }
 
     return p;

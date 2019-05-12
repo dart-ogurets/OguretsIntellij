@@ -2,7 +2,7 @@ package cd.connect.idea.plugins.cucumber.dart.steps;
 
 import org.jetbrains.plugins.cucumber.psi.GherkinStep;
 
-public class DherkinVersionProvider {
+public class OguretsVersionProvider {
   public String getVersion(GherkinStep step) {
     return "3.0";
   }

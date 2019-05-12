@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="flutter-intellij">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/projects/flutter/packages/flutter_tools/test/data/intellij/plugins/flutter-intellij.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

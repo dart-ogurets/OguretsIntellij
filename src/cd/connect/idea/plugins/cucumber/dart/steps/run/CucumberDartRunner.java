@@ -41,8 +41,14 @@ public class CucumberDartRunner extends GenericProgramRunner {
 
 	@Override
 	public boolean canRun(final @NotNull String executorId, final @NotNull RunProfile profile) {
-		return DefaultDebugExecutor.EXECUTOR_ID.equals(executorId) &&
+		boolean canRun = DefaultDebugExecutor.EXECUTOR_ID.equals(executorId) &&
 			(profile instanceof CucumberDartRunConfiguration);
+		if (canRun) {
+      CucumberDartRunConfiguration p = (CucumberDartRunConfiguration)profile;
+      canRun = !(CucumberDartRunnerParameters.isFlutterDriverExecutable(p.getRunnerParameters()));
+    }
+
+		return canRun;
 	}
 
 	@Override

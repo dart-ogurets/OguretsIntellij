@@ -51,7 +51,9 @@ public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
         cMembers.getMethodDeclarationList().forEach(member -> {
           String annotation = CucumberDartUtil.findDartCucumberAnnotation(member);
 
-          newDefs.add(new DartAnnotatedStepDefinition(member, annotation));
+          if (annotation != null) {
+            newDefs.add(new DartAnnotatedStepDefinition(member, annotation));
+          }
         });
       }
     }
