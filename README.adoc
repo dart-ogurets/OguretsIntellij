@@ -16,6 +16,6 @@ and if it detects Flutter, it will also support Flutter FlutterDriver tests.
 
 == authors
 
-- _Irina Southwell nee Kaprelyants_, Principal Engineer (https://www.linkedin.com/in/irina-southwell-9727a422/)
+- _Irina Southwell (nee Капрельянц Ирина)_, Principal Engineer (https://www.linkedin.com/in/irina-southwell-9727a422/)
 - _Richard Vowles_, Software Developer (https://www.linkedin.com/in/richard-vowles-72035193/)
 
