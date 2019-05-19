@@ -262,12 +262,13 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     config.features = featureFileOrDir.getPath().substring(rootDir.getPath().length()+1);
 
     VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
+    PsiFile runFile = null;
     if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
       // right, this file is in the $project/test folder, so lets go spelunking down to find all of the stepdefs
       collectStepdefs(config, testDir);
       // now we have to recreate the single ogurets_run.dart file
       PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(testDir);
-      return createRunFile(testDirectory, OGURETS_DART_RUNNER, config, testDir);
+      runFile = createRunFile(testDirectory, OGURETS_DART_RUNNER, config, testDir);
     } else {
       testDir = rootDir == null ? null : rootDir.findChild("test_driver");
       if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
@@ -276,8 +277,14 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
         config.stepClasses.add("FlutterHooks"); // to ensure reset occurs
         PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(testDir);
         createRunFile(testDirectory, OGURETS_FLUTTER_RUNNER, config, testDir);
-        return createRunFile(testDirectory, OGURETS_FLUTTER_TEST_RUNNER, config, testDir);
+        runFile = createRunFile(testDirectory, OGURETS_FLUTTER_TEST_RUNNER, config, testDir);
+        return runFile;
       }
+    }
+
+    if (runFile != null) {
+      PsiDocumentManager.getInstance(project).commitAllDocuments();
+      return runFile;
     }
 
     return null;
