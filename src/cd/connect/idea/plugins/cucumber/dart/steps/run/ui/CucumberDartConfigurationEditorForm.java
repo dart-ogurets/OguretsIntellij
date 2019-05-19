@@ -34,14 +34,15 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   private JLabel myDirLabel;
   private TextFieldWithBrowseButton myDirField;
   private JLabel myOguretsMainFileNameLabel;
+  private JLabel observatoryUrlLabel;
   private JTextField myDartFileNameField;
   private JTextField myOguretsOptionsField;
   private EnvironmentVariablesComponent myEnvironmentVariables;
   private TextFieldWithBrowseButton myDartFile;
   private JLabel scenarioLabel;
-  private JTextField txtObservatoryToken;
-  private JLabel observatoryPortLabel;
-  private JTextField txtObservatoryPort;
+  private JTextField txtObservatoryUrl;
+  private JLabel jOgurets;
+  private JLabel cucumberIcon;
   private CucumberDartRunnerParameters.Scope scope;
   private boolean flutterEnabled;
 
@@ -100,20 +101,14 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
       myFileField.setText(cukeFilePath);
     }
 
-    myDartFile.setText(StringUtil.notNullize(parameters.getDartFilePath()));
+    myDartFile.setText(parameters.getDartFilePath() == null ? "" : parameters.getDartFilePath());
 
 //    myDartFileNameField.setText(
 //      parameters.getCucumberScope() != FOLDER ? StringUtil.notNullize(parameters.getNameFilter()) : "");
     myOguretsOptionsField.setText(parameters.getTestRunnerOptions());
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
-    txtObservatoryPort.setText(Integer.toString(parameters.getFlutterObservatoryPort()));
-    
-    if (parameters.getFlutterObservatoryToken() == null) {
-      txtObservatoryToken.setText("");
-    } else {
-      txtObservatoryToken.setText(parameters.getFlutterObservatoryToken());
-    }
+    txtObservatoryUrl.setText(parameters.getFlutterObservatoryUrl() == null ? "" : parameters.getFlutterObservatoryUrl());
 
     flutterEnabled = configuration.getRunnerParameters().isFlutterEnabled();
 
@@ -133,14 +128,8 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     parameters.setTestRunnerOptions(StringUtil.nullize(myOguretsOptionsField.getText().trim()));
     parameters.setEnvs(myEnvironmentVariables.getEnvs());
     parameters.setIncludeParentEnvs(myEnvironmentVariables.isPassParentEnvs());
-
-    try {
-      parameters.setFlutterObservatoryPort(Integer.parseInt(txtObservatoryPort.getText().length() == 0 ? "8888" : txtObservatoryPort.getText()));
-    } catch (Exception e) {
-      parameters.setFlutterObservatoryPort(8888);
-    }
-
-    parameters.setFlutterObservatoryToken(txtObservatoryToken.getText().trim());
+    String url = txtObservatoryUrl.getText().trim();
+    parameters.setFlutterObservatoryUrl( url.length() > 0 ? url : null);
   }
 
   private void onScopeChanged() {
@@ -152,8 +141,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myDirLabel.setVisible(folderMode);
     myScenario.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     scenarioLabel.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
-    txtObservatoryPort.setEnabled(flutterEnabled);
-    txtObservatoryToken.setEnabled(flutterEnabled);
+    txtObservatoryUrl.setEnabled(flutterEnabled);
   }
 
   private void onTestDirChanged(Project project) {

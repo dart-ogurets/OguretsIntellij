@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CucumberDartRunConfigurationType extends ConfigurationTypeBase {
   public CucumberDartRunConfigurationType() {
-    super("CucumberDartRunConfigurationType", "Cucumber Dart", null,
+    super("CucumberDartRunConfigurationType", "Ogurets (Cucumber Dart)", null,
       NotNullLazyValue.createValue(() -> CucumberJavaIcons.DartTest));
     addFactory(new DartTestConfigurationFactory(this));
   }

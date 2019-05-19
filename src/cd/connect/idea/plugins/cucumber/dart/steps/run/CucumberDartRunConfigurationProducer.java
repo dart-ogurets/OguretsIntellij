@@ -3,22 +3,39 @@ package cd.connect.idea.plugins.cucumber.dart.steps.run;
 import com.intellij.execution.Location;
 import com.intellij.execution.actions.ConfigurationContext;
 import com.intellij.execution.actions.RunConfigurationProducer;
+import com.intellij.ide.fileTemplates.FileTemplate;
+import com.intellij.ide.fileTemplates.FileTemplateDescriptor;
+import com.intellij.ide.fileTemplates.FileTemplateManager;
+import com.intellij.ide.fileTemplates.FileTemplateUtil;
+import com.intellij.openapi.application.Application;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.vfs.VfsUtilCore;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileVisitor;
 import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileSystemItem;
+import com.intellij.psi.PsiManager;
 import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScopesCore;
-import com.jetbrains.lang.dart.DartFileType;
+import com.intellij.psi.util.PsiTreeUtil;
+import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.util.DartUrlResolver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.psi.GherkinFileType;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.stream.Collectors;
 
 abstract public class CucumberDartRunConfigurationProducer extends RunConfigurationProducer<CucumberDartRunConfiguration> {
   public CucumberDartRunConfigurationProducer() {
@@ -47,7 +64,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
 
     if (ok) {
       configuration.setName(getConfigurationName(context));
-      configuration.setGeneratedName();
+//      configuration.setGeneratedName();
     }
 
     return ok;
@@ -126,11 +143,8 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
       }
     }
 
-    final PsiFile dartFile = findOguretsRunner(dir);
+//    if (ensureRunnableDartFile(params, project, virtualDir)) return false;
 
-    if (dartFile == null) return false;
-
-    params.setDartFilePath(dartFile.getVirtualFile().getPath());
     setScope(params);
     params.setCucumberFilePath(virtualDir.getPath());
 
@@ -149,48 +163,35 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     
     if (!isTestableProject(params, project, sourceFile)) return false;
 
-    if (params.getDartFilePath() == null) {
-      final PsiFile dartFile = findOguretsRunner(file.getContainingFile().getContainingDirectory());
-
-      if (dartFile == null) return false;
-      params.setDartFilePath(dartFile.getVirtualFile().getPath());
-    }
+//    if (ensureRunnableDartFile(params, project, sourceFile)) return false;
 
     params.setCucumberFilePath(sourceFile.getPath());
     params.setNameFilter(getNameFilter(context));
 
     setScope(params);
 
-//    final DartClassDefinition clazz = PsiTreeUtil.getChildOfType(dartFile, DartClassDefinition.class);
-
     return true;
   }
 
+//  private boolean ensureRunnableDartFile(@NotNull CucumberDartRunnerParameters params, Project project, VirtualFile sourceFile) {
+//    // if there is no dart run file or the dart run file is auto-generated, always auto-generate it.
+//
+//    if (params.getDartFilePath() == null ||
+//        (params.getDartFilePath().endsWith(OGURETS_DART_RUNNER) || params.getDartFilePath().endsWith(OGURETS_FLUTTER_TEST_RUNNER))) {
+//      PsiFile dartFile = generateRunnableFile(project, sourceFile);
+//
+//      if (dartFile == null) {
+//        return true;
+//      }
+//
+//      params.setDartFilePath(dartFile.getVirtualFile().getPath());
+//    }
+//
+//    return false;
+//  }
+
   protected abstract void setScope(CucumberDartRunnerParameters parameters);
   protected abstract String getNameFilter(@NotNull ConfigurationContext context);
-
-  /*
-   * walk up the tree trying to find the first dart file we can and use that to run it.
-   */
-  @Nullable
-  public static PsiFile findOguretsRunner(@Nullable PsiDirectory dir) {
-    if (dir == null) {
-      return null;
-    }
-
-    for(PsiFile df : dir.getFiles()) {
-      if (df.getFileType() instanceof DartFileType && df.getName().endsWith("_test.dart")) {
-        return df;
-      }
-    }
-
-    if ("test".equals(dir.getName()) || "test_driver".equals(dir.getName())) {
-      return null;
-    }
-
-    return findOguretsRunner(dir.getParent());
-  }
-
 
   private boolean isTestableProject(@NotNull final CucumberDartRunnerParameters params,
                                     @NotNull Project project,
@@ -223,7 +224,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     @NotNull final Project project, @NotNull final VirtualFile file,
         @NotNull final String packageName, @NotNull final String rootDirChild) {
     final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
-//    final VirtualFile dartTestLib = urlResolver.findFileByDartUrl("package:test/test.dart");
+
     final VirtualFile dartTestLib = urlResolver.findFileByDartUrl(packageName);
     if (dartTestLib == null) return false;
 
@@ -232,5 +233,125 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
 //    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
     final VirtualFile testDir = rootDir == null ? null : rootDir.findChild(rootDirChild);
     return testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, file, true);
+  }
+
+  static class RunfileConfig {
+    List<String> imports = new ArrayList<>();
+    List<String> stepClasses = new ArrayList<>();
+    List<String> instances = new ArrayList<>();
+    String features;
+
+    Project project;
+  }
+
+  public static PsiFile generateRunnableFile(@NotNull final Project project, final VirtualFile featureFileOrDir) throws IOException {
+
+    // make sure that all the documents in memory have been saved
+    PsiDocumentManager.getInstance(project).commitAllDocuments();
+
+    // now find our pubspec.yaml so we can determine the project directory root
+    final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, featureFileOrDir);
+
+    final VirtualFile pubspec = urlResolver.getPubspecYamlFile();
+    final VirtualFile rootDir = pubspec == null ? null : pubspec.getParent();
+
+    // start our config gathering, adding ogurets as the base requirement
+    final RunfileConfig config = new RunfileConfig();
+//    config.imports.add("import 'package:ogurets/ogurets.dart';");
+    config.project = project;
+    config.features = featureFileOrDir.getPath().substring(rootDir.getPath().length()+1);
+
+    VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
+    if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
+      // right, this file is in the $project/test folder, so lets go spelunking down to find all of the stepdefs
+      collectStepdefs(config, testDir);
+      // now we have to recreate the single ogurets_run.dart file
+      PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(testDir);
+      return createRunFile(testDirectory, OGURETS_DART_RUNNER, config, testDir);
+    } else {
+      testDir = rootDir == null ? null : rootDir.findChild("test_driver");
+      if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
+        // this file is in the test_driver folder, do the same as above but we need to also ensure that FlutterOgurets is included
+        collectStepdefs(config, testDir);
+        config.stepClasses.add("FlutterHooks"); // to ensure reset occurs
+        PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(testDir);
+        createRunFile(testDirectory, OGURETS_FLUTTER_RUNNER, config, testDir);
+        return createRunFile(testDirectory, OGURETS_FLUTTER_TEST_RUNNER, config, testDir);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * walk down the tree and find all of the files ready.
+   * 
+   * @param config
+   * @param testDir
+   */
+  public static void collectStepdefs(RunfileConfig config, VirtualFile testDir) {
+    int offsetLength = testDir.getPath().length()+1;
+
+
+    VfsUtilCore.visitChildrenRecursively(testDir, new VirtualFileVisitor<VirtualFile>() {
+      @Override
+      public boolean visitFile(@NotNull VirtualFile f) {
+        if (!f.isDirectory()) {
+          if (f.getName().toLowerCase().endsWith(".dart")) {
+            PsiFile file = PsiManager.getInstance(config.project).findFile(f);
+            // get the non-private classes
+            List<DartClassDefinition> classes =
+              PsiTreeUtil.findChildrenOfType(file, DartClassDefinition.class).stream().filter(c -> c.getName() != null && !c.getName().startsWith("_")).collect(Collectors.toList());
+
+            if (classes.size() > 0) {
+              String importPath = f.getPath().substring(offsetLength);
+              // import the file with an alias
+              String fileAlias = f.getName().substring(0, f.getName().length() - 5);
+              // basePath already has a / at the end
+              config.imports.add(String.format("import '%s' as %s;", importPath, fileAlias));
+
+              classes.forEach(c -> config.stepClasses.add(String.format("%s.%s", fileAlias, c.getName())));
+            }
+          }
+        }
+        return true;
+      }
+    });
+  }
+
+  private final static String OGURETS_DART_RUNNER = "ogurets_run.dart";
+  private final static String OGURETS_FLUTTER_RUNNER = "ogurets_flutter.dart";
+  private final static String OGURETS_FLUTTER_TEST_RUNNER = "ogurets_flutter_test.dart";
+
+  public static PsiFile createRunFile(PsiDirectory dir, String template, RunfileConfig config, VirtualFile testDir) throws IOException {
+    VirtualFile existingFile = testDir.findChild(template);
+    if (existingFile.exists()) {
+      ApplicationManager.getApplication().runWriteAction(() -> {
+        try {
+          existingFile.delete(template);
+        } catch (IOException e) {
+        }
+      });
+    }
+    FileTemplateDescriptor fileTemplateDescriptor = new FileTemplateDescriptor(template);
+    FileTemplate fileTemplate = FileTemplateManager.getInstance(dir.getProject()).getCodeTemplate(fileTemplateDescriptor.getFileName());
+
+    try {
+      Properties properties = new Properties();
+
+      properties.put("IMPORTS", String.join("\n", config.imports));
+      properties.put("STEPS", config.stepClasses.stream().map(s -> String.format("  ..step(%s)\n", s)).collect(Collectors.joining()));
+      properties.put("FLUTTER_TEST", config.features);
+
+      PsiFile file = FileTemplateUtil.createFromTemplate(fileTemplate, template, properties, dir).getContainingFile();
+      VirtualFile virtualFile = file.getVirtualFile();
+      if (virtualFile != null) {
+        FileEditorManager.getInstance(file.getProject()).openFile(virtualFile, true);
+      }
+
+      return file;
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
   }
 }

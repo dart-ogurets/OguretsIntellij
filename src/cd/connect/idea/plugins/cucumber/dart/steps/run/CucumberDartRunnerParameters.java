@@ -1,6 +1,15 @@
 package cd.connect.idea.plugins.cucumber.dart.steps.run;
 
+import com.intellij.execution.configurations.RuntimeConfigurationError;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.LocalFileSystem;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.jetbrains.lang.dart.DartBundle;
 import com.jetbrains.lang.dart.ide.runner.server.DartCommandLineRunnerParameters;
+import com.jetbrains.lang.dart.sdk.DartConfigurable;
+import com.jetbrains.lang.dart.sdk.DartSdk;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,10 +25,9 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   @Nullable private String cucumberFilePath = null;
   @Nullable private String dartFilePath = null;
   private boolean flutterEnabled = false;
-  private int flutterObservatoryPort = 8888;
-  @Nullable
-  private String flutterObservatoryToken = "";
   private TestType testType;
+  @Nullable
+  private String flutterObservatoryUrl;
 
   @NotNull
   public Scope getCucumberScope() {
@@ -33,12 +41,12 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   }
 
   @Nullable
-  public String getFlutterObservatoryToken() {
-    return flutterObservatoryToken;
+  public String getFlutterObservatoryUrl() {
+    return flutterObservatoryUrl;
   }
 
-  public void setFlutterObservatoryToken(@Nullable String flutterObservatoryToken) {
-    this.flutterObservatoryToken = flutterObservatoryToken;
+  public void setFlutterObservatoryUrl(@Nullable String flutterObservatoryUrl) {
+    this.flutterObservatoryUrl = flutterObservatoryUrl;
   }
 
   @Nullable
@@ -86,14 +94,6 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     this.flutterEnabled = flutterEnabled;
   }
 
-  public int getFlutterObservatoryPort() {
-    return flutterObservatoryPort;
-  }
-
-  public void setFlutterObservatoryPort(int flutterObservatoryPort) {
-    this.flutterObservatoryPort = flutterObservatoryPort;
-  }
-
   public TestType getTestType() {
     return testType;
   }
@@ -102,24 +102,24 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     this.testType = testType;
   }
 
-  @Nullable
-  @Override
-  public String getVMOptions() {
-    String extra = (flutterEnabled ? (" --observe:" + Integer.toString(flutterObservatoryPort)) : "");
-    String vmOptions = super.getVMOptions();
-    if (vmOptions != null) {
-      // if it is already there, remove it
-      if (vmOptions.contains("--observe") || vmOptions.contains("null")) {
-        vmOptions = Arrays.stream(vmOptions.split(" ")).filter(s -> !s.startsWith("--observe") && s.equals("null") ).collect(Collectors.joining(" "));
-      }
-
-      vmOptions += extra;
-    } else {
-      vmOptions = extra.trim();
-    }
-    
-    return vmOptions;
-  }
+//  @Nullable
+//  @Override
+//  public String getVMOptions() {
+//    String extra = (flutterEnabled && flutterObservatoryUrl != null && flutterObservatoryUrl.length() > 0) ? (" --observe:" + flutterObservatoryUrl) : "";
+//    String vmOptions = super.getVMOptions();
+//    if (vmOptions != null) {
+//      // if it is already there, remove it
+//      if (vmOptions.contains("--observe") || vmOptions.contains("null")) {
+//        vmOptions = Arrays.stream(vmOptions.split(" ")).filter(s -> !s.startsWith("--observe") && s.equals("null") ).collect(Collectors.joining(" "));
+//      }
+//
+//      vmOptions += extra;
+//    } else {
+//      vmOptions = extra.trim();
+//    }
+//
+//    return vmOptions;
+//  }
 
   // how do i make this a property that is not persisted?
   public static boolean isFlutterDriverExecutable(CucumberDartRunnerParameters runnerParameters) {
@@ -145,7 +145,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   }
 
   @Override
-  protected DartCommandLineRunnerParameters clone() {
+  protected CucumberDartRunnerParameters clone() {
     CucumberDartRunnerParameters p = (CucumberDartRunnerParameters)super.clone();
 
     CucumberDartRunnerParameters myRunnerParameters = this;
@@ -166,8 +166,9 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
       env.put("CUCUMBER", "SCENARIO");
     }
 
-    if (isFlutterEnabled() && dartFilePath != null && dartFilePath.endsWith("_test.dart")) {
-      env.put("VM_SERVICE_URL", String.format("http://127.0.0.1:%d/%s", flutterObservatoryPort, flutterObservatoryToken));
+    // we have flutter, we have an observatory url, and its a test in the integration folder
+    if (flutterEnabled && flutterObservatoryUrl != null && flutterObservatoryUrl.length() > 0 && testType == TestType.Integration) {
+      env.put("VM_SERVICE_URL", flutterObservatoryUrl);
     } else {
       env.remove("VM_SERVICE_URL");
     }
@@ -179,4 +180,16 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   public enum TestType {
     Test, Integration
   }
+
+  // this is checking to ensure that we are a valid run config
+  @Override
+  public void check(@NotNull Project project) throws RuntimeConfigurationError {
+    DartSdk sdk = DartSdk.getDartSdk(project);
+    if (sdk == null) {
+      throw new RuntimeConfigurationError(DartBundle.message("dart.sdk.is.not.configured", new Object[0]), () -> {
+        DartConfigurable.openDartSettings(project);
+      });
+    }
+  }
+
 }

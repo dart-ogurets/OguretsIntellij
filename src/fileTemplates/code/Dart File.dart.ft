@@ -1,6 +1,8 @@
 
 import 'package:ogurets/ogurets.dart';
 
+${IMPORTS}
+
 class ${CLASS_NAME} {
 
 }

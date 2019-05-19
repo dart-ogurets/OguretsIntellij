@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber/intellij.gherkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/../intellij-community/intellij.idea.community.main.iml" filepath="$PROJECT_DIR$/../intellij-community/intellij.idea.community.main.iml" />
       <module fileurl="file://$USER_HOME$/projects/flutter/packages/flutter_tools/templates/module/android/library/Flutter.tmpl/src/main/main.iml" filepath="$USER_HOME$/projects/flutter/packages/flutter_tools/templates/module/android/library/Flutter.tmpl/src/main/main.iml" />
+      <module fileurl="file://$USER_HOME$/projects/dart/ogurets_flutter/ogurets_flutter.iml" filepath="$USER_HOME$/projects/dart/ogurets_flutter/ogurets_flutter.iml" />
     </modules>
   </component>
 </project>
