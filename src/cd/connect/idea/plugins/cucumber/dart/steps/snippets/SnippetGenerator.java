@@ -17,9 +17,11 @@ import java.util.regex.Pattern;
 
 public class SnippetGenerator {
 	private static final ArgumentPattern[] DEFAULT_ARGUMENT_PATTERNS = new ArgumentPattern[]{
+    new ArgumentPattern(Pattern.compile("([-+]?\\d+)"), "{int}",Integer.TYPE),
+    new ArgumentPattern(Pattern.compile("([+-]?([0-9]*[.])?[0-9]+)"), "{float}",Float.TYPE),
+//		new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
+//		new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}",Float.TYPE),
 		new ArgumentPattern(Pattern.compile("\"([^\"]*)\""), "{string}", String.class),
-		new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
-		new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}",Float.TYPE),
 		new ArgumentPattern(Pattern.compile("<([^>]*)>"), "{string}", String.class)
 	};
 	private static final Pattern GROUP_PATTERN = Pattern.compile("\\(");
