@@ -5,20 +5,25 @@ import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.fileTemplates.FileTemplateUtil;
+import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.Ref;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiClassOwner;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiManager;
 import com.intellij.util.ObjectUtils;
 import com.jetbrains.lang.dart.util.DartUrlResolver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.AbstractStepDefinitionCreator;
 import cd.connect.idea.plugins.cucumber.dart.CucumberDartUtil;
+import org.jetbrains.plugins.cucumber.CucumberBundle;
+import org.jetbrains.plugins.cucumber.CucumberUtil;
 import org.jetbrains.plugins.cucumber.psi.GherkinStep;
 
 import java.util.ArrayList;
@@ -216,59 +221,16 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
         .orElse(null);
 
       if (stepDefs == null) {
-        stepDefs = psiDirectory.createSubdirectory("steps");
+        final PsiDirectory featureParentDir = psiDirectory;
+        final Ref<PsiDirectory> dirRef = new Ref<>();
+        WriteCommandAction.writeCommandAction(step.getProject())
+          .withName(CucumberBundle.message("cucumber.quick.fix.create.step.command.name.add")).run(() -> {
+          // create steps_definitions directory
+          dirRef.set(featureParentDir.createSubdirectory("steps"));
+        });
       }
 
       return ObjectUtils.assertNotNull(stepDefs);
-//
-//      final Project project = step.getProject();
-//      if (psiDirectory != null) {
-//        ProjectFileIndex projectFileIndex = ProjectRootManager.getInstance(project).getFileIndex();
-//        VirtualFile directory = psiDirectory.getVirtualFile();
-//        if (projectFileIndex.isInContent(directory)) {
-//          VirtualFile sourceRoot = projectFileIndex.getSourceRootForFile(directory);
-//          final Module module = projectFileIndex.getModuleForFile(featureFile.getVirtualFile());
-//          if (module != null) {
-//            final VirtualFile[] sourceRoots = ModuleRootManager.getInstance(module).getSourceRoots();
-//            if (sourceRoot != null && sourceRoot.getName().equals("resources")) {
-//              final VirtualFile resourceParent = sourceRoot.getParent();
-//              for (VirtualFile vFile : sourceRoots) {
-//                if (vFile.getPath().startsWith(resourceParent.getPath()) && vFile.getName().equals("java")) {
-//                  sourceRoot = vFile;
-//                  break;
-//                }
-//              }
-//            }
-//            else {
-//              if (sourceRoots.length > 0) {
-//                sourceRoot = sourceRoots[sourceRoots.length - 1];
-//              }
-//            }
-//          }
-//          String packageName = "";
-//          if (sourceRoot != null) {
-//            packageName = CucumberDartUtil.getPackageOfStepDef(step);
-//          }
-//
-//          final String packagePath = packageName.replace('.', '/');
-//          final String path = sourceRoot != null ? sourceRoot.getPath() : directory.getPath();
-//          // ToDo: I shouldn't create directories, only create VirtualFile object.
-//          final Ref<PsiDirectory> resultRef = new Ref<>();
-//          try {
-//            WriteAction.runAndWait(() -> {
-//              final VirtualFile packageFile = VfsUtil.createDirectoryIfMissing(path + '/' + packagePath);
-//              if (packageFile != null) {
-//                resultRef.set(PsiDirectoryFactory.getInstance(project).createDirectory(packageFile));
-//              }
-//            });
-//          }
-//          catch (IOException ignored) {
-//
-//          }
-//          return resultRef.get();
-//        }
-//      }
-
     }
 
     assert featureFile != null;

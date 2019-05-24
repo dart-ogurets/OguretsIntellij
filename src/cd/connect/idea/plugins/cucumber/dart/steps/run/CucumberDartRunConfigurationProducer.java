@@ -332,7 +332,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
 
   public static PsiFile createRunFile(PsiDirectory dir, String template, RunfileConfig config, VirtualFile testDir) throws IOException {
     VirtualFile existingFile = testDir.findChild(template);
-    if (existingFile.exists()) {
+    if (existingFile != null && existingFile.exists()) {
       ApplicationManager.getApplication().runWriteAction(() -> {
         try {
           existingFile.delete(template);

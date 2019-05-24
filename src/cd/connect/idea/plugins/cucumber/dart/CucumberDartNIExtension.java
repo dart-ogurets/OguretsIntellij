@@ -81,14 +81,14 @@ public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
     PsiDirectory currDir = featureFile.getContainingDirectory();
     PsiDirectory featureFileDirectory = currDir;
 
-    while (currDir != null && currDir.isDirectory() && !currDir.getName().equals("test_driver")) {
-      if ("stepdefs".equals(currDir.getName())) {
+    while (currDir != null && currDir.isDirectory() && (!currDir.getName().equals("test_driver") || currDir.getName().equals("test"))) {
+      if ("steps".equals(currDir.getName())) {
         if (!processedStepDirectories.contains(currDir.getVirtualFile().getPath())) {
           newStepDefinitionsRoots.add(currDir);
         }
       }
 
-      Arrays.stream(currDir.getSubdirectories()).filter(d -> "stepdefs".equals(d.getName())).findFirst().ifPresent(d -> {
+      Arrays.stream(currDir.getSubdirectories()).filter(d -> "steps".equals(d.getName())).findFirst().ifPresent(d -> {
         if (!processedStepDirectories.contains(d.getVirtualFile().getPath())) {
           newStepDefinitionsRoots.add(d);
         }
