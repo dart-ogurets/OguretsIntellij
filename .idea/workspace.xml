@@ -21,17 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="64afb804-ea4e-4852-a7a1-6de2c393aef5" name="Default Changelist" comment="Irina's testing of regexes showed issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileTemplates/code/Dart File.dart.ft" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileTemplates/code/Dart File.dart.ft" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft" afterDir="false" />
+      <change beforePath="$USER_HOME$/projects/dart/ogurets/CHANGELOG.md" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/CHANGELOG.md" afterDir="false" />
       <change beforePath="$USER_HOME$/projects/dart/ogurets/README.md" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/README.md" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/ogurets/example/gherkin/time.feature" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/example/gherkin/time.feature" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/ogurets/example/steps/sum.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/example/steps/sum.dart" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/ogurets/pubspec.yaml" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/pubspec.yaml" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/ogurets_flutter/README.md" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets_flutter/README.md" afterDir="false" />
-      <change beforePath="$USER_HOME$/projects/dart/ogurets_flutter/lib/flutter_ogurets.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets_flutter/lib/flutter_ogurets.dart" afterDir="false" />
+      <change beforePath="$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart" afterDir="false" />
+      <change beforePath="$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart" afterDir="false" />
       <change beforePath="$USER_HOME$/projects/dart/ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$USER_HOME$/projects/dart/ogurets_flutter/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/projects/dart/cucumber-jvm/core/target/" />
@@ -52,106 +45,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartStepIndex.java">
+        <entry file="file://$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2305">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="568">
+              <caret line="399" column="27" lean-forward="true" selection-start-line="399" selection-start-column="27" selection-end-line="399" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartUtil.java">
+        <entry file="file://$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2067">
-              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/AnnotationPackageProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="397">
+              <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/projects/dart/ogurets/README.md">
+        <entry file="file://$USER_HOME$/projects/dart/ogurets/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="421">
-                <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
-                <folding>
-                  <element signature="e#0#38#0" expanded="true" />
-                  <element signature="e#0#38#0" expanded="true" />
-                </folding>
+              <first_editor relative-caret-position="51">
+                <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fileTemplates/code/ogurets_flutter_test.dart.ft">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#38#0#Dart" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#10123#10196#0" expanded="true" />
-                <element signature="e#13134#13135#0" expanded="true" />
-                <element signature="e#13173#13174#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/steps/CucumberStepsIndex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/inspections/CucumberCreateStepFixBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="192" column="47" selection-start-line="192" selection-start-column="47" selection-end-line="192" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../intellij-plugins/cucumber/src/org/jetbrains/plugins/cucumber/AbstractStepDefinitionCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -260,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/projects/dart/dherkin2/bin/cucumberd.dart" />
         <option value="$USER_HOME$/projects/dart/dherkin2/CHANGELOG.md" />
         <option value="$USER_HOME$/projects/dart/dherkin2/README.md" />
         <option value="$USER_HOME$/projects/dart/ogurets/lib/dherkin_core.dart" />
@@ -279,8 +196,6 @@
         <option value="$USER_HOME$/projects/dart/ogurets_flutter/lib/flutter_hooks.dart" />
         <option value="$USER_HOME$/projects/dart/ogurets_flutter/lib/flutter_autorun.dart" />
         <option value="$USER_HOME$/projects/dart/ogurets/lib/src/status/status.dart" />
-        <option value="$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart" />
-        <option value="$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart" />
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.java" />
         <option value="$USER_HOME$/projects/dart/ogurets/lib/src/model/anotations.dart" />
         <option value="$USER_HOME$/projects/dart/ogurets/lib/ogurets.dart" />
@@ -311,6 +226,9 @@
         <option value="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" />
         <option value="$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft" />
         <option value="$USER_HOME$/projects/dart/ogurets/README.md" />
+        <option value="$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart" />
+        <option value="$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart" />
+        <option value="$USER_HOME$/projects/dart/ogurets/CHANGELOG.md" />
       </list>
     </option>
   </component>
@@ -331,10 +249,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2" />
-    <option name="y" value="23" />
-    <option name="width" value="2533" />
-    <option name="height" value="1417" />
+    <option name="y" value="25" />
+    <option name="width" value="2402" />
+    <option name="height" value="1351" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -349,98 +266,16 @@
           <expand>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
               <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dart" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
-              <item name="snippets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fileTemplates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cucumber-dart" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fileTemplates" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
               <item name="ogurets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogurets" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogurets" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="gherkin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogurets" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="steps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -459,6 +294,13 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ogurets" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cucumber-dart" type="b2602c69:ProjectViewProjectNode" />
@@ -724,7 +566,7 @@
       <workItem from="1558131326204" duration="38463000" />
       <workItem from="1558249033718" duration="629000" />
       <workItem from="1558425853839" duration="5437000" />
-      <workItem from="1558678843317" duration="8547000" />
+      <workItem from="1558678843317" duration="10945000" />
     </task>
     <task id="LOCAL-00001" summary="- dart template working with raw text&#10;- handles expressions and regexs properly&#10;- injects regex support into annotation strings">
       <created>1554591220344</created>
@@ -1006,17 +848,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558428205098</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Updates from feedback from Irina">
+      <created>1558693686688</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1558693686688</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302641000" />
+    <option name="totallyTimeSpent" value="305039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2700556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22835584" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1026,7 +875,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21584906" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.18490566" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.33509433" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33509433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1078,7 +927,6 @@
       <path value="$PROJECT_DIR$/../intellij-community" />
       <path value="$USER_HOME$/projects/dart/dherkin2" />
     </ignored-roots>
-    <MESSAGE value="- cleaned up scenario printing so we don't get two&#10;scenario passed/fails" />
     <MESSAGE value="- basic test formatting is now working and the tests are running.&#10;- failure isn't working and coming back, and there is no debugging." />
     <MESSAGE value="- failure now working as we are waiting for  the correct future&#10;- formatter now outputting stack trace as expected&#10;- snippet recognizing parameterized examples for ints and floats in IDE" />
     <MESSAGE value="- properly support hotreload for flutter apps and ignore dart&#10;style testing with expects as we aren't using it with cucumber." />
@@ -1103,7 +951,8 @@
     <MESSAGE value="updated documentation as per publish feedback" />
     <MESSAGE value="start of updating based on the feedback from Dart Pub." />
     <MESSAGE value="Irina's testing of regexes showed issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Irina's testing of regexes showed issues" />
+    <MESSAGE value="Updates from feedback from Irina" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates from feedback from Irina" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1214,37 +1063,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/projects/dart/ogurets/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/ogurets_flutter/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/ogurets_flutter/lib/flutter_ogurets.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/projects/dart/ogurets_flutter/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="289">
-            <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/projects/flutter/bin/cache/dart-sdk/lib/async/future.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -1577,15 +1395,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/projects/dart/ogurets/.packages">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$USER_HOME$/projects/dart/ogurets/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="421">
-            <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+          <first_editor relative-caret-position="485">
+            <caret line="148" selection-start-line="148" selection-end-line="154" selection-end-column="29" />
             <folding>
               <element signature="e#0#38#0" expanded="true" />
               <element signature="e#0#38#0" expanded="true" />
             </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/projects/dart/ogurets/lib/src/model/scenario.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/projects/dart/ogurets/lib/src/output/formatter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="399" column="27" lean-forward="true" selection-start-line="399" selection-start-column="27" selection-end-line="399" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/projects/dart/ogurets/CHANGELOG.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
           </first_editor>
           <second_editor />
         </state>
