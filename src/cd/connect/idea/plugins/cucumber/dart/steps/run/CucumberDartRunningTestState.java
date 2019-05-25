@@ -226,6 +226,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
 
     if (CucumberDartRunnerParameters.isFlutterDriverExecutable(params)) {
       commands.add("driver");
+      params.setArguments(String.join(" ", commands));
+
     } else if (DefaultDebugExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId())) {
       // cannot support debugging with flutter driver, no idea which one they want to debug!!
       commands.add("--pause_isolates_on_start");
@@ -237,18 +239,13 @@ public class CucumberDartRunningTestState extends CommandLineState {
       }
 
       commands.add("--enable-vm-service:" + myObservatoryPort);
+      params.setVMOptions(String.join(" ", commands));
+      params.setCheckedModeOrEnableAsserts(true);
+    }
+    else {
+      params.setCheckedModeOrEnableAsserts(true);
     }
 
-		final String filePath = params.getFilePath();
-		if (filePath != null && filePath.contains(" ")) {
-		  commands.add("\"" + filePath + "\"");
-		} else {
-			commands.add(filePath);
-		}
-
-
-		params.setArguments(String.join(" ", commands));
-		params.setCheckedModeOrEnableAsserts(false);
 		// working directory is not configurable in UI because there's only one valid value that we calculate ourselves
 		params.setWorkingDirectory(params.computeProcessWorkingDirectory(project));
 
@@ -340,15 +337,6 @@ public class CucumberDartRunningTestState extends CommandLineState {
       }
     }
 
-    if (myRunnerParameters.isCheckedModeOrEnableAsserts()) {
-      if (StringUtil.compareVersionNumbers(sdk.getVersion(), "2") < 0) {
-        addVmOption(commandLine, "--checked");
-      }
-      else {
-        addVmOption(commandLine, "--enable-asserts");
-      }
-    }
-
     if (DefaultDebugExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId())) {
       addVmOption(commandLine, "--pause_isolates_on_start");
     }
@@ -397,6 +385,12 @@ public class CucumberDartRunningTestState extends CommandLineState {
       throw new ExecutionException(e);
     }
 
+    // this one just doesn't work via the environment options and we only want it on our app, we don't
+    // want to pass it through to any app we run
+    if (myRunnerParameters.isCheckedModeOrEnableAsserts()) {
+      commandLine.addParameter("--enable-asserts");
+    }
+    
     commandLine.addParameter(FileUtil.toSystemDependentName(dartFile.getPath()));
   }
 
@@ -426,8 +420,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
 
 		String options = commandLine.getEnvironment().get(DART_VM_OPTIONS_ENV_VAR);
 		if (StringUtil.isEmpty(options)) {
-			commandLine.getEnvironment().put(DART_VM_OPTIONS_ENV_VAR, "");
-		} else {
+			commandLine.getEnvironment().put(DART_VM_OPTIONS_ENV_VAR, option == null ? "" : option);
+		} else if (!options.contains(option)) {
 			commandLine.getEnvironment().put(DART_VM_OPTIONS_ENV_VAR, options + " " + option);
 		}
 	}
