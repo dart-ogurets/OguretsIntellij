@@ -68,9 +68,13 @@ public class CucumberDartRunner extends GenericProgramRunner {
 			final String dasExecutionContextId;
 
 			final RunProfile runConfig = env.getRunProfile();
-			if (runConfig instanceof DartRunConfigurationBase &&
+			if (state instanceof CucumberDartRunningTestState && runConfig instanceof DartRunConfigurationBase &&
 				DartAnalysisServerService.getInstance(env.getProject()).serverReadyForRequest(env.getProject())) {
-				final String path = ((CucumberDartRunConfiguration)runConfig).getRunnerParameters().getDartFilePath();
+			  CucumberDartRunnerParameters runParams =  ((CucumberDartRunningTestState)state).myRunnerParameters;
+				String path = runParams.getDartFilePath();
+        if (path == null) {
+          path = runParams.getFilePath();
+        }
 				assert path != null; // already checked
 				dasExecutionContextId = DartAnalysisServerService.getInstance(env.getProject()).execution_createContext(path);
 			}
@@ -103,11 +107,11 @@ public class CucumberDartRunner extends GenericProgramRunner {
 		final String debuggingHost;
 		final int observatoryPort;
 
-		if (runConfiguration instanceof CucumberDartRunConfiguration) {
-			contextFileOrDir = ((CucumberDartRunConfiguration)runConfiguration).getRunnerParameters().getDartFileOrDirectory();
+		if (runConfiguration instanceof CucumberDartRunConfiguration && state instanceof CucumberDartRunningTestState) {
+      CucumberDartRunnerParameters runParams =  ((CucumberDartRunningTestState)state).myRunnerParameters;
+			contextFileOrDir = runParams.getDartFileOrDirectory();
 
-			final String cwd =
-				((DartRunConfigurationBase)runConfiguration).getRunnerParameters().computeProcessWorkingDirectory(env.getProject());
+			final String cwd = runParams.computeProcessWorkingDirectory(env.getProject());
 			currentWorkingDirectory = LocalFileSystem.getInstance().findFileByPath((cwd));
 
 			executionResult = state.execute(env.getExecutor(), this);
@@ -116,7 +120,7 @@ public class CucumberDartRunner extends GenericProgramRunner {
 			}
 
 			debuggingHost = null;
-			observatoryPort = ((DartCommandLineRunningState)state).getObservatoryPort();
+			observatoryPort = ((CucumberDartRunningTestState)state).myObservatoryPort;
 		} else {
 			LOG.error("Unexpected run configuration: " + runConfiguration.getClass().getName());
 			return null;

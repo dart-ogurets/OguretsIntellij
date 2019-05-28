@@ -78,7 +78,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
 	public static final String DART_FRAMEWORK_NAME = "cucumber";
 	public static final String DART_VM_OPTIONS_ENV_VAR = "DART_VM_OPTIONS";
   private final Collection<Filter> myConsoleFilters = new ArrayList<>();
-  private int myObservatoryPort;
+  public int myObservatoryPort;
   protected final @NotNull
   CucumberDartRunnerParameters myRunnerParameters;
   private final Collection<Consumer<String>> myObservatoryUrlConsumers = new ArrayList<>();
@@ -390,7 +390,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
     if (myRunnerParameters.isCheckedModeOrEnableAsserts()) {
       commandLine.addParameter("--enable-asserts");
     }
-    
+    vmOptions.forEach(commandLine::addParameter);
+
     commandLine.addParameter(FileUtil.toSystemDependentName(dartFile.getPath()));
   }
 
@@ -406,24 +407,10 @@ public class CucumberDartRunningTestState extends CommandLineState {
     return DartSdkUtil.getDartExePath(sdk);
 	}
 
-	protected void addVmOption(@NotNull final GeneralCommandLine commandLine, @NotNull final String option) {
-		final String arguments = StringUtil.notNullize(myRunnerParameters.getArguments());
-		if (DefaultRunExecutor.EXECUTOR_ID.equals(getEnvironment().getExecutor().getId()) &&
-			option.startsWith("--enable-vm-service:") &&
-			(arguments.startsWith("-p ") || arguments.contains(" -p "))) {
-			// When we start browser-targeted tests then there are 2 dart processes spawned: parent (pub) and child (tests).
-			// If we add --enable-vm-service option to the DART_VM_OPTIONS env var then it will apply for both processes and will obviously
-			// fail for the child process (because the port will be already occupied by the parent one).
-			// Setting --enable-vm-service option for the parent process doesn't make much sense, so we skip it.
-			return;
-		}
+	protected List<String> vmOptions = new ArrayList<>();
 
-		String options = commandLine.getEnvironment().get(DART_VM_OPTIONS_ENV_VAR);
-		if (StringUtil.isEmpty(options)) {
-			commandLine.getEnvironment().put(DART_VM_OPTIONS_ENV_VAR, option == null ? "" : option);
-		} else if (!options.contains(option)) {
-			commandLine.getEnvironment().put(DART_VM_OPTIONS_ENV_VAR, options + " " + option);
-		}
+	protected void addVmOption(@NotNull final GeneralCommandLine commandLine, @NotNull final String option) {
+    this.vmOptions.add(option);
 	}
 
 	CucumberDartRunnerParameters getParameters() {

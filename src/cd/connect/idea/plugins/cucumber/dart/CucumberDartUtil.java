@@ -29,6 +29,7 @@ import com.intellij.util.CommonProcessors;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.psi.DartMetadata;
 import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
+import com.jetbrains.lang.dart.psi.DartStringLiteralExpression;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.MapParameterTypeManager;
@@ -38,9 +39,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.jetbrains.plugins.cucumber.CucumberUtil.STANDARD_PARAMETER_TYPES;
-import static org.jetbrains.plugins.cucumber.MapParameterTypeManager.DEFAULT;
 
 public class CucumberDartUtil {
   public static final String PARAMETER_TYPE_CLASS = "io.cucumber.cucumberexpressions.ParameterType";
@@ -53,12 +51,26 @@ public class CucumberDartUtil {
   private static final Pattern PARENTHESIS = Pattern.compile("\\(([^)]+)\\)");
   private static final Pattern ALPHA = Pattern.compile("[a-zA-Z]+");
 
+  public static final Map<String, String> STANDARD_PARAMETER_TYPES;
+  public static final MapParameterTypeManager DEFAULT;
+
   static {
+    Map<String, String> standardParameterTypes = new HashMap<>();
+    standardParameterTypes.put("int", "-?\\d+");
+    standardParameterTypes.put("float", "-?\\d*[.,]?\\d+");
+    standardParameterTypes.put("word", "[^\\s]+");
+    standardParameterTypes.put("string", "\"(?:[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*)\"|'(?:[^'\\\\]*(?:\\\\.[^'\\\\]*)*)'");
+    standardParameterTypes.put("", "(.*)");
+
+    STANDARD_PARAMETER_TYPES = Collections.unmodifiableMap(standardParameterTypes);
+
     Map<String, String> dartParameterTypes = new HashMap<>();
     // only add the things that aren't there
     dartParameterTypes.put("double", STANDARD_PARAMETER_TYPES.get("float"));
 
     DART_PARAMETER_TYPES = Collections.unmodifiableMap(dartParameterTypes);
+
+    DEFAULT = new MapParameterTypeManager(STANDARD_PARAMETER_TYPES);
   }
 
   /**
@@ -121,8 +133,8 @@ public class CucumberDartUtil {
       CucumberJavaAnnotationProvider.STEP_MARKERS.contains(meta.getReferenceExpression().getFirstChild().getText());
   }
 
-  public static boolean isTextOfCucumberAnnotation(PsiElement d) {
-    return d.getParent() != null && d.getParent().getParent() != null && d.getParent().getParent().getParent() != null &&
+  public static boolean isTextOfCucumberAnnotation(DartStringLiteralExpression d) {
+    return d != null && d.getParent() != null && d.getParent().getParent() != null && d.getParent().getParent().getParent() != null &&
       d.getParent().getParent().getParent() instanceof DartMetadata;
   }
 

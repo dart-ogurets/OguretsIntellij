@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <idea-plugin>
-  <id>cucumber-dart</id>
-  <name>Cucumber for Dart</name>
+  <id>cogurets</id>
+  <name>Ogurets - Cucumber for Dart</name>
   <description>
       <![CDATA[
       This plugin enables <a href="http://cukes.info/">Cucumber</a> support with step definitions written in Dart.
@@ -10,12 +10,13 @@
           <li>Code completion.</li>
           <li>Search for usages.</li>
           <li>Run configurations</li>
+          <li>Debugging</li>
         </ul>
       ]]>
    </description>
   <depends>gherkin</depends>
   <depends>Dart</depends>
-  <vendor>ClearPoint NZ</vendor>
+  <vendor>Irina &amp; Richard</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
 	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>

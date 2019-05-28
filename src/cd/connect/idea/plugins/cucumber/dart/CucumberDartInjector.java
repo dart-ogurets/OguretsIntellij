@@ -33,7 +33,7 @@ public class CucumberDartInjector implements MultiHostInjector {
       DartStringLiteralExpression d = (DartStringLiteralExpression)element;
 
       // ensure we are a string literal inside a support annotation and we aren't using cucumber 3 style expressions
-      if (d.getText() != null && !d.getText().contains("{") && CucumberDartUtil.isTextOfCucumberAnnotation(element)) {
+      if (d.getText() != null && !d.getText().contains("{") && CucumberDartUtil.isTextOfCucumberAnnotation(d)) {
         DartMetadata meta = (DartMetadata)d.getParent().getParent().getParent();
         if (CucumberDartUtil.isDartMetadataCucumberAnnotation(meta)) {
           int rangeStart = (element.getText().startsWith("r")) ? 2 : 1; // raw
