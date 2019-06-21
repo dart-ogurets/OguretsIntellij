@@ -2,16 +2,24 @@
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart</name>
+	<version>1.0.0</version>
   <description>
       <![CDATA[
-      This plugin enables <a href="http://cukes.info/">Cucumber</a> support with step definitions written in Dart.
-        The following coding assistance features are available:
+      <p>This plugin enables Cucumber and Gherkin support with step definitions written in Dart.</p>
+      <p>  The following coding assistance features are available:</p>
         <ul>
           <li>Code completion.</li>
           <li>Search for usages.</li>
           <li>Run configurations</li>
           <li>Debugging</li>
         </ul>
+
+      <p>It is available on Github (source) at Ogurets <a href="https://github.com/dart-ogurets/OguretsIntellij">Intellij</a>.</p>
+      <p>It is written and developed by</p>
+      <ul>
+        <li>Irina Southwell (nee ?????????? ?????), <a href="https://www.linkedin.com/in/irina-southwell-9727a422/">Principal Engineer</a></li>
+        <li>Richard Vowles, <a href="https://www.linkedin.com/in/richard-vowles-72035193/">Software Developer</a></li>
+      </ul>
       ]]>
    </description>
   <depends>gherkin</depends>

@@ -28,6 +28,28 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   private TestType testType;
   @Nullable
   private String flutterObservatoryUrl;
+  @Nullable
+  private String buildFlavour;
+  @Nullable
+  private String deviceId;
+
+  @Nullable
+  public String getBuildFlavour() {
+    return buildFlavour;
+  }
+
+  public void setBuildFlavour(@Nullable String buildFlavour) {
+    this.buildFlavour = buildFlavour;
+  }
+
+  @Nullable
+  public String getDeviceId() {
+    return deviceId;
+  }
+
+  public void setDeviceId(@Nullable String deviceId) {
+    this.deviceId = deviceId;
+  }
 
   @NotNull
   public Scope getCucumberScope() {
@@ -102,25 +124,6 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     this.testType = testType;
   }
 
-//  @Nullable
-//  @Override
-//  public String getVMOptions() {
-//    String extra = (flutterEnabled && flutterObservatoryUrl != null && flutterObservatoryUrl.length() > 0) ? (" --observe:" + flutterObservatoryUrl) : "";
-//    String vmOptions = super.getVMOptions();
-//    if (vmOptions != null) {
-//      // if it is already there, remove it
-//      if (vmOptions.contains("--observe") || vmOptions.contains("null")) {
-//        vmOptions = Arrays.stream(vmOptions.split(" ")).filter(s -> !s.startsWith("--observe") && s.equals("null") ).collect(Collectors.joining(" "));
-//      }
-//
-//      vmOptions += extra;
-//    } else {
-//      vmOptions = extra.trim();
-//    }
-//
-//    return vmOptions;
-//  }
-
   // how do i make this a property that is not persisted?
   public static boolean isFlutterDriverExecutable(CucumberDartRunnerParameters runnerParameters) {
     return runnerParameters.getDartFilePath() != null &&
@@ -154,6 +157,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     env.remove("CUCUMBER_FOLDER");
     env.remove("CUCUMBER");
     env.remove("CUCUMBER_SCENARIO");
+
     if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
       env.put("CUCUMBER_FOLDER", myRunnerParameters.getCucumberFilePath());
       env.put("CUCUMBER", "FOLDER");
@@ -172,6 +176,27 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
     } else {
       env.remove("VM_SERVICE_URL");
     }
+    
+    p.setDeviceId(getDeviceId());
+    p.setBuildFlavour(getBuildFlavour());
+
+    if (p.getBuildFlavour() != null) {
+      env.put("OGURETS_FLUTTER_FLAVOUR", p.getBuildFlavour());
+    } else {
+      env.remove("OGURETS_FLUTTER_FLAVOUR");
+    }
+
+    if (p.getDeviceId() != null) {
+      env.put("OGURETS_FLUTTER_DEVICE_ID", p.getDeviceId());
+    } else {
+      env.remove("OGURETS_FLUTTER_DEVICE_ID");
+    }
+
+    if (p.getTestRunnerOptions() != null) {
+      env.put("OGURETS_ADDITIONAL_ARGUMENTS", getTestRunnerOptions());
+    } else {
+      env.remove("OGURETS_ADDITIONAL_ARGUMENTS");
+    }
 
     return p;
   }
@@ -184,8 +209,15 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
   // this is checking to ensure that we are a valid run config
   @Override
   public void check(@NotNull Project project) throws RuntimeConfigurationError {
-    DartSdk sdk = DartSdk.getDartSdk(project);
-    if (sdk == null) {
+    try {
+      DartSdk sdk = DartSdk.getDartSdk(project);
+      if (sdk == null) {
+        throw new RuntimeConfigurationError(DartBundle.message("dart.sdk.is.not.configured", new Object[0]), () -> {
+          DartConfigurable.openDartSettings(project);
+        });
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
       throw new RuntimeConfigurationError(DartBundle.message("dart.sdk.is.not.configured", new Object[0]), () -> {
         DartConfigurable.openDartSettings(project);
       });

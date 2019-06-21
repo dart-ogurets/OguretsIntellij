@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="cd.connect.idea.plugins.cucumber.dart.steps.run.ui.CucumberDartConfigurationEditorForm">
-  <grid id="27dc6" binding="myMainPanel" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="myMainPanel" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="565" height="362"/>
+      <xy x="20" y="20" width="565" height="378"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -33,7 +33,7 @@
       </component>
       <component id="3cabe" class="com.intellij.execution.configuration.EnvironmentVariablesComponent" binding="myEnvironmentVariables">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <labelLocation value="West"/>
@@ -49,7 +49,7 @@
       </component>
       <vspacer id="f1014">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="ad4e9" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="myDirField">
@@ -67,23 +67,6 @@
           <text value="Feature &amp;folder:"/>
         </properties>
       </component>
-      <component id="5a822" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <labelFor value="5ac1f"/>
-          <text value="Ogu&amp;rets options:"/>
-        </properties>
-      </component>
-      <component id="5ac1f" class="javax.swing.JTextField" binding="myOguretsOptionsField">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="2ecce" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="myDartFile">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -92,7 +75,7 @@
       </component>
       <component id="bd223" class="javax.swing.JLabel" binding="observatoryUrlLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <labelFor value="274f5"/>
@@ -109,7 +92,7 @@
       </component>
       <component id="274f5" class="javax.swing.JTextField" binding="txtObservatoryUrl">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -133,6 +116,57 @@
           <icon value="cd/connect/idea/plugins/cucumber/icons8-cucumber-48.png"/>
           <text value=""/>
         </properties>
+      </component>
+      <component id="df5cd" class="javax.swing.JTextField" binding="myBuildFlavour">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="5798" class="javax.swing.JLabel" binding="lblBuildFlavour">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <labelFor value="df5cd"/>
+          <text value="Flutter Build Flavour"/>
+        </properties>
+      </component>
+      <component id="13fa5" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <labelFor value="99380"/>
+          <text value="Flutter Device ID"/>
+        </properties>
+      </component>
+      <component id="99380" class="javax.swing.JTextField" binding="myDeviceId">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="5a822" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <labelFor value="5ac1f"/>
+          <text value="Flutter Run Options:"/>
+        </properties>
+      </component>
+      <component id="5ac1f" class="javax.swing.JTextField" binding="myFlutterOptionsField">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

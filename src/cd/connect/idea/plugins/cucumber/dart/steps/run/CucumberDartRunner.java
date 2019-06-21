@@ -69,7 +69,7 @@ public class CucumberDartRunner extends GenericProgramRunner {
 
 			final RunProfile runConfig = env.getRunProfile();
 			if (state instanceof CucumberDartRunningTestState && runConfig instanceof DartRunConfigurationBase &&
-				DartAnalysisServerService.getInstance(env.getProject()).serverReadyForRequest(env.getProject())) {
+				DartAnalysisServerService.getInstance(env.getProject()).serverReadyForRequest()) {
 			  CucumberDartRunnerParameters runParams =  ((CucumberDartRunningTestState)state).myRunnerParameters;
 				String path = runParams.getDartFilePath();
         if (path == null) {

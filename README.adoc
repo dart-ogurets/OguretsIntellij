@@ -19,3 +19,32 @@ and if it detects Flutter, it will also support Flutter FlutterDriver tests.
 - _Irina Southwell (nee Капрельянц Ирина)_, Principal Engineer (https://www.linkedin.com/in/irina-southwell-9727a422/)
 - _Richard Vowles_, Software Developer (https://www.linkedin.com/in/richard-vowles-72035193/)
 
+
+=== when developing
+
+ensure you get the intellij-plugins github repo, and then swap to your version of intellij. My tag as of writing is
+
+`git checkout idea/191.7479.19`
+
+this ensures your code is written against the write version of the libs.
+
+You need to add cucumber (gherkin) to your project and then add those modules as dependencies to cucumber-dart. You cannot
+add Dart as it's dependencies make it unusable.
+
+get your plugins directory so you can get Dart
+
+ln -s /Users/<your-name>/Library/Application\ Support/IntelliJIdea2019.1 ~/projects/dart/cucumber-dart/plugins
+
+and run the maven build in the repo so it downloads the dependencies
+
+mvn dependency:tree
+
+and then:
+
+ln -s ~/.m2/repository/io/cucumber ~/projects/dart/cucumber-dart/cucumber-io
+
+and add the jars referred to in the pom.
+
+Make sure all of these dependencies are _provided_. Thats important if they are included in the plugin when
+you run it in the IDE all hell breaks loose because they are already core to even the community edition, so you
+end up with two of them and nothing works. Especially run configurations.

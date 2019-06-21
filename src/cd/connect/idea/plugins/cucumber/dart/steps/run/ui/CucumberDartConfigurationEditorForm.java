@@ -36,13 +36,16 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
   private JLabel myOguretsMainFileNameLabel;
   private JLabel observatoryUrlLabel;
   private JTextField myDartFileNameField;
-  private JTextField myOguretsOptionsField;
+  private JTextField myFlutterOptionsField;
   private EnvironmentVariablesComponent myEnvironmentVariables;
   private TextFieldWithBrowseButton myDartFile;
   private JLabel scenarioLabel;
   private JTextField txtObservatoryUrl;
   private JLabel jOgurets;
   private JLabel cucumberIcon;
+  private JTextField myBuildFlavour;
+  private JLabel lblBuildFlavour;
+  private JTextField myDeviceId;
   private CucumberDartRunnerParameters.Scope scope;
   private boolean flutterEnabled;
 
@@ -105,10 +108,13 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 
 //    myDartFileNameField.setText(
 //      parameters.getCucumberScope() != FOLDER ? StringUtil.notNullize(parameters.getNameFilter()) : "");
-    myOguretsOptionsField.setText(parameters.getTestRunnerOptions());
+    myFlutterOptionsField.setText(parameters.getTestRunnerOptions());
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
     txtObservatoryUrl.setText(parameters.getFlutterObservatoryUrl() == null ? "" : parameters.getFlutterObservatoryUrl());
+    
+    myDeviceId.setText(parameters.getDeviceId() == null ? "" : parameters.getDeviceId());
+    myBuildFlavour.setText(parameters.getBuildFlavour() == null ? "" : parameters.getBuildFlavour());
 
     flutterEnabled = configuration.getRunnerParameters().isFlutterEnabled();
 
@@ -125,9 +131,13 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     TextFieldWithBrowseButton pathSource = scope == CucumberDartRunnerParameters.Scope.FOLDER ? myDirField : myFileField;
     parameters.setDartFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(myDartFile.getText().trim())));
     parameters.setCucumberFilePath(StringUtil.nullize(FileUtil.toSystemIndependentName(pathSource.getText().trim())));
-    parameters.setTestRunnerOptions(StringUtil.nullize(myOguretsOptionsField.getText().trim()));
+    parameters.setTestRunnerOptions(StringUtil.nullize(myFlutterOptionsField.getText().trim()));
     parameters.setEnvs(myEnvironmentVariables.getEnvs());
     parameters.setIncludeParentEnvs(myEnvironmentVariables.isPassParentEnvs());
+    String buildFlavour = myBuildFlavour.getText().trim();
+    parameters.setBuildFlavour(buildFlavour.length() == 0 ? null : buildFlavour);
+    String deviceId = myDeviceId.getText().trim();
+    parameters.setDeviceId(deviceId.length() == 0 ? null : deviceId);
     String url = txtObservatoryUrl.getText().trim();
     parameters.setFlutterObservatoryUrl( url.length() > 0 ? url : null);
   }
@@ -142,6 +152,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myScenario.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     scenarioLabel.setVisible(scope == CucumberDartRunnerParameters.Scope.SCENARIO);
     txtObservatoryUrl.setEnabled(flutterEnabled);
+    myFlutterOptionsField.setEnabled(flutterEnabled);
+    myBuildFlavour.setEnabled(flutterEnabled);
+    myDeviceId.setEnabled(flutterEnabled);
   }
 
   private void onTestDirChanged(Project project) {
