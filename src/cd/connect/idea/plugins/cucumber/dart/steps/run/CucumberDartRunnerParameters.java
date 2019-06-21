@@ -155,6 +155,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
 
     Map<String, String> env  = p.getEnvs();
     env.remove("CUCUMBER_FOLDER");
+    env.remove("CUCUMBER_FEATURE");
     env.remove("CUCUMBER");
     env.remove("CUCUMBER_SCENARIO");
 
@@ -162,10 +163,18 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
       env.put("CUCUMBER_FOLDER", myRunnerParameters.getCucumberFilePath());
       env.put("CUCUMBER", "FOLDER");
     } else if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FEATURE) {
-      env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      if (myRunnerParameters.getCucumberFilePath() != null) {
+        env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      } else {
+        env.remove("CUCUMBER_FEATURE");
+      }
       env.put("CUCUMBER", "FEATURE");
     } else { // if (myRunnerParameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.SCENARIO) {
-      env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      if (myRunnerParameters.getCucumberFilePath() != null) {
+        env.put("CUCUMBER_FEATURE", myRunnerParameters.getCucumberFilePath());
+      } else {
+        env.remove("CUCUMBER_FEATURE");
+      }
       env.put("CUCUMBER_SCENARIO", myRunnerParameters.getNameFilter());
       env.put("CUCUMBER", "SCENARIO");
     }
