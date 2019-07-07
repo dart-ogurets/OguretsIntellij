@@ -2,7 +2,8 @@
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart</name>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
+	<idea-version since-build="191.7479"/>
   <description>
       <![CDATA[
       <p>This plugin enables Cucumber and Gherkin support with step definitions written in Dart.</p>
