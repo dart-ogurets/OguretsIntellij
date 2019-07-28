@@ -20,13 +20,13 @@ public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRun
     final GherkinFeature feature = PsiTreeUtil.getParentOfType(element, GherkinFeature.class);
 
     if (feature != null && feature.getFeatureName() != null && feature.getFeatureName().trim().length() > 0) {
-      return "Dart Feature: " + feature.getFeatureName().trim();
+      return "Ogurets: " + feature.getFeatureName().trim();
     }
 
     final VirtualFile featureFile = getFileToRun(context);
     
     assert featureFile != null;
-    return "Dart Feature: " + featureFile.getNameWithoutExtension();
+    return "Ogurets: " + featureFile.getNameWithoutExtension();
   }
 
   @Nullable

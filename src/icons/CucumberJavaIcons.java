@@ -14,6 +14,6 @@ public final class CucumberJavaIcons {
     return IconLoader.getIcon(path, CucumberJavaIcons.class);
   }
 
-  /** 16x16 */ public static final Icon CucumberJavaRunConfiguration = load("/cd/connect/idea/plugins/cucumber/icons8-cucumber-16.png");
-  public static final Icon DartTest = load("/cd/connect/idea/plugins/cucumber/icons8-cucumber-16.png");
+  /** 16x16 */ public static final Icon CucumberJavaRunConfiguration = load("/cd/connect/idea/plugins/cucumber/ogurets-icon-16.png");
+  public static final Icon DartTest = load("/cd/connect/idea/plugins/cucumber/ogurets-icon-16.png");
 }

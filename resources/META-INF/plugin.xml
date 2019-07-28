@@ -2,7 +2,7 @@
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart</name>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<idea-version since-build="191.7479"/>
   <description>
       <![CDATA[
@@ -23,6 +23,13 @@
       </ul>
       ]]>
    </description>
+	<change-notes>
+		<![CDATA[
+		  <ul>
+		    <li>2019-07-28 - Updated to allow running features inside non test directories and without any dependencies other than Ogurets.</li>
+		  <ul/>
+      ]]>
+	</change-notes>
   <depends>gherkin</depends>
   <depends>Dart</depends>
   <vendor>Irina &amp; Richard</vendor>

@@ -215,6 +215,10 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
         psiDirectory = psiDirectory.getParent(); // found the features directory
       }
 
+      if (psiDirectory == null) {
+        psiDirectory = featureFile.getContainingDirectory();
+      }
+
       PsiDirectory stepDefs = Arrays.stream(psiDirectory.getSubdirectories())
         .filter(sd -> sd.getName().equals("steps"))
         .findFirst()

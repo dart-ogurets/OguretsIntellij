@@ -32,7 +32,7 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
     final PsiElement sourceElement = context.getPsiLocation();
     final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
 
-    return "Dart Scenario: " + (scenario != null ? scenario.getScenarioName() : "");
+    return "Ogurets: " + (scenario != null ? scenario.getScenarioName() : "");
   }
 
   @Nullable

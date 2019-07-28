@@ -113,7 +113,7 @@
         <properties>
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="4"/>
-          <icon value="cd/connect/idea/plugins/cucumber/icons8-cucumber-48.png"/>
+          <icon value="cd/connect/idea/plugins/cucumber/ogurets-icon-48.png"/>
           <text value=""/>
         </properties>
       </component>

@@ -207,14 +207,12 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     if (isFileInTestDirAndTestPackageExists(project, file, "package:flutter_test/flutter_test.dart", "test")) {
       params.setFlutterEnabled(true);
       params.setTestType(CucumberDartRunnerParameters.TestType.Test);
-    } else if (isFileInTestDirAndTestPackageExists(project, file, "package:test/test.dart", "test")) {
-      params.setFlutterEnabled(false);
-      params.setTestType(CucumberDartRunnerParameters.TestType.Test);
     } else if (isFileInTestDirAndTestPackageExists(project, file, "package:flutter_driver/flutter_driver.dart", "test_driver")) {
       params.setFlutterEnabled(true);
       params.setTestType(CucumberDartRunnerParameters.TestType.Integration);
     } else {
-      return false;
+      params.setFlutterEnabled(false);
+      params.setTestType(CucumberDartRunnerParameters.TestType.Test);
     }
 
     return true;
@@ -279,6 +277,13 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
         createRunFile(testDirectory, OGURETS_FLUTTER_RUNNER, config, testDir);
         runFile = createRunFile(testDirectory, OGURETS_FLUTTER_TEST_RUNNER, config, testDir);
         return runFile;
+      } else if (rootDir != null) { // it isn't in 'test' or 'test_driver', so stick it in the same dir as the feature folder
+        VirtualFile featureFolder = featureFileOrDir.getParent();
+        collectStepdefs(config, featureFolder);
+        // now we have to recreate the single ogurets_run.dart file
+        PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(featureFolder);
+        runFile = createRunFile(testDirectory, OGURETS_DART_RUNNER, config, featureFolder);
+
       }
     }
 
