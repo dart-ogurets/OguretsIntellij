@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="full reformat with dartfmt as per recommendations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/AbstractDartStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/AbstractDartStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberDartReferenceContributor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaParameterPomTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaParameterTypeReference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/reference/CucumberJavaReferenceProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberDartMethodUsageSearcher.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/ogurets_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/ogurets_flutter.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" afterDir="false" />
@@ -172,7 +161,7 @@
       <workItem from="1564383746348" duration="3407000" />
       <workItem from="1564387972857" duration="54000" />
       <workItem from="1564389247594" duration="35000" />
-      <workItem from="1564389297133" duration="322000" />
+      <workItem from="1564389297133" duration="442000" />
     </task>
     <task id="LOCAL-00001" summary="full support for build flavours, device ids and general additional&#10;parameters">
       <created>1561098805379</created>
@@ -244,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564292013817</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixing the plugin for IDEA 2019.2">
+      <created>1564389662343</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1564389662343</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -293,7 +289,8 @@
     <MESSAGE value="- updated to 1.0.4&#10;- new icon&#10;- allow it to run anywhere" />
     <MESSAGE value="- too much print logging&#10;- run by scenario name stopped working because of tags" />
     <MESSAGE value="missed one print statement" />
-    <option name="LAST_COMMIT_MESSAGE" value="missed one print statement" />
+    <MESSAGE value="fixing the plugin for IDEA 2019.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing the plugin for IDEA 2019.2" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
