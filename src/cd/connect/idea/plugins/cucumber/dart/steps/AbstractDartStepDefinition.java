@@ -4,8 +4,6 @@ import cd.connect.idea.plugins.cucumber.dart.CucumberDartUtil;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiParameter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.ParameterTypeManager;
@@ -46,15 +44,7 @@ public abstract class AbstractDartStepDefinition extends AbstractStepDefinition 
 
   @Override
   public List<String> getVariableNames() {
-    PsiElement element = getElement();
-    if (element instanceof PsiMethod) {
-      PsiParameter[] parameters = ((PsiMethod)element).getParameterList().getParameters();
-      ArrayList<String> result = new ArrayList<>();
-      for (PsiParameter parameter : parameters) {
-        result.add(parameter.getName());
-      }
-      return result;
-    }
+//    PsiElement element = getElement();
     return Collections.emptyList();
   }
 }

@@ -1,5 +1,6 @@
 package cd.connect.idea.plugins.cucumber.dart.steps;
 
+import cd.connect.idea.plugins.cucumber.dart.CucumberDartUtil;
 import com.intellij.ide.actions.CreateFileAction;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateDescriptor;
@@ -10,25 +11,18 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Ref;
-import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiClassOwner;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
 import com.intellij.util.ObjectUtils;
 import com.jetbrains.lang.dart.util.DartUrlResolver;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.AbstractStepDefinitionCreator;
-import cd.connect.idea.plugins.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.plugins.cucumber.CucumberBundle;
-import org.jetbrains.plugins.cucumber.CucumberUtil;
 import org.jetbrains.plugins.cucumber.psi.GherkinStep;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 import static cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationProducer.isFileInTestDirAndTestPackageExists;
@@ -241,21 +235,11 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
     return ObjectUtils.assertNotNull(featureFile.getParent());
   }
 
-  @NotNull
-  @Override
-  public String getStepDefinitionFilePath(@NotNull final PsiFile file) {
-    final VirtualFile vFile = file.getVirtualFile();
-    if (file instanceof PsiClassOwner && vFile != null) {
-      String packageName = ((PsiClassOwner)file).getPackageName();
-      if (StringUtil.isEmptyOrSpaces(packageName)) {
-        return vFile.getNameWithoutExtension();
-      }
-      else {
-        return vFile.getNameWithoutExtension() + " (" + packageName + ")";
-      }
-    }
-    return file.getName();
-  }
+//  @NotNull
+//  @Override
+//  public String getStepDefinitionFilePath(@NotNull final PsiFile file) {
+//    return file.getName();
+//  }
 
   public static String processGeneratedStepDefinition(@NotNull String stepDefinition, @NotNull PsiElement context) {
     return stepDefinition

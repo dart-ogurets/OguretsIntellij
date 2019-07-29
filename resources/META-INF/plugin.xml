@@ -2,8 +2,8 @@
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart</name>
-	<version>1.0.4</version>
-	<idea-version since-build="191.7479"/>
+	<version>1.1.0</version>
+	<idea-version since-build="192.5728"/>
   <description>
       <![CDATA[
       <p>This plugin enables Cucumber and Gherkin support with step definitions written in Dart.</p>
@@ -26,6 +26,7 @@
 	<change-notes>
 		<![CDATA[
 		  <ul>
+		    <li>2019-07-29 - Removed dependency on java cucumber version that 2019.2 was complaining about.
 		    <li>2019-07-28 - Updated to allow running features inside non test directories and without any dependencies other than Ogurets.</li>
 		  <ul/>
       ]]>
@@ -37,31 +38,12 @@
   <extensions defaultExtensionNs="com.intellij">
 	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>
     <referencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
-    <methodReferencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberDartMethodUsageSearcher"/>
 	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
 	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
 	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
 	  <configurationType implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
-	  <!--
-    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaFeatureRunConfigurationProducer"/>
-    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaScenarioRunConfigurationProducer"/>
-    <runConfigurationProducer implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaAllFeaturesInFolderRunConfigurationProducer"/>
-    <configurationType implementation="org.jetbrains.plugins.cucumber.dart.run.CucumberJavaRunConfigurationType"/>
-    -->
-
     <implicitUsageProvider implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
-
-	  <!--
-    <localInspection language="Dart" shortName="CucumberJavaStepDefClassIsPublic" displayName="Step definition class is not public"
-                     groupBundle="org.jetbrains.plugins.cucumber.CucumberBundle" groupKey="cucumber.inspection.group.name" enabledByDefault="true"
-                     level="WARNING" implementationClass="org.jetbrains.plugins.cucumber.dart.inspections.CucumberJavaStepDefClassIsPublicInspections"/>
-    <localInspection language="Dart" shortName="CucumberJavaStepDefClassInDefaultPackage" displayName="Step definition class is in default package"
-                     groupBundle="org.jetbrains.plugins.cucumber.CucumberBundle" groupKey="cucumber.inspection.group.name" enabledByDefault="true"
-                     level="WARNING" implementationClass="org.jetbrains.plugins.cucumber.dart.inspections.CucumberJavaStepDefClassInDefaultPackageInspection"/>
-     -->
-
     <multiHostInjector implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartInjector"/>
-    <psi.referenceContributor implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberDartReferenceContributor"/>
   </extensions>
 
   <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">

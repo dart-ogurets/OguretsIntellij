@@ -1,31 +1,16 @@
 package cd.connect.idea.plugins.cucumber.dart;
 
 import cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberJavaAnnotationProvider;
-import com.intellij.find.findUsages.JavaFindUsagesHelper;
-import com.intellij.find.findUsages.JavaMethodFindUsagesOptions;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.JavaPsiFacade;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiConstantEvaluationHelper;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiExpression;
-import com.intellij.psi.PsiExpressionList;
 import com.intellij.psi.PsiManager;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiNewExpression;
-import com.intellij.psi.SmartPointerManager;
-import com.intellij.psi.SmartPsiElementPointer;
-import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.CachedValueProvider;
 import com.intellij.psi.util.CachedValuesManager;
-import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.util.PsiModificationTracker;
-import com.intellij.usageView.UsageInfo;
-import com.intellij.util.CommonProcessors;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.psi.DartMetadata;
 import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
@@ -181,53 +166,12 @@ public class CucumberDartUtil {
 
   @NotNull
   private static MapParameterTypeManager doGetAllParameterTypes(@NotNull Module module) {
-    final GlobalSearchScope dependenciesScope = module.getModuleWithDependenciesAndLibrariesScope(true);
-    CommonProcessors.CollectProcessor<UsageInfo> processor = new CommonProcessors.CollectProcessor<>();
-    JavaMethodFindUsagesOptions options = new JavaMethodFindUsagesOptions(dependenciesScope);
-
-    PsiClass parameterTypeClass = ClassUtil.findPsiClass(PsiManager.getInstance(module.getProject()), PARAMETER_TYPE_CLASS);
-    if (parameterTypeClass != null) {
-      for (PsiMethod constructor: parameterTypeClass.getConstructors()) {
-        JavaFindUsagesHelper.processElementUsages(constructor, options, processor);
-      }
-    }
-
-    SmartPointerManager smartPointerManager = SmartPointerManager.getInstance(module.getProject());
     Map<String, String> values = new HashMap<>();
-    Map<String, SmartPsiElementPointer<PsiElement>> declarations = new HashMap<>();
-    for (UsageInfo ui: processor.getResults()) {
-      PsiElement element = ui.getElement();
-      if (element != null && element.getParent() instanceof PsiNewExpression) {
-        PsiNewExpression newExpression = (PsiNewExpression)element.getParent();
-        PsiExpressionList arguments = newExpression.getArgumentList();
-        if (arguments != null) {
-          PsiExpression[] expressions = arguments.getExpressions();
-          if (expressions.length > 1) {
-            PsiConstantEvaluationHelper evaluationHelper = JavaPsiFacade.getInstance(module.getProject()).getConstantEvaluationHelper();
-
-            Object constantValue = evaluationHelper.computeConstantExpression(expressions[0], false);
-            if (constantValue == null) {
-              continue;
-            }
-            String name = constantValue.toString();
-
-            constantValue = evaluationHelper.computeConstantExpression(expressions[1], false);
-            if (constantValue == null) {
-              continue;
-            }
-            String value = constantValue.toString();
-            values.put(name, value);
-
-            SmartPsiElementPointer<PsiElement> smartPointer = smartPointerManager.createSmartPsiElementPointer(expressions[0]);
-            declarations.put(name, smartPointer);
-          }
-        }
-      }
-    }
 
     values.putAll(STANDARD_PARAMETER_TYPES);
     values.putAll(DART_PARAMETER_TYPES);
-    return new MapParameterTypeManager(values, declarations);
+
+    return new MapParameterTypeManager(values);
   }
 
   /**

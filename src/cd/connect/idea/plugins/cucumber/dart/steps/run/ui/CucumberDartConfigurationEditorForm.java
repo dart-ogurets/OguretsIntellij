@@ -4,6 +4,7 @@ package cd.connect.idea.plugins.cucumber.dart.steps.run.ui;
 import cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfiguration;
 import cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunnerParameters;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
+import com.intellij.openapi.editor.event.DocumentAdapter;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
@@ -14,9 +15,7 @@ import com.intellij.openapi.util.registry.Registry;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.ui.DocumentAdapter;
-import com.intellij.ui.JBColor;
-import com.intellij.util.ui.UIUtil;
+import com.intellij.structuralsearch.plugin.ui.UIUtil;
 import com.jetbrains.lang.dart.DartBundle;
 import com.jetbrains.lang.dart.ide.runner.server.ui.DartCommandLineConfigurationEditorForm;
 import com.jetbrains.lang.dart.util.PubspecYamlUtil;
@@ -24,6 +23,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 public class CucumberDartConfigurationEditorForm extends SettingsEditor<CucumberDartRunConfiguration> {
 
@@ -61,9 +62,19 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
         FileChooserDescriptorFactory.createSingleFolderDescriptor());
       myDartFile.addActionListener(e -> onTestDirChanged(project));
 
-      final DocumentAdapter dirListener = new DocumentAdapter() {
+      final DocumentListener dirListener = new DocumentListener() {
         @Override
-        protected void textChanged(@NotNull final DocumentEvent e) {
+        public void insertUpdate(DocumentEvent e) {
+
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
           onTestDirChanged(project);
         }
       };
@@ -159,12 +170,12 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 
   private void onTestDirChanged(Project project) {
     if (!isDirApplicable(myDirField.getText(), project)) {
-      myDirField.getTextField().setForeground(JBColor.RED);
+      myDirField.getTextField().setForeground(Color.RED);
       final String message = DartBundle.message("test.dir.not.in.project");
       myDirField.getTextField().setToolTipText(message);
     }
     else {
-      myDirField.getTextField().setForeground(UIUtil.getFieldForegroundColor());
+      myDirField.getTextField().setForeground(Color.WHITE);
       myDirField.getTextField().setToolTipText(null);
     }
   }
