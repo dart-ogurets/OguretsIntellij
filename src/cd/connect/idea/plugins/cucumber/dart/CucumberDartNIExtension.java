@@ -123,10 +123,4 @@ public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
   public StepDefinitionCreator getStepDefinitionCreator() {
     return new DartStepDefinitionCreator();
   }
-
-  @NotNull
-  @Override
-  public Collection<String> getGlues(@NotNull GherkinFile file, Set<String> gluesFromOtherFiles) {
-    return gluesFromOtherFiles == null ? new HashSet<>() : gluesFromOtherFiles;
-  }
 }
