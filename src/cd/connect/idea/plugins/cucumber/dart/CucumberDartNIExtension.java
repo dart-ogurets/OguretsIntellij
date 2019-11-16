@@ -112,6 +112,11 @@ public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
     return isStepLikeFile(child, parent);
   }
 
+  @Override
+  public Collection<String> getGlues(@NotNull GherkinFile file, Set<String> gluesFromOtherFiles) {
+    return gluesFromOtherFiles == null ? new HashSet<>() : gluesFromOtherFiles;
+  }
+
   @NotNull
   @Override
   public BDDFrameworkType getStepFileType() {

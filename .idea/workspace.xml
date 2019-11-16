@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="full reformat with dartfmt as per recommendations">
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/ogurets_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/ogurets_flutter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/snippets/ParamSnippet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartSnippet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartSnippet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberJavaStepDefinitionSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/search/CucumberJavaStepDefinitionSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/snippets/SnippetGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/snippets/SnippetGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +32,7 @@
       <list>
         <option value="ogurets_flutter" />
         <option value="ogurets_flutter_test" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -58,11 +65,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20000003" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../ogurets/example/samples" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -103,6 +115,11 @@
       <option name="testType" value="Integration" />
       <method v="2" />
     </configuration>
+    <configuration name="tests in samples.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/../ogurets/example/test/samples.dart" />
+      <option name="testName" value="samples.dart" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -128,6 +145,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Test.tests in samples.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -161,7 +183,22 @@
       <workItem from="1564383746348" duration="3407000" />
       <workItem from="1564387972857" duration="54000" />
       <workItem from="1564389247594" duration="35000" />
-      <workItem from="1564389297133" duration="442000" />
+      <workItem from="1564389297133" duration="1109000" />
+      <workItem from="1564567054666" duration="343000" />
+      <workItem from="1564644608398" duration="1756000" />
+      <workItem from="1564735947667" duration="72000" />
+      <workItem from="1564736059549" duration="2809000" />
+      <workItem from="1564806424285" duration="11000" />
+      <workItem from="1567397079347" duration="39000" />
+      <workItem from="1568192144902" duration="4636000" />
+      <workItem from="1568354394901" duration="11893000" />
+      <workItem from="1568415861879" duration="1530000" />
+      <workItem from="1568875265519" duration="588000" />
+      <workItem from="1569470401465" duration="5013000" />
+      <workItem from="1571103840504" duration="741000" />
+      <workItem from="1571104823261" duration="975000" />
+      <workItem from="1572897191619" duration="1477000" />
+      <workItem from="1573888461856" duration="3879000" />
     </task>
     <task id="LOCAL-00001" summary="full support for build flavours, device ids and general additional&#10;parameters">
       <created>1561098805379</created>
@@ -240,16 +277,63 @@
       <option name="project" value="LOCAL" />
       <updated>1564389662343</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="remove deprecated thingy">
+      <created>1564389813868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1564389813868</updated>
+    </task>
+    <task id="LOCAL-00013" summary="support app restarts on Android">
+      <created>1568264387402</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568264387402</updated>
+    </task>
+    <task id="LOCAL-00014" summary="support for beforestep/afterstep, documentation, tests in examples&#10;for functionality.">
+      <created>1568369246057</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1568369246057</updated>
+    </task>
+    <task id="LOCAL-00015" summary="bit more for the readme">
+      <created>1568446673157</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1568446673157</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ready to update to 3.1.6">
+      <created>1569533389227</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1569533389227</updated>
+    </task>
+    <task id="LOCAL-00017" summary="open up intl version">
+      <created>1572897360561</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1572897360561</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Dart_Scenario__Counter_test_is_run_again - 2019.06.21 at 18h 27m 48s.xml">
-      <configuration name="Dart Scenario: Counter test is run again" configurationId="CucumberDartRunConfigurationType" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -290,15 +374,23 @@
     <MESSAGE value="- too much print logging&#10;- run by scenario name stopped working because of tags" />
     <MESSAGE value="missed one print statement" />
     <MESSAGE value="fixing the plugin for IDEA 2019.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing the plugin for IDEA 2019.2" />
+    <MESSAGE value="remove deprecated thingy" />
+    <MESSAGE value="support app restarts on Android" />
+    <MESSAGE value="support for beforestep/afterstep, documentation, tests in examples&#10;for functionality." />
+    <MESSAGE value="bit more for the readme" />
+    <MESSAGE value="ready to update to 3.1.6" />
+    <MESSAGE value="open up intl version" />
+    <option name="LAST_COMMIT_MESSAGE" value="open up intl version" />
   </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateCodeFragment">
-      <expression>
-        <expression-string>element.getContainingFile()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-    </expressions>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java</url>
+          <line>252</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

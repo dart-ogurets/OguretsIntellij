@@ -40,9 +40,9 @@ public class SnippetGenerator {
 
 	private static final String REGEXP_HINT = "Write code here that turns the phrase above into concrete actions";
 
-	private final Snippet snippet;
+	private final ParamSnippet snippet;
 
-	public SnippetGenerator(Snippet snippet) {
+	public SnippetGenerator(ParamSnippet snippet) {
 		this.snippet = snippet;
 	}
 
@@ -52,7 +52,7 @@ public class SnippetGenerator {
 			keyword,
 			snippet.escapePattern(patternFor(step.getText())),
 			functionName(step.getText(), functionNameGenerator),
-			snippet.arguments(argumentTypes(step)),
+			snippet.paramArguments(argumentTypes(step)),
 			REGEXP_HINT,
 			!step.getArgument().isEmpty() && step.getArgument().get(0) instanceof PickleTable ? snippet.tableHint() : ""
 		);
@@ -99,10 +99,9 @@ public class SnippetGenerator {
 		return sb.toString();
 	}
 
-
-	private List<Class<?>> argumentTypes(PickleStep step) {
+	private List<ParamSnippet.ArgumentParam> argumentTypes(PickleStep step) {
 		String name = step.getText();
-		List<Class<?>> argTypes = new ArrayList<Class<?>>();
+		List<ParamSnippet.ArgumentParam> argTypes = new ArrayList<>();
 		Matcher[] matchers = new Matcher[argumentPatterns().length];
 		for (int i = 0; i < argumentPatterns().length; i++) {
 			matchers[i] = argumentPatterns()[i].pattern().matcher(name);
@@ -115,9 +114,19 @@ public class SnippetGenerator {
 				Matcher m = matchers[i].region(pos, name.length());
 				if (m.lookingAt()) {
 					Class<?> typeForSignature = argumentPatterns()[i].type();
-					argTypes.add(typeForSignature);
+          matchedLength = m.group().length();
 
-					matchedLength = m.group().length();
+          String pName = name.subSequence(pos, pos + matchedLength).toString();
+
+          final ParamSnippet.ArgumentParam.Builder param = new ParamSnippet.ArgumentParam.Builder().clazz(typeForSignature);
+          if (pName.startsWith("\"<")) {
+            param.name(pName.substring(2, pName.length() - 2));
+          } else if (pName.startsWith("<")) {
+            param.name(pName.substring(1, pName.length() - 1));
+          } 
+
+          argTypes.add(param.build());
+
 					break;
 				}
 			}
@@ -131,10 +140,10 @@ public class SnippetGenerator {
 		if (!step.getArgument().isEmpty()) {
 			Argument arg = step.getArgument().get(0);
 			if (arg instanceof PickleString) {
-				argTypes.add(String.class);
+				argTypes.add(new ParamSnippet.ArgumentParam.Builder().clazz(String.class).build());
 			}
 			if (arg instanceof PickleTable) {
-				argTypes.add(DataTable.class);
+				argTypes.add(new ParamSnippet.ArgumentParam.Builder().clazz(DataTable.class).build());
 			}
 		}
 		return argTypes;

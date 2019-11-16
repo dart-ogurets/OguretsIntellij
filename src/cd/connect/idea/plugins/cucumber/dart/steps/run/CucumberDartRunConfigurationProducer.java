@@ -259,6 +259,8 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
     config.project = project;
     config.features = featureFileOrDir.getPath().substring(rootDir.getPath().length()+1);
 
+    // we can be a sub-folder in a project and thus this gets complicated, quickly.
+
     VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
     PsiFile runFile = null;
     if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
@@ -278,7 +280,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
         runFile = createRunFile(testDirectory, OGURETS_FLUTTER_TEST_RUNNER, config, testDir);
         return runFile;
       } else if (rootDir != null) { // it isn't in 'test' or 'test_driver', so stick it in the same dir as the feature folder
-        VirtualFile featureFolder = featureFileOrDir.getParent();
+        VirtualFile featureFolder = featureFileOrDir.getParent().getParent();
         collectStepdefs(config, featureFolder);
         // now we have to recreate the single ogurets_run.dart file
         PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(featureFolder);

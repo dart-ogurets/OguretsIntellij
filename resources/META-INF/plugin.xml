@@ -2,7 +2,7 @@
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart</name>
-	<version>1.1.0</version>
+	<version>1.1.2</version>
 	<idea-version since-build="192.5728"/>
   <description>
       <![CDATA[
@@ -18,7 +18,6 @@
       <p>It is available on Github (source) at Ogurets <a href="https://github.com/dart-ogurets/OguretsIntellij">Intellij</a>.</p>
       <p>It is written and developed by</p>
       <ul>
-        <li>Irina Southwell, <a href="https://www.linkedin.com/in/irina-southwell-9727a422/">Principal Engineer</a></li>
         <li>Richard Vowles, <a href="https://www.linkedin.com/in/richard-vowles-72035193/">Software Developer</a></li>
       </ul>
       ]]>
@@ -26,14 +25,16 @@
 	<change-notes>
 		<![CDATA[
 		  <ul>
-		    <li>2019-07-29 - Removed dependency on java cucumber version that 2019.2 was complaining about.
+		    <li>1.1.2 - IDEA exception around read exception. </li>
+		    <li>2019-08-02 - when the tests are in a non flutter top level project, the root folder checking for "test" or "test-driver" doesn't work.</li>
+		    <li>2019-07-29 - Removed dependency on java cucumber version that 2019.2 was complaining about.</li>
 		    <li>2019-07-28 - Updated to allow running features inside non test directories and without any dependencies other than Ogurets.</li>
 		  <ul/>
       ]]>
 	</change-notes>
   <depends>gherkin</depends>
   <depends>Dart</depends>
-  <vendor>Irina &amp; Richard</vendor>
+  <vendor>Richard Vowles</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
 	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>
