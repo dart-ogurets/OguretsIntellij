@@ -125,9 +125,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
       return LocalFileSystem.getInstance().findFileByPath(myFilePath);
     }
 
-    if (myFilePath == null) {
-      myFilePath = "unknown.dart";
-    }
+    myFilePath = "unknown.dart";
 
     if (dartFile == null) {
       throw new RuntimeConfigurationError(DartBundle.message("dart.file.not.found", FileUtil.toSystemDependentName(myFilePath)));

@@ -306,7 +306,6 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
   public static void collectStepdefs(RunfileConfig config, VirtualFile testDir) {
     int offsetLength = testDir.getPath().length()+1;
 
-
     VfsUtilCore.visitChildrenRecursively(testDir, new VirtualFileVisitor<VirtualFile>() {
       @Override
       public boolean visitFile(@NotNull VirtualFile f) {
@@ -320,7 +319,7 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
             if (classes.size() > 0) {
               String importPath = f.getPath().substring(offsetLength);
               // import the file with an alias
-              String fileAlias = f.getName().substring(0, f.getName().length() - 5);
+              String fileAlias = toDartFileAlias(f.getName().substring(0, f.getName().length() - 5));
               // basePath already has a / at the end
               config.imports.add(String.format("import '%s' as %s;", importPath, fileAlias));
 
@@ -331,6 +330,21 @@ abstract public class CucumberDartRunConfigurationProducer extends RunConfigurat
         return true;
       }
     });
+  }
+
+  // dart wants it file aliases as underscores, ref: Effective Dart
+  private static String toDartFileAlias(String fileAlias) {
+    StringBuilder dartFileAlias = new StringBuilder();
+    for(char c : fileAlias.toCharArray()) {
+      if (Character.isUpperCase(c)) {
+        dartFileAlias.append("_");
+      }
+      dartFileAlias.append(Character.toLowerCase(c));
+    }
+
+    String alias = dartFileAlias.toString();
+
+    return alias.startsWith("_") ? alias.substring(1) : alias;
   }
 
   private final static String OGURETS_DART_RUNNER = "ogurets_run.dart";
