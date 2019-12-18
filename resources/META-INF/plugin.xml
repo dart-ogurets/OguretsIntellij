@@ -38,7 +38,7 @@
 	<depends>com.intellij.modules.platform</depends>
 	<depends>com.intellij.modules.lang</depends>
 	<depends>com.intellij.modules.xdebugger</depends>
-  <vendor>Richard Vowles & Irina Southwell</vendor>
+  <vendor>Richard Vowles &amp; Irina Southwell</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
 	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>
