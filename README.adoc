@@ -48,3 +48,7 @@ and add the jars referred to in the pom.
 Make sure all of these dependencies are _provided_. Thats important if they are included in the plugin when
 you run it in the IDE all hell breaks loose because they are already core to even the community edition, so you
 end up with two of them and nothing works. Especially run configurations.
+
+==== using latest IDEA
+
+`ln -s "/Applications/IntelliJ IDEA.app/Contents/plugins" current-idea-plugins`

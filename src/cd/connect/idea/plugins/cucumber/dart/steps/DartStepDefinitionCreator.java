@@ -27,7 +27,7 @@ import static com.jetbrains.lang.dart.util.DartElementGenerator.createDummyFile;
 public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 
   @Override
-  public boolean createStepDefinition(@NotNull GherkinStep step, @NotNull PsiFile file) {
+  public boolean createStepDefinition(@NotNull GherkinStep step, @NotNull PsiFile file, boolean withTemplate) {
     if (!(file instanceof DartFile)) return false;
 
     final DartClassDefinition clazz = PsiTreeUtil.getChildOfType(file, DartClassDefinition.class);
@@ -94,7 +94,7 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 
 
   private static PsiElement buildStepDefinitionByStep(@NotNull final GherkinStep step, Language language) {
-    final PickleStep cucumberStep = new PickleStep(step.getStepName(), new ArrayList<>(), new ArrayList<>());
+    final PickleStep cucumberStep = new PickleStep(step.getName(), new ArrayList<>(), new ArrayList<>());
 //    final Step cucumberStep = new Step(new ArrayList<>(), step.getKeyword().getText(), step.getStepName(), 0, null, null);
     final SnippetGenerator generator = new SnippetGenerator(new DartSnippet());
 

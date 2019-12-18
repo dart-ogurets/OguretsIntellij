@@ -45,9 +45,10 @@ public class CucumberDartRunConfiguration extends DartRunConfigurationBase {
   }
 
   @Override
+  @SuppressWarnings("unchecked")
   public RunConfiguration clone() {
     CucumberDartRunConfiguration c = (CucumberDartRunConfiguration)super.clone();
-    c.parameters = (CucumberDartRunnerParameters)parameters.clone();
+    c.parameters = parameters.clone();
     return c;
   }
 }

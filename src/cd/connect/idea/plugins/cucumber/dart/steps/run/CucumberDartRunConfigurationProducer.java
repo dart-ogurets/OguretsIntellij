@@ -2,12 +2,13 @@ package cd.connect.idea.plugins.cucumber.dart.steps.run;
 
 import com.intellij.execution.Location;
 import com.intellij.execution.actions.ConfigurationContext;
-import com.intellij.execution.actions.RunConfigurationProducer;
+import com.intellij.execution.actions.LazyRunConfigurationProducer;
+import com.intellij.execution.configurations.ConfigurationFactory;
+import com.intellij.execution.configurations.ConfigurationTypeUtil;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateDescriptor;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.fileTemplates.FileTemplateUtil;
-import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
@@ -37,9 +38,12 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-abstract public class CucumberDartRunConfigurationProducer extends RunConfigurationProducer<CucumberDartRunConfiguration> {
-  public CucumberDartRunConfigurationProducer() {
-    super(CucumberDartRunConfigurationType.class);
+abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfigurationProducer<CucumberDartRunConfiguration> {
+
+  @NotNull
+  @Override
+  public ConfigurationFactory getConfigurationFactory() {
+    return ConfigurationTypeUtil.findConfigurationType(CucumberDartRunConfigurationType.class).getConfigurationFactories()[0];
   }
 
   @Override

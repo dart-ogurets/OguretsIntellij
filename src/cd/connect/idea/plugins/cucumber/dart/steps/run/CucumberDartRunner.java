@@ -134,7 +134,7 @@ public class CucumberDartRunner extends GenericProgramRunner {
 					executionResult,
 					dartUrlResolver,
 					dasExecutionContextId,
-					runConfiguration instanceof DartRemoteDebugConfiguration,
+					runConfiguration instanceof DartRemoteDebugConfiguration ? DartVmServiceDebugProcess.DebugType.REMOTE : DartVmServiceDebugProcess.DebugType.CLI,
 					getTimeout(),
 					currentWorkingDirectory);
 			}

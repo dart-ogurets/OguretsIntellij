@@ -33,9 +33,6 @@ import java.util.List;
 import java.util.Set;
 
 public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
-
-
-
   @Override
   protected void loadStepDefinitionRootsFromLibraries(Module module, List<PsiDirectory> roots, Set<String> directories) {
   }
@@ -110,11 +107,6 @@ public class CucumberDartNIExtension extends NotIndexedCucumberExtension {
   @Override
   public boolean isWritableStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
     return isStepLikeFile(child, parent);
-  }
-
-  @Override
-  public Collection<String> getGlues(@NotNull GherkinFile file, Set<String> gluesFromOtherFiles) {
-    return gluesFromOtherFiles == null ? new HashSet<>() : gluesFromOtherFiles;
   }
 
   @NotNull

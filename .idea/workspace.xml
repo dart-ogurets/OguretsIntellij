@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="full reformat with dartfmt as per recommendations">
-      <change afterPath="$PROJECT_DIR$/src/com/google/common/primitives/Primitives.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ogurets/analysis_options.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ogurets_flutter/analysis_options.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="updated code formatting for ogurets&#10;&#10;clean up using pedantic">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/README.adoc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/CucumberDartNIExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/DartStepDefinitionCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunningTestState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/bin/cucumberd.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/bin/cucumberd.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/ogurets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/ogurets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/ogurets_core.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/ogurets_core.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/gherkin_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/gherkin_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/feature.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/feature.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/runtime.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/runtime.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/scenario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/scenario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/scenario_session.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/scenario_session.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/step.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/step.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/model/table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/model/table.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/output/console_buffer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/output/console_buffer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/output/formatter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/output/formatter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/output/output.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/output/output.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/status/status.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/status/status.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/lib/src/task.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/lib/src/task.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_autorun.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_ogurets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_ogurets.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" afterDir="false" />
@@ -82,6 +66,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/target/production/cucumber-dart/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.class" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.6" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ogurets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -241,7 +226,9 @@
       <workItem from="1575922676077" duration="323000" />
       <workItem from="1576481137964" duration="3336000" />
       <workItem from="1576612941825" duration="39000" />
-      <workItem from="1576612991942" duration="1177000" />
+      <workItem from="1576612991942" duration="6394000" />
+      <workItem from="1576621777915" duration="24000" />
+      <workItem from="1576621822145" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="full support for build flavours, device ids and general additional&#10;parameters">
       <created>1561098805379</created>
@@ -369,7 +356,28 @@
       <option name="project" value="LOCAL" />
       <updated>1573892562629</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update for 1.1.2 released">
+      <created>1576615332507</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1576615332507</updated>
+    </task>
+    <task id="LOCAL-00020" summary="updated version of ogurets flutter with screenshots and extra documentation">
+      <created>1576617734091</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1576617734091</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updated code formatting for ogurets&#10;&#10;clean up using pedantic">
+      <created>1576617926177</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1576617926177</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,6 +421,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="full support for build flavours, device ids and general additional&#10;parameters" />
     <MESSAGE value="bug around null in the environment variable for cucumber_feature" />
     <MESSAGE value="gherkin and cucumber need to be included in the plugin or it doesn't work" />
@@ -431,25 +441,36 @@
     <MESSAGE value="ready to update to 3.1.6" />
     <MESSAGE value="open up intl version" />
     <MESSAGE value="- closes #1 - parameters are now passed through from text if possible&#10;- minor crash" />
-    <option name="LAST_COMMIT_MESSAGE" value="- closes #1 - parameters are now passed through from text if possible&#10;- minor crash" />
+    <MESSAGE value="update for 1.1.2 released" />
+    <MESSAGE value="updated version of ogurets flutter with screenshots and extra documentation" />
+    <MESSAGE value="updated code formatting for ogurets&#10;&#10;clean up using pedantic" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated code formatting for ogurets&#10;&#10;clean up using pedantic" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="803" y="387" width="1219" height="666" key="#Project_Structure" timestamp="1576481822094">
+    <state x="803" y="387" width="1219" height="666" key="#Project_Structure" timestamp="1576621320106">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="803" y="387" width="1219" height="666" key="#Project_Structure/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576481822094" />
+    <state x="803" y="387" width="1219" height="666" key="#Project_Structure/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576621320106" />
     <state x="699" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576611816730">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="699" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576611816730" />
-    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1576615279048">
+    <state x="1047" y="433" key="#com.intellij.ide.util.MemberChooser" timestamp="1576620627106">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576615279048" />
-    <state x="210" y="143" key="DiffContextDialog" timestamp="1576615277927">
+    <state x="1047" y="433" key="#com.intellij.ide.util.MemberChooser/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620627106" />
+    <state x="1250" y="441" width="732" height="558" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1576618582009">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="210" y="143" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576615277927" />
+    <state x="1250" y="441" width="732" height="558" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576618582009" />
+    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1576627330599">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576627330599" />
+    <state x="210" y="143" key="DiffContextDialog" timestamp="1576620621692">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="210" y="143" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620621692" />
     <state width="2405" height="467" key="GridCell.Tab.0.bottom" timestamp="1576612734270">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -530,14 +551,38 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state width="2405" height="467" key="GridCell.Tab.4.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734276" />
-    <state x="743" y="359" key="SettingsEditor" timestamp="1576612981149">
+    <state x="211" y="143" key="MergeDialog" timestamp="1576617772783">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="743" y="359" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612981149" />
-    <state x="606" y="489" width="965" height="528" key="find.popup" timestamp="1576613424055">
+    <state x="211" y="143" key="MergeDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576617772783" />
+    <state x="948" y="444" key="MultipleFileMergeDialog" timestamp="1576617772824">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="606" y="489" width="965" height="528" key="find.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576613424055" />
+    <state x="948" y="444" key="MultipleFileMergeDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576617772824" />
+    <state x="864" y="424" key="NewModule_or_Project.wizard" timestamp="1576619964631">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="864" y="424" key="NewModule_or_Project.wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576619964631" />
+    <state x="743" y="359" key="SettingsEditor" timestamp="1576621802657">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="743" y="359" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576621802657" />
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1576617927615">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576617927615" />
+    <state x="606" y="489" width="965" height="528" key="find.popup" timestamp="1576620716010">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="606" y="489" width="965" height="528" key="find.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620716010" />
+    <state x="803" y="448" key="new project wizard" timestamp="1576618626111">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="803" y="448" key="new project wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576618626111" />
+    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup" timestamp="1576620889331">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620889331" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,7 +594,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java</url>
-          <line>265</line>
+          <line>269</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
