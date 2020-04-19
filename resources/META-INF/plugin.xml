@@ -49,6 +49,7 @@
 	  <configurationType implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
     <implicitUsageProvider implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
     <multiHostInjector implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartInjector"/>
+    <fileBasedIndex implementation="cd.connect.idea.plugins.cucumber.dart.DartCucumberIndex"/>
   </extensions>
 
   <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
