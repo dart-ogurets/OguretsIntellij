@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/build/app/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/../cuke_flutter/build/app/generated/source/buildConfig/buildConfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/cucumber-dart.iml" filepath="$PROJECT_DIR$/cucumber-dart.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/../cuke_flutter/android/app/src/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ogurets_flutter/example/example.iml" filepath="$PROJECT_DIR$/../ogurets_flutter/example/example.iml" />
       <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/cucumber/intellij.gherkin.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/cucumber/intellij.gherkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/../cuke_flutter/android/app/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/merged.iml" filepath="$PROJECT_DIR$/../cuke_flutter/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/merged.iml" />

@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutomaticModuleUnloader">
+    <loaded-modules>
+      <module name="buildConfig" />
+      <module name="main" />
+      <module name="debug" />
+      <module name="PathPackageReferenceInspection" />
+      <module name="UriCompletionByTab" />
+      <module name="merged" />
+      <module name="processDebugResources" />
+      <module name="cucumber-dart" />
+      <module name="profile" />
+      <module name="thirdPartySrc" />
+      <module name="intellij.gherkin" />
+      <module name="ogurets_flutter" />
+      <module name="Dart" />
+      <module name="ogurets" />
+    </loaded-modules>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="updated code formatting for ogurets&#10;&#10;clean up using pedantic">
-      <change afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/FlutterOguretsHelperStepdefs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/lib/flutter_hooks.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/DartCucumberIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cd/connect/idea/plugins/cucumber/dart/DartCucumberIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +43,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="ogurets_flutter" />
-        <option value="ogurets_flutter_test" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="ogurets_flutter" />
+        <option value="ogurets_flutter_test" />
       </list>
     </option>
   </component>
@@ -48,7 +66,6 @@
   <component name="ProjectId" id="1OXSfhy4P1NFxnIkryVHhSPJCVG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -59,6 +76,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/target/production/cucumber-dart/cd/connect/idea/plugins/cucumber/dart/steps/run/CucumberDartRunConfigurationType.class" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.6" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ogurets" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -76,15 +94,16 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../ogurets_flutter/example" />
+      <recent name="$PROJECT_DIR$/../ogurets/example/samples" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../ogurets" />
       <recent name="$PROJECT_DIR$/../ogurets_flutter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../ogurets/example/samples" />
-    </key>
   </component>
-  <component name="RunManager" selected="Plugin.Plugin">
+  <component name="RunManager" selected="Ogurets (Cucumber Dart).Ogurets: counter">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -111,9 +130,23 @@
       <option name="testType" value="Integration" />
       <method v="2" />
     </configuration>
+    <configuration name="Ogurets: counter" type="CucumberDartRunConfigurationType" factoryName="Ogurets (Cucumber Dart)" temporary="true">
+      <option name="cucumberFilePath" value="$PROJECT_DIR$/../ogurets_flutter/example/test_driver/features/counter.feature" />
+      <option name="envs">
+        <entry key="CUCUMBER" value="FEATURE" />
+      </option>
+      <option name="flutterEnabled" value="true" />
+      <option name="nameFilter" value="" />
+      <option name="testType" value="Integration" />
+      <method v="2" />
+    </configuration>
     <configuration name="tests in samples.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/../ogurets/example/test/samples.dart" />
       <option name="testName" value="samples.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/../ogurets_flutter/example/lib/main.dart" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -144,26 +177,17 @@
     </configuration>
     <list>
       <item itemvalue="Dart Test.tests in samples.dart" />
+      <item itemvalue="Flutter.main.dart" />
       <item itemvalue="Ogurets (Cucumber Dart).Dart Scenario: Counter test is run again" />
+      <item itemvalue="Ogurets (Cucumber Dart).Ogurets: counter" />
       <item itemvalue="Plugin.Plugin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Ogurets (Cucumber Dart).Ogurets: counter" />
         <item itemvalue="Dart Test.tests in samples.dart" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -223,7 +247,22 @@
       <workItem from="1576621777915" duration="24000" />
       <workItem from="1576621822145" duration="4393000" />
       <workItem from="1576629333654" duration="162000" />
-      <workItem from="1576629511890" duration="881000" />
+      <workItem from="1576629511890" duration="4227000" />
+      <workItem from="1579319135519" duration="2303000" />
+      <workItem from="1579321533204" duration="3712000" />
+      <workItem from="1580530552117" duration="1217000" />
+      <workItem from="1581397428722" duration="120000" />
+      <workItem from="1581397568866" duration="666000" />
+      <workItem from="1581471722855" duration="735000" />
+      <workItem from="1581623168088" duration="3096000" />
+      <workItem from="1581730356497" duration="130000" />
+      <workItem from="1582673460351" duration="192000" />
+      <workItem from="1582680590665" duration="604000" />
+      <workItem from="1586575287437" duration="5000" />
+      <workItem from="1587256004841" duration="312000" />
+      <workItem from="1587256476670" duration="133000" />
+      <workItem from="1587256622804" duration="612000" />
+      <workItem from="1587626864779" duration="158000" />
     </task>
     <task id="LOCAL-00001" summary="full support for build flavours, device ids and general additional&#10;parameters">
       <created>1561098805379</created>
@@ -386,11 +425,60 @@
       <option name="project" value="LOCAL" />
       <updated>1576627399221</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed plugin validity">
+      <created>1576636050205</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1576636050205</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added in extra functionality for screenshots">
+      <created>1576637299488</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1576637299488</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update back to specific version range of ogurets">
+      <created>1576639853413</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1576639853413</updated>
+    </task>
+    <task id="LOCAL-00027" summary="unconstrain image lib">
+      <created>1576639900612</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1576639900612</updated>
+    </task>
+    <task id="LOCAL-00028" summary="updated documentation">
+      <created>1579325640205</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1579325640205</updated>
+    </task>
+    <task id="LOCAL-00029" summary="shorten description as per requirements">
+      <created>1579330598165</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1579330598165</updated>
+    </task>
+    <task id="LOCAL-00030" summary="supported externalised tags">
+      <created>1581808602104</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1581808602104</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -407,9 +495,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -428,15 +514,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="full support for build flavours, device ids and general additional&#10;parameters" />
-    <MESSAGE value="bug around null in the environment variable for cucumber_feature" />
-    <MESSAGE value="gherkin and cucumber need to be included in the plugin or it doesn't work" />
-    <MESSAGE value="feedback from jetbrains to delete a few things i don't need" />
-    <MESSAGE value="closes issue #3" />
     <MESSAGE value="full reformat with dartfmt as per recommendations" />
     <MESSAGE value="readying 3.1.4 for release with proper tag support" />
     <MESSAGE value="- updated to 1.0.4&#10;- new icon&#10;- allow it to run anywhere" />
@@ -455,145 +537,72 @@
     <MESSAGE value="updated code formatting for ogurets&#10;&#10;clean up using pedantic" />
     <MESSAGE value="updated plugin for IDEA as per feedback" />
     <MESSAGE value="tested against run picked up started issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested against run picked up started issue" />
+    <MESSAGE value="fixed plugin validity" />
+    <MESSAGE value="Added in extra functionality for screenshots" />
+    <MESSAGE value="update back to specific version range of ogurets" />
+    <MESSAGE value="unconstrain image lib" />
+    <MESSAGE value="updated documentation" />
+    <MESSAGE value="shorten description as per requirements" />
+    <MESSAGE value="supported externalised tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="supported externalised tags" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="803" y="387" width="1219" height="666" key="#Project_Structure" timestamp="1576621320106">
+    <state x="965" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579321032160">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="803" y="387" width="1219" height="666" key="#Project_Structure/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576621320106" />
-    <state x="699" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576611816730">
+    <state x="965" y="530" key="#com.intellij.fileTypes.FileTypeChooser/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321032160" />
+    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1581808601950">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="699" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576611816730" />
-    <state x="1047" y="433" key="#com.intellij.ide.util.MemberChooser" timestamp="1576620627106">
+    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1581808601950" />
+    <state x="210" y="143" key="DiffContextDialog" timestamp="1581808592370">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1047" y="433" key="#com.intellij.ide.util.MemberChooser/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620627106" />
-    <state x="1250" y="441" width="732" height="558" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1576618582009">
+    <state x="210" y="143" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1581808592370" />
+    <state width="2405" height="495" key="GridCell.Tab.0.bottom" timestamp="1579330609629">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="1250" y="441" width="732" height="558" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576618582009" />
-    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1576627399105">
+    <state width="2405" height="495" key="GridCell.Tab.0.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609629" />
+    <state width="2405" height="495" key="GridCell.Tab.0.center" timestamp="1579330609628">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576627399105" />
-    <state x="210" y="143" key="DiffContextDialog" timestamp="1576620621692">
+    <state width="2405" height="495" key="GridCell.Tab.0.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609628" />
+    <state width="2405" height="495" key="GridCell.Tab.0.left" timestamp="1579330609627">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="210" y="143" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620621692" />
-    <state width="2405" height="467" key="GridCell.Tab.0.bottom" timestamp="1576612734270">
+    <state width="2405" height="495" key="GridCell.Tab.0.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609627" />
+    <state width="2405" height="495" key="GridCell.Tab.0.right" timestamp="1579330609628">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.0.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734270" />
-    <state width="2405" height="467" key="GridCell.Tab.0.center" timestamp="1576612734269">
+    <state width="2405" height="495" key="GridCell.Tab.0.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609628" />
+    <state x="864" y="424" key="NewModule_or_Project.wizard" timestamp="1579321438153">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.0.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734269" />
-    <state width="2405" height="467" key="GridCell.Tab.0.left" timestamp="1576612734269">
+    <state x="864" y="424" key="NewModule_or_Project.wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321438153" />
+    <state x="789" y="370" key="SettingsEditor" timestamp="1587627022048">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.0.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734269" />
-    <state width="2405" height="467" key="GridCell.Tab.0.right" timestamp="1576612734270">
+    <state x="789" y="370" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587627022048" />
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1581808603444">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.0.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734270" />
-    <state width="2405" height="467" key="GridCell.Tab.1.bottom" timestamp="1576612734272">
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1581808603444" />
+    <state x="606" y="489" width="965" height="528" key="find.popup" timestamp="1587626896633">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.1.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734272" />
-    <state width="2405" height="467" key="GridCell.Tab.1.center" timestamp="1576612734271">
+    <state x="606" y="489" width="965" height="528" key="find.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587626896633" />
+    <state x="956" y="531" key="git4idea.merge.GitPullDialog" timestamp="1587256230976">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.1.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734271" />
-    <state width="2405" height="467" key="GridCell.Tab.1.left" timestamp="1576612734270">
+    <state x="956" y="531" key="git4idea.merge.GitPullDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587256230976" />
+    <state x="992" y="653" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog" timestamp="1579321178442">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.1.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734270" />
-    <state width="2405" height="467" key="GridCell.Tab.1.right" timestamp="1576612734271">
+    <state x="992" y="653" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321178442" />
+    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup" timestamp="1582673518342">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2405" height="467" key="GridCell.Tab.1.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734271" />
-    <state width="2405" height="467" key="GridCell.Tab.2.bottom" timestamp="1576612734273">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.2.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734273" />
-    <state width="2405" height="467" key="GridCell.Tab.2.center" timestamp="1576612734272">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.2.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734272" />
-    <state width="2405" height="467" key="GridCell.Tab.2.left" timestamp="1576612734272">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.2.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734272" />
-    <state width="2405" height="467" key="GridCell.Tab.2.right" timestamp="1576612734273">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.2.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734273" />
-    <state width="2405" height="467" key="GridCell.Tab.3.bottom" timestamp="1576612734275">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.3.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734275" />
-    <state width="2405" height="467" key="GridCell.Tab.3.center" timestamp="1576612734274">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.3.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734274" />
-    <state width="2405" height="467" key="GridCell.Tab.3.left" timestamp="1576612734273">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.3.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734273" />
-    <state width="2405" height="467" key="GridCell.Tab.3.right" timestamp="1576612734274">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.3.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734274" />
-    <state width="2405" height="467" key="GridCell.Tab.4.bottom" timestamp="1576612734276">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.4.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734276" />
-    <state width="2405" height="467" key="GridCell.Tab.4.center" timestamp="1576612734275">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.4.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734275" />
-    <state width="2405" height="467" key="GridCell.Tab.4.left" timestamp="1576612734275">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.4.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734275" />
-    <state width="2405" height="467" key="GridCell.Tab.4.right" timestamp="1576612734276">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="467" key="GridCell.Tab.4.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576612734276" />
-    <state x="211" y="143" key="MergeDialog" timestamp="1576617772783">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="211" y="143" key="MergeDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576617772783" />
-    <state x="948" y="444" key="MultipleFileMergeDialog" timestamp="1576617772824">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="948" y="444" key="MultipleFileMergeDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576617772824" />
-    <state x="864" y="424" key="NewModule_or_Project.wizard" timestamp="1576619964631">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="864" y="424" key="NewModule_or_Project.wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576619964631" />
-    <state x="743" y="359" key="SettingsEditor" timestamp="1576629495328">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="743" y="359" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576629495328" />
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1576627400585">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576627400585" />
-    <state x="606" y="489" width="965" height="528" key="find.popup" timestamp="1576620716010">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="606" y="489" width="965" height="528" key="find.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620716010" />
-    <state x="803" y="448" key="new project wizard" timestamp="1576618626111">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="803" y="448" key="new project wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576618626111" />
-    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup" timestamp="1576620889331">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1576620889331" />
+    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1582673518342" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

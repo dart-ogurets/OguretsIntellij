@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DartCucumberIndex extends CucumberStepIndex {
-    public static final ID<Boolean, List<Integer>> INDEX_ID = ID.create("groovy.cucumber.step");
+    public static final ID<Boolean, List<Integer>> INDEX_ID = ID.create("dart.cucumber.step");
 
     @Override
     protected String[] getPackagesToScan() {
