@@ -19,9 +19,7 @@
     </loaded-modules>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="updated code formatting for ogurets&#10;&#10;clean up using pedantic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ogurets_flutter/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/example/pubspec.yaml" afterDir="false" />
+    <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ogurets_flutter/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +260,7 @@
       <workItem from="1587256622804" duration="612000" />
       <workItem from="1587626864779" duration="158000" />
       <workItem from="1587627038581" duration="284000" />
-      <workItem from="1590313673291" duration="129000" />
+      <workItem from="1590313673291" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="full support for build flavours, device ids and general additional&#10;parameters">
       <created>1561098805379</created>
@@ -481,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587627346650</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="documentation updates">
+      <created>1590313812121</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1590313812121</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +531,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="readying 3.1.4 for release with proper tag support" />
     <MESSAGE value="- updated to 1.0.4&#10;- new icon&#10;- allow it to run anywhere" />
     <MESSAGE value="- too much print logging&#10;- run by scenario name stopped working because of tags" />
     <MESSAGE value="missed one print statement" />
@@ -551,49 +555,30 @@
     <MESSAGE value="shorten description as per requirements" />
     <MESSAGE value="supported externalised tags" />
     <MESSAGE value="release to 1.1.5 to fix clash with groovy cucumber" />
-    <option name="LAST_COMMIT_MESSAGE" value="release to 1.1.5 to fix clash with groovy cucumber" />
+    <MESSAGE value="documentation updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation updates" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="965" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579321032160">
+    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1590313811832">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="965" y="530" key="#com.intellij.fileTypes.FileTypeChooser/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321032160" />
-    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1587627346481">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587627346481" />
+    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590313811832" />
     <state x="210" y="143" key="DiffContextDialog" timestamp="1587627331468">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="210" y="143" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587627331468" />
-    <state width="2405" height="495" key="GridCell.Tab.0.bottom" timestamp="1579330609629">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state x="1168" y="485" width="443" height="252" key="MultipleFileMergeDialog" timestamp="1590314260196">
+      <screen x="0" y="23" width="1920" height="1177" />
     </state>
-    <state width="2405" height="495" key="GridCell.Tab.0.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609629" />
-    <state width="2405" height="495" key="GridCell.Tab.0.center" timestamp="1579330609628">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="495" key="GridCell.Tab.0.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609628" />
-    <state width="2405" height="495" key="GridCell.Tab.0.left" timestamp="1579330609627">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="495" key="GridCell.Tab.0.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609627" />
-    <state width="2405" height="495" key="GridCell.Tab.0.right" timestamp="1579330609628">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="2405" height="495" key="GridCell.Tab.0.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579330609628" />
-    <state x="864" y="424" key="NewModule_or_Project.wizard" timestamp="1579321438153">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="864" y="424" key="NewModule_or_Project.wizard/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321438153" />
+    <state x="1168" y="485" width="443" height="252" key="MultipleFileMergeDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1590314260196" />
     <state x="789" y="370" key="SettingsEditor" timestamp="1587627022048">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="789" y="370" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587627022048" />
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1587627348166">
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1590313813346">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587627348166" />
+    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590313813346" />
     <state x="606" y="489" width="965" height="528" key="find.popup" timestamp="1587626896633">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -602,10 +587,6 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="956" y="531" key="git4idea.merge.GitPullDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587256230976" />
-    <state x="992" y="653" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog" timestamp="1579321178442">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="992" y="653" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1579321178442" />
     <state x="899" y="371" width="670" height="676" key="search.everywhere.popup" timestamp="1582673518342">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
