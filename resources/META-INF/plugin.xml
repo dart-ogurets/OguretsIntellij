@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <idea-plugin>
   <id>cogurets</id>
-  <name>Ogurets - Cucumber for Dart</name>
-	<version>1.1.5</version>
+  <name>Ogurets - Cucumber for Dart - by Blue Biscuit Design</name>
+	<version>1.2.0</version>
 	<idea-version since-build="193.5233"/>
   <description>
       <![CDATA[
@@ -18,6 +18,7 @@
       <p>It is available on Github (source) at Ogurets <a href="https://github.com/dart-ogurets/OguretsIntellij">Intellij</a>.</p>
       <p>It is written and developed by</p>
       <ul>
+        <li>Irina Southwell,<a href="https://www.linkedin.com/in/irina-southwell-9727a422/">Principal Engineer</a></li>
         <li>Richard Vowles, <a href="https://www.linkedin.com/in/richard-vowles-72035193/">Software Developer</a></li>
       </ul>
       ]]>
@@ -40,22 +41,22 @@
 	<depends>com.intellij.modules.platform</depends>
 	<depends>com.intellij.modules.lang</depends>
 	<depends>com.intellij.modules.xdebugger</depends>
-  <vendor>Richard Vowles &amp; Irina Southwell</vendor>
+  <vendor>Blue Biscuit Design</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
-	  <programRunner implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunner"/>
-    <referencesSearch implementation="cd.connect.idea.plugins.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
-	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
-	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
-	  <runConfigurationProducer implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
-	  <configurationType implementation="cd.connect.idea.plugins.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
-    <implicitUsageProvider implementation="cd.connect.idea.plugins.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
-    <multiHostInjector implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartInjector"/>
-    <fileBasedIndex implementation="cd.connect.idea.plugins.cucumber.dart.DartCucumberIndex"/>
+	  <programRunner implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunner"/>
+    <referencesSearch implementation="dev.bluebiscuitdesign.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
+	  <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
+	  <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
+	  <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
+	  <configurationType implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
+    <implicitUsageProvider implementation="dev.bluebiscuitdesign.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
+    <multiHostInjector implementation="dev.bluebiscuitdesign.cucumber.dart.CucumberDartInjector"/>
+    <fileBasedIndex implementation="dev.bluebiscuitdesign.cucumber.dart.DartCucumberIndex"/>
   </extensions>
 
   <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
     <!--<cucumberJvmExtensionPoint implementation="org.jetbrains.plugins.cucumber.dart.CucumberDartExtension"/>-->
-    <cucumberJvmExtensionPoint implementation="cd.connect.idea.plugins.cucumber.dart.CucumberDartNIExtension"/>
+    <cucumberJvmExtensionPoint implementation="dev.bluebiscuitdesign.cucumber.dart.CucumberDartNIExtension"/>
   </extensions>
 </idea-plugin>
