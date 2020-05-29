@@ -112,9 +112,6 @@ public class CucumberDartRunner extends GenericProgramRunner {
 			if (executionResult == null) {
 				return null;
 			}
-
-			debuggingHost = null;
-			observatoryPort = ((CucumberDartRunningTestState)state).myObservatoryPort;
 		} else {
 			LOG.error("Unexpected run configuration: " + runConfiguration.getClass().getName());
 			return null;
@@ -126,17 +123,18 @@ public class CucumberDartRunner extends GenericProgramRunner {
 		final XDebugSession debugSession = debuggerManager.startSession(env, new XDebugProcessStarter() {
 			@Override
 			@NotNull
-			public XDebugProcess start(@NotNull final XDebugSession session) {
-				final DartUrlResolver dartUrlResolver = getDartUrlResolver(env.getProject(), contextFileOrDir);
-				return new DartVmServiceDebugProcess(session,
-					StringUtil.notNullize(debuggingHost, "localhost"),
-					observatoryPort,
-					executionResult,
-					dartUrlResolver,
-					dasExecutionContextId,
-					runConfiguration instanceof DartRemoteDebugConfiguration ? DartVmServiceDebugProcess.DebugType.REMOTE : DartVmServiceDebugProcess.DebugType.CLI,
-					getTimeout(),
-					currentWorkingDirectory);
+			public XDebugProcess start(@NotNull final XDebugSession session) throws ExecutionException {
+        final DartUrlResolver dartUrlResolver = getDartUrlResolver(env.getProject(), contextFileOrDir);
+        final DartVmServiceDebugProcess.DebugType debugType =  DartVmServiceDebugProcess.DebugType.CLI;
+        DartVmServiceDebugProcess debugProcess = new DartVmServiceDebugProcess(session,
+          executionResult,
+          dartUrlResolver,
+          dasExecutionContextId,
+          debugType,
+          getTimeout(),
+          currentWorkingDirectory);
+        debugProcess.start();
+        return debugProcess;
 			}
 		});
 
