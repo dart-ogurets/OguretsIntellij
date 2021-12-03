@@ -324,6 +324,7 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
               String importPath = f.getPath().substring(offsetLength);
               // import the file with an alias
               String fileAlias = toDartFileAlias(f.getName().substring(0, f.getName().length() - 5));
+              fileAlias = fileAlias.replaceAll(".", "_");
               // basePath already has a / at the end
               config.imports.add(String.format("import '%s' as %s;", importPath, fileAlias));
 
