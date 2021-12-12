@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
 <idea-plugin>
   <id>cogurets</id>
   <name>Ogurets - Cucumber for Dart - by Blue Biscuit Design</name>
-	<version>1.2.0</version>
-	<idea-version since-build="193.5233"/>
+	<version>1.3.0</version>
+	<idea-version since-build="213.5744"/>
   <description>
       <![CDATA[
       <p>This plugin enables Cucumber and Gherkin support with step definitions written in Dart.</p>
@@ -16,11 +15,6 @@
         </ul>
 
       <p>It is available on Github (source) at Ogurets <a href="https://github.com/dart-ogurets/OguretsIntellij">Intellij</a>.</p>
-      <p>It is written and developed by</p>
-      <ul>
-        <li>Irina Southwell,<a href="https://www.linkedin.com/in/irina-southwell-9727a422/">Principal Engineer</a></li>
-        <li>Richard Vowles, <a href="https://www.linkedin.com/in/richard-vowles-72035193/">Software Developer</a></li>
-      </ul>
       ]]>
    </description>
 	<change-notes>
@@ -33,6 +27,7 @@
 		    <li>2019-08-02 - when the tests are in a non flutter top level project, the root folder checking for "test" or "test-driver" doesn't work.</li>
 		    <li>2019-07-29 - Removed dependency on java cucumber version that 2019.2 was complaining about.</li>
 		    <li>2019-07-28 - Updated to allow running features inside non test directories and without any dependencies other than Ogurets.</li>
+		    <li>1.3.0 - support for 213 and fixing issue from user</li>
 		  <ul/>
       ]]>
 	</change-notes>

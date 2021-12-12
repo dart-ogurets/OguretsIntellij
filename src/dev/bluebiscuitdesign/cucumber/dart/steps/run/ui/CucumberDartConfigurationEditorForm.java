@@ -1,6 +1,9 @@
 // Copyright 2000-2018 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
 package dev.bluebiscuitdesign.cucumber.dart.steps.run.ui;
 
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
 import dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfiguration;
 import dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunnerParameters;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
@@ -108,8 +111,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     String cukeFilePath = FileUtil.toSystemDependentName(StringUtil.notNullize(parameters.getCucumberFilePath()));
     if (parameters.getCucumberScope() == CucumberDartRunnerParameters.Scope.FOLDER) {
       myDirField.setText(cukeFilePath);
-    }
-    else {
+    } else {
       myFileField.setText(cukeFilePath);
     }
 
@@ -121,7 +123,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     myEnvironmentVariables.setEnvs(parameters.getEnvs());
     myEnvironmentVariables.setPassParentEnvs(parameters.isIncludeParentEnvs());
     txtObservatoryUrl.setText(parameters.getFlutterObservatoryUrl() == null ? "" : parameters.getFlutterObservatoryUrl());
-    
+
     myDeviceId.setText(parameters.getDeviceId() == null ? "" : parameters.getDeviceId());
     myBuildFlavour.setText(parameters.getBuildFlavour() == null ? "" : parameters.getBuildFlavour());
 
@@ -148,7 +150,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     String deviceId = myDeviceId.getText().trim();
     parameters.setDeviceId(deviceId.length() == 0 ? null : deviceId);
     String url = txtObservatoryUrl.getText().trim();
-    parameters.setFlutterObservatoryUrl( url.length() > 0 ? url : null);
+    parameters.setFlutterObservatoryUrl(url.length() > 0 ? url : null);
   }
 
   private void onScopeChanged() {
@@ -171,8 +173,7 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
       myDirField.getTextField().setForeground(Color.RED);
       final String message = DartBundle.message("test.dir.not.in.project");
       myDirField.getTextField().setToolTipText(message);
-    }
-    else {
+    } else {
       myDirField.getTextField().setForeground(Color.WHITE);
       myDirField.getTextField().setToolTipText(null);
     }
@@ -188,4 +189,5 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
     final VirtualFile file = LocalFileSystem.getInstance().findFileByPath(path);
     return file != null && file.isDirectory() && PubspecYamlUtil.findPubspecYamlFile(project, file) != null;
   }
+
 }

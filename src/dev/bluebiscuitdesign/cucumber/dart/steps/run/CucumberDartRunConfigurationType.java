@@ -9,6 +9,7 @@ import com.intellij.psi.search.FileTypeIndex;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.jetbrains.lang.dart.DartFileType;
 import icons.CucumberJavaIcons;
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 public class CucumberDartRunConfigurationType extends ConfigurationTypeBase {
@@ -26,6 +27,12 @@ public class CucumberDartRunConfigurationType extends ConfigurationTypeBase {
   public static class DartTestConfigurationFactory extends ConfigurationFactory {
     protected DartTestConfigurationFactory(CucumberDartRunConfigurationType type) {
       super(type);
+    }
+
+    @Override
+    public @NotNull
+    @NonNls String getId() {
+      return "Ogurets (Cucumber Dart)";
     }
 
     @Override

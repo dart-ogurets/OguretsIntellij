@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/Dart.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/Dart.iml" />
-      <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/testData/highlighting/PathPackageReferenceInspection/PathPackageReferenceInspection.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/testData/highlighting/PathPackageReferenceInspection/PathPackageReferenceInspection.iml" />
-      <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/testData/analysisServer/completion/UriCompletionByTab/UriCompletionByTab.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/testData/analysisServer/completion/UriCompletionByTab/UriCompletionByTab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/build/app/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/../cuke_flutter/build/app/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/Dart.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/Dart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/testData/highlighting/PathPackageReferenceInspection/PathPackageReferenceInspection.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/testData/highlighting/PathPackageReferenceInspection/PathPackageReferenceInspection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/testData/analysisServer/completion/UriCompletionByTab/UriCompletionByTab.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/testData/analysisServer/completion/UriCompletionByTab/UriCompletionByTab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber/cucumber.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber/cucumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/cucumber-dart.iml" filepath="$PROJECT_DIR$/cucumber-dart.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/../cuke_flutter/android/app/src/debug/debug.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../ogurets_flutter/example/example.iml" filepath="$PROJECT_DIR$/../ogurets_flutter/example/example.iml" />
-      <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/cucumber/intellij.gherkin.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/cucumber/intellij.gherkin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/../cuke_flutter/android/app/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/merged.iml" filepath="$PROJECT_DIR$/../cuke_flutter/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/merged.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" filepath="$PROJECT_DIR$/../intellij-plugins/cucumber-java/intellij.cucumber.java.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ogurets/ogurets.iml" filepath="$PROJECT_DIR$/../ogurets/ogurets.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ogurets_flutter/ogurets_flutter.iml" filepath="$PROJECT_DIR$/../ogurets_flutter/ogurets_flutter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/build/app/generated/not_namespaced_r_class_sources/debug/processDebugResources/processDebugResources.iml" filepath="$PROJECT_DIR$/../cuke_flutter/build/app/generated/not_namespaced_r_class_sources/debug/processDebugResources/processDebugResources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../cuke_flutter/android/app/src/profile/profile.iml" filepath="$PROJECT_DIR$/../cuke_flutter/android/app/src/profile/profile.iml" />
-      <module fileurl="file://$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/thirdPartySrc/thirdPartySrc.iml" filepath="$USER_HOME$/clearpoint/connect/intellij-plugins/Dart/thirdPartySrc/thirdPartySrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../intellij-plugins/Dart/thirdPartySrc/thirdPartySrc.iml" filepath="$PROJECT_DIR$/../intellij-plugins/Dart/thirdPartySrc/thirdPartySrc.iml" />
     </modules>
   </component>
 </project>

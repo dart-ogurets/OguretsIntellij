@@ -323,8 +323,8 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
             if (classes.size() > 0) {
               String importPath = f.getPath().substring(offsetLength);
               // import the file with an alias
-              String fileAlias = toDartFileAlias(f.getName().substring(0, f.getName().length() - 5));
-              fileAlias = fileAlias.replaceAll(".", "_");
+              String fileAlias = toDartFileAlias(f.getName().substring(0, f.getName().length() - 5)).replaceAll("\\.",
+                "_");
               // basePath already has a / at the end
               config.imports.add(String.format("import '%s' as %s;", importPath, fileAlias));
 
@@ -377,10 +377,10 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
       properties.put("FLUTTER_TEST", config.features);
 
       PsiFile file = FileTemplateUtil.createFromTemplate(fileTemplate, template, properties, dir).getContainingFile();
-      VirtualFile virtualFile = file.getVirtualFile();
-      if (virtualFile != null) {
-        FileEditorManager.getInstance(file.getProject()).openFile(virtualFile, true);
-      }
+//      VirtualFile virtualFile = file.getVirtualFile();
+//      if (virtualFile != null) {
+//        FileEditorManager.getInstance(file.getProject()).openFile(virtualFile, true);
+//      }
 
       return file;
     } catch (Exception e) {

@@ -43,18 +43,6 @@ public class CucumberDartInjector implements MultiHostInjector {
       }
     }
 
-    // ((DartMetadataImpl) d.getParent().getParent().getParent()).getReferenceExpression()
-//    if (element instanceof PsiLiteralExpression && element instanceof PsiLanguageInjectionHost && element.getTextLength() > 2) {
-//      final PsiElement firstChild = element.getFirstChild();
-//      if (firstChild != null && firstChild.getNode().getElementType() == JavaTokenType.STRING_LITERAL) {
-//        PsiAnnotation annotation = PsiTreeUtil.getParentOfType(element, PsiAnnotation.class);
-//        if (annotation != null &&
-//            (CucumberDartUtil.isCucumberStepAnnotation(annotation) || CucumberDartUtil.isCucumberHookAnnotation(annotation))) {
-//          final TextRange range = new TextRange(1, element.getTextLength() - 1);
-//          registrar.startInjecting(regexpLanguage).addPlace(null, null, (PsiLanguageInjectionHost)element, range).doneInjecting();
-//        }
-//      }
-//    }
   }
 
   @NotNull

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="AutomaticModuleUnloader">
     <loaded-modules>
       <module name="buildConfig" />
@@ -21,8 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/CucumberDartBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/CucumberDartBundle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/run/CucumberDartRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/run/CucumberDartRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/BaseDartStepDefinitionCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/run/CucumberDartRunConfigurationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_flutter.dart.ft" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_flutter.dart.ft" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_flutter_test.dart.ft" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_flutter_test.dart.ft" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileTemplates/code/ogurets_run.dart.ft" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +43,30 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6P_Android_7.1.1" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="ogurets_flutter" />
         <option value="ogurets_flutter_test" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="kind-local-saas-cluster" />
+    <option name="namespace" value="default" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -57,6 +74,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PhpServers">
     <servers />
@@ -76,35 +96,47 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.6" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ogurets_flutter/example" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/production/cucumber-dart/dev/bluebiscuitdesign/cucumber/dart/steps/run/ui" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.cucumber.cucumber_node_package_dir" value="/usr/local/lib/node_modules/cucumber" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20000003" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="dev.bluebiscuitdesign.cucumber" />
-      <recent name="dev.bluebiscuitdesign.cucumber.dart" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out/production/cucumber-dart/dev/bluebiscuitdesign/cucumber/dart/steps/run/ui" />
       <recent name="$PROJECT_DIR$/../ogurets" />
       <recent name="$PROJECT_DIR$/../ogurets_flutter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/META-INF" />
+      <recent name="$PROJECT_DIR$/resources/META-INF" />
       <recent name="$PROJECT_DIR$/resources/dev/bluebiscuitdesign/idea/plugins/cucumber" />
       <recent name="$PROJECT_DIR$/../ogurets_flutter/example" />
       <recent name="$PROJECT_DIR$/../ogurets/example/samples" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dev.bluebiscuitdesign.cucumber" />
+      <recent name="dev.bluebiscuitdesign.cucumber.dart" />
+    </key>
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$/../ogurets_flutter/example" />
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Plugin.Plugin">
     <configuration default="true" type="Applet">
@@ -163,7 +195,7 @@
       <module name="cucumber-dart" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <alternative-path path="IntelliJ IDEA IU-201.7223.91" alternative-path-enabled="true" />
+      <alternative-path path="IntelliJ IDEA IU-213.5744.223" alternative-path-enabled="true" />
       <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -181,17 +213,15 @@
     <list>
       <item itemvalue="Dart Test.tests in samples.dart" />
       <item itemvalue="Flutter.main.dart" />
-      <item itemvalue="Ogurets (Cucumber Dart).Dart Scenario: Counter test is run again" />
-      <item itemvalue="Ogurets (Cucumber Dart).Ogurets: counter" />
       <item itemvalue="Plugin.Plugin" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Ogurets (Cucumber Dart).Ogurets: counter" />
         <item itemvalue="Dart Test.tests in samples.dart" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fc24734a-7788-4c0b-a770-6cbf9b8ca423" name="Default Changelist" comment="" />
@@ -519,7 +549,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -555,12 +585,10 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fixing the plugin for IDEA 2019.2" />
     <MESSAGE value="remove deprecated thingy" />
     <MESSAGE value="support app restarts on Android" />
     <MESSAGE value="support for beforestep/afterstep, documentation, tests in examples&#10;for functionality." />
@@ -585,144 +613,32 @@
     <MESSAGE value="initial migration" />
     <MESSAGE value="icons are back" />
     <MESSAGE value="prevent example from caring about generated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="prevent example from caring about generated files" />
+    <MESSAGE value="changes for 213" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for 213" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="452" y="203" width="1448" height="837" key="#Project_Structure" timestamp="1590738947868">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="452" y="203" width="1448" height="837" key="#Project_Structure/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590738947868" />
-    <state x="428" y="283" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590738806636">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="428" y="283" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590738806636" />
-    <state x="562" y="543" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1590742745082">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="562" y="543" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590742745082" />
-    <state x="485" y="510" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1590742752007">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="485" y="510" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590742752007" />
-    <state x="612" y="505" width="1311" height="935" key="#xdebugger.evaluate" timestamp="1590737528274">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="612" y="505" width="1311" height="935" key="#xdebugger.evaluate/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590737528274" />
-    <state x="826" y="326" key="CommitChangelistDialog2" timestamp="1590743403232">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="826" y="326" key="CommitChangelistDialog2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743403232" />
-    <state x="210" y="143" width="2048" height="1133" key="DiffContextDialog" timestamp="1590744400589">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="210" y="143" width="2048" height="1133" key="DiffContextDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590744400589" />
-    <state x="1068" y="493" key="FileChooserDialogImpl" timestamp="1590739401006">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="1068" y="493" key="FileChooserDialogImpl/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590739401006" />
-    <state width="1878" height="454" key="GridCell.Tab.0.bottom" timestamp="1590743405811">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.0.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405811" />
-    <state width="1878" height="454" key="GridCell.Tab.0.center" timestamp="1590743405810">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.0.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405810" />
-    <state width="1878" height="454" key="GridCell.Tab.0.left" timestamp="1590743405809">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.0.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405809" />
-    <state width="1878" height="454" key="GridCell.Tab.0.right" timestamp="1590743405811">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.0.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405811" />
-    <state width="1878" height="454" key="GridCell.Tab.1.bottom" timestamp="1590743405812">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.1.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405812" />
-    <state width="1878" height="454" key="GridCell.Tab.1.center" timestamp="1590743405812">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.1.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405812" />
-    <state width="1878" height="454" key="GridCell.Tab.1.left" timestamp="1590743405811">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.1.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405811" />
-    <state width="1878" height="454" key="GridCell.Tab.1.right" timestamp="1590743405812">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.1.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405812" />
-    <state width="1878" height="454" key="GridCell.Tab.2.bottom" timestamp="1590743405813">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.2.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405813" />
-    <state width="1878" height="454" key="GridCell.Tab.2.center" timestamp="1590743405813">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.2.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405813" />
-    <state width="1878" height="454" key="GridCell.Tab.2.left" timestamp="1590743405813">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.2.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405813" />
-    <state width="1878" height="454" key="GridCell.Tab.2.right" timestamp="1590743405813">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.2.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405813" />
-    <state width="1878" height="454" key="GridCell.Tab.3.bottom" timestamp="1590743405814">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.3.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405814" />
-    <state width="1878" height="454" key="GridCell.Tab.3.center" timestamp="1590743405814">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.3.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405814" />
-    <state width="1878" height="454" key="GridCell.Tab.3.left" timestamp="1590743405814">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.3.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405814" />
-    <state width="1878" height="454" key="GridCell.Tab.3.right" timestamp="1590743405814">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.3.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405814" />
-    <state width="1878" height="454" key="GridCell.Tab.4.bottom" timestamp="1590743405815">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.4.bottom/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405815" />
-    <state width="1878" height="454" key="GridCell.Tab.4.center" timestamp="1590743405815">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.4.center/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405815" />
-    <state width="1878" height="454" key="GridCell.Tab.4.left" timestamp="1590743405814">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.4.left/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405814" />
-    <state width="1878" height="454" key="GridCell.Tab.4.right" timestamp="1590743405815">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state width="1878" height="454" key="GridCell.Tab.4.right/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743405815" />
-    <state x="1168" y="485" width="443" height="252" key="MultipleFileMergeDialog" timestamp="1590314260196">
-      <screen x="0" y="23" width="1920" height="1177" />
-    </state>
-    <state x="1168" y="485" width="443" height="252" key="MultipleFileMergeDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1590314260196" />
-    <state x="789" y="370" key="SettingsEditor" timestamp="1590739185215">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="789" y="370" key="SettingsEditor/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590739185215" />
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2" timestamp="1590313813346">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="834" y="462" key="Vcs.Push.Dialog.v2/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590313813346" />
-    <state x="606" y="141" width="965" height="876" key="find.popup" timestamp="1590743943995">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="606" y="141" width="965" height="876" key="find.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743943995" />
-    <state x="956" y="531" key="git4idea.merge.GitPullDialog" timestamp="1587256230976">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="956" y="531" key="git4idea.merge.GitPullDialog/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1587256230976" />
-    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup" timestamp="1590743638713">
-      <screen x="0" y="23" width="2560" height="1417" />
-    </state>
-    <state x="899" y="371" width="670" height="676" key="search.everywhere.popup/2560.23.1680.1027/0.23.2560.1417@0.23.2560.1417" timestamp="1590743638713" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/out/production/cucumber-dart/dev/bluebiscuitdesign/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.class</url>
+          <line>59</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dev/bluebiscuitdesign/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/out/production/cucumber-dart/dev/bluebiscuitdesign/cucumber/dart/steps/run/ui/CucumberDartConfigurationEditorForm.class</url>
+          <line>58</line>
+          <properties class="dev.bluebiscuitdesign.cucumber.dart.steps.run.ui.CucumberDartConfigurationEditorForm">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

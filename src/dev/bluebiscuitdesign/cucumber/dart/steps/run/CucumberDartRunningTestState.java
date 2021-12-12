@@ -58,6 +58,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -292,7 +293,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
 
     final GeneralCommandLine commandLine = new GeneralCommandLine()
       .withWorkDirectory(myRunnerParameters.computeProcessWorkingDirectory(getEnvironment().getProject()));
-    commandLine.setCharset(CharsetToolkit.UTF8_CHARSET);
+    commandLine.setCharset(StandardCharsets.UTF_8);
     commandLine.setExePath(FileUtil.toSystemDependentName(getExePath(sdk)));
     commandLine.getEnvironment().putAll(myRunnerParameters.getEnvs());
     commandLine
