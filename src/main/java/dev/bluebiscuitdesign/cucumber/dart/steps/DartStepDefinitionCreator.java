@@ -15,12 +15,22 @@ import com.jetbrains.lang.dart.psi.DartFile;
 import cucumber.runtime.snippets.CamelCaseConcatenator;
 import cucumber.runtime.snippets.FunctionNameGenerator;
 import dev.bluebiscuitdesign.cucumber.dart.steps.snippets.SnippetGenerator;
-import gherkin.pickles.PickleStep;
+import io.cucumber.messages.types.PickleStep;
+import io.cucumber.messages.types.PickleStepArgument;
+import io.cucumber.messages.types.PickleStepType;
+import io.cucumber.messages.types.PickleTable;
+import io.cucumber.messages.types.PickleTableCell;
+import io.cucumber.messages.types.PickleTableRow;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.psi.GherkinStep;
+import org.jetbrains.plugins.cucumber.psi.GherkinTable;
+import org.jetbrains.plugins.cucumber.psi.GherkinTableCell;
+import org.jetbrains.plugins.cucumber.psi.GherkinTableRow;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static com.jetbrains.lang.dart.util.DartElementGenerator.createDummyFile;
 
@@ -94,19 +104,50 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
 
 
     private static PsiElement buildStepDefinitionByStep(@NotNull final GherkinStep step, Language language) {
-        final PickleStep cucumberStep = new PickleStep(step.getName(), new ArrayList<>(), new ArrayList<>());
+        final PickleStep cucumberStep = getPickleStep(step);
 //    final Step cucumberStep = new Step(new ArrayList<>(), step.getKeyword().getText(), step.getStepName(), 0, null, null);
         final SnippetGenerator generator = new SnippetGenerator(new DartSnippet());
-
-        String snippetTemplate = generator.getSnippet(cucumberStep, step.getKeyword().getText(), new FunctionNameGenerator(new CamelCaseConcatenator()));
+        FunctionNameGenerator functionNameGenerator = new FunctionNameGenerator(new CamelCaseConcatenator());
+        String snippetTemplate = generator.getSnippet(cucumberStep, step.getKeyword().getText(), functionNameGenerator);
         String snippet = processGeneratedStepDefinition(snippetTemplate, step);
 
         PsiElement expression = createMethodFromText(step.getProject(), snippet);
 //    JVMElementFactory factory = JVMElementFactories.requireFactory(language, step.getProject());
 //    PsiElement expression =  factory.createExpressionFromText(snippet, step);
-
-
         return expression;
+    }
+
+    private static PickleStep getPickleStep(GherkinStep gherkinStep) {
+        PickleStepArgument argument = null;
+        GherkinTable gherkinTable = gherkinStep.getTable();
+        if (gherkinTable != null) {
+            List<PickleTableRow> pickleRows = new ArrayList<>();
+            // Table header row
+            List<GherkinTableCell> gherkinHeaderCells = gherkinTable.getHeaderRow() != null ? gherkinTable.getHeaderRow().getPsiCells() : Collections.emptyList();
+            if (!gherkinHeaderCells.isEmpty()) {
+                List<PickleTableCell> pickleCells = new ArrayList<>();
+                for (GherkinTableCell gherkinCell : gherkinHeaderCells) {
+                    pickleCells.add(new PickleTableCell(gherkinCell.getName()));
+                }
+                pickleRows.add(new PickleTableRow(pickleCells));
+            }
+            // Table body rows
+            for (GherkinTableRow gherkinRow : gherkinTable.getDataRows()) {
+                List<PickleTableCell> pickleCells = new ArrayList<>();
+                for (GherkinTableCell gherkinCell : gherkinRow.getPsiCells()) {
+                    pickleCells.add(new PickleTableCell(gherkinCell.getName()));
+                }
+                pickleRows.add(new PickleTableRow(pickleCells));
+            }
+            PickleTable dataTable = new PickleTable(pickleRows);
+            argument = PickleStepArgument.of(dataTable);
+        }
+        List<String> astNodeIds = new ArrayList<>();
+        String id = gherkinStep.getName();
+        PickleStepType type = PickleStepType.ACTION;
+        String text = gherkinStep.getName();
+        PickleStep pickleStep = new PickleStep(argument, astNodeIds, id, type, text);
+        return pickleStep;
     }
 
     @Nullable

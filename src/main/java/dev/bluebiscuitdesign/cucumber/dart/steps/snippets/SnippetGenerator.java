@@ -1,12 +1,10 @@
 package dev.bluebiscuitdesign.cucumber.dart.steps.snippets;
 
-import cucumber.api.DataTable;
 import cucumber.runtime.snippets.ArgumentPattern;
 import cucumber.runtime.snippets.FunctionNameGenerator;
-import gherkin.pickles.Argument;
-import gherkin.pickles.PickleStep;
-import gherkin.pickles.PickleString;
-import gherkin.pickles.PickleTable;
+import io.cucumber.messages.types.PickleStep;
+import io.cucumber.messages.types.PickleStepArgument;
+import org.jetbrains.plugins.cucumber.psi.GherkinTable;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -18,8 +16,8 @@ public class SnippetGenerator {
     private static final ArgumentPattern[] DEFAULT_ARGUMENT_PATTERNS = new ArgumentPattern[]{
             new ArgumentPattern(Pattern.compile("([-+]?\\d+)"), "{int}", Integer.TYPE),
             new ArgumentPattern(Pattern.compile("([+-]?([0-9]*[.])?[0-9]+)"), "{float}", Float.TYPE),
-//		new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
-//		new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}",Float.TYPE),
+            // new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
+            // new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}", Float.TYPE),
             new ArgumentPattern(Pattern.compile("\"([^\"]*)\""), "{string}", String.class),
             new ArgumentPattern(Pattern.compile("<([^>]*)>"), "{string}", String.class)
     };
@@ -46,14 +44,18 @@ public class SnippetGenerator {
     }
 
     public String getSnippet(PickleStep step, String keyword, FunctionNameGenerator functionNameGenerator) {
+        String regex = snippet.escapePattern(patternFor(step.getText()));
+        String name = functionName(step.getText(), functionNameGenerator);
+        String args = snippet.paramArguments(argumentTypes(step));
+        String table = step.getArgument().isPresent() && step.getArgument().get().getDataTable().isPresent() ? snippet.tableHint() : "";
         return MessageFormat.format(
                 snippet.template(),
                 keyword,
-                snippet.escapePattern(patternFor(step.getText())),
-                functionName(step.getText(), functionNameGenerator),
-                snippet.paramArguments(argumentTypes(step)),
+                regex,
+                name,
+                args,
                 REGEXP_HINT,
-                !step.getArgument().isEmpty() && step.getArgument().get(0) instanceof PickleTable ? snippet.tableHint() : ""
+                table
         );
     }
 
@@ -136,13 +138,13 @@ public class SnippetGenerator {
                 break;
             }
         }
-        if (!step.getArgument().isEmpty()) {
-            Argument arg = step.getArgument().get(0);
-            if (arg instanceof PickleString) {
+        if (step.getArgument().isPresent()) {
+            PickleStepArgument arg = step.getArgument().get();
+            if (arg.getDataTable().isPresent()) {
                 argTypes.add(new ParamSnippet.ArgumentParam.Builder().clazz(String.class).build());
             }
-            if (arg instanceof PickleTable) {
-                argTypes.add(new ParamSnippet.ArgumentParam.Builder().clazz(DataTable.class).build());
+            if (arg.getDataTable().isPresent()) {
+                argTypes.add(new ParamSnippet.ArgumentParam.Builder().clazz(GherkinTable.class).build());
             }
         }
         return argTypes;
