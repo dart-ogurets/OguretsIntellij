@@ -14,13 +14,10 @@ public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRun
     protected String getConfigurationName(@NotNull ConfigurationContext context) {
         final PsiElement element = context.getPsiLocation();
         final GherkinFeature feature = PsiTreeUtil.getParentOfType(element, GherkinFeature.class);
-
         if (feature != null && feature.getFeatureName() != null && feature.getFeatureName().trim().length() > 0) {
             return "Ogurets: " + feature.getFeatureName().trim();
         }
-
         final VirtualFile featureFile = getFileToRun(context);
-
         assert featureFile != null;
         return "Ogurets: " + featureFile.getNameWithoutExtension();
     }
@@ -30,15 +27,12 @@ public class CucumberDartRunConfigurationFeatureProducer extends CucumberDartRun
     protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
         final PsiElement element = context.getPsiLocation();
         final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
-
         if (scenario != null) {
             return null;
         }
-
         if (element != null && element.getContainingFile() instanceof GherkinFile) {
             return element.getContainingFile();
         }
-
         return null;
     }
 

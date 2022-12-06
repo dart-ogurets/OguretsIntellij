@@ -41,26 +41,23 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
     }
 
     @Override
-    protected boolean setupConfigurationFromContext(final @NotNull CucumberDartRunConfiguration configuration, final @NotNull ConfigurationContext context, final @NotNull Ref<PsiElement> sourceElement) {
+  protected boolean setupConfigurationFromContext(final @NotNull CucumberDartRunConfiguration configuration,
+                                                  final @NotNull ConfigurationContext context,
+                                                  final @NotNull Ref<PsiElement> sourceElement) {
         PsiFileSystemItem file = getPsiFileToRun(context);
-
         if (file == null) {
             return false;
         }
-
         final boolean ok;
-
         if (file instanceof PsiDirectory) {
             ok = setupRunnerParametersForFolderIfApplicable(configuration.getProject(), configuration.getRunnerParameters(), ((PsiDirectory) file));
         } else {
             ok = setupRunnerParametersForFileIfApplicable(configuration.getRunnerParameters(), context, (PsiFile) file);
         }
-
         if (ok) {
             configuration.setName(getConfigurationName(context));
-//      configuration.setGeneratedName();
+            // configuration.setGeneratedName();
         }
-
         return ok;
     }
 
@@ -74,40 +71,34 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
         }
 
         final PsiFileSystemItem file = getPsiFileToRun(context);
-
-        if (file == null) return false;
-
-        boolean ok = false;
+        if (file == null) {
+            return false;
+        }
+        boolean ok;
         CucumberDartRunnerParameters paramsForContext = new CucumberDartRunnerParameters();
-
         if (file instanceof PsiDirectory) {
             ok = setupRunnerParametersForFolderIfApplicable(context.getProject(), paramsForContext, ((PsiDirectory) file));
         } else {
             ok = setupRunnerParametersForFileIfApplicable(paramsForContext, context, (PsiFile) file);
         }
-
-        if (!ok) return false;
-
+        if (!ok) {
+            return false;
+        }
         if (!Comparing.strEqual(getConfigurationName(context), runConfiguration.getName())) {
             return false;
         }
-
         if (!Comparing.strEqual(paramsForContext.getNameFilter(), runConfiguration.getRunnerParameters().getNameFilter())) {
             return false;
         }
-
         if (!Comparing.strEqual(paramsForContext.getCucumberFilePath(), runConfiguration.getRunnerParameters().getCucumberFilePath())) {
             return false;
         }
-
         if (runConfiguration.getRunnerParameters().getCucumberScope() != paramsForContext.getCucumberScope()) {
             return false;
         }
-
         if (!Comparing.strEqual(runConfiguration.getRunnerParameters().getDartFilePath(), paramsForContext.getDartFilePath())) {
             return false;
         }
-
         return true;
     }
 
@@ -121,23 +112,21 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
     }
 
     // ensure the dart test package + ogurets is available to us
-    private boolean setupRunnerParametersForFolderIfApplicable(@NotNull final Project project, @NotNull final CucumberDartRunnerParameters params, @NotNull final PsiDirectory dir) {
-
+    private boolean setupRunnerParametersForFolderIfApplicable(@NotNull final Project project,
+                                                               @NotNull final CucumberDartRunnerParameters params,
+                                                               @NotNull final PsiDirectory dir) {
         VirtualFile virtualDir = dir.getVirtualFile();
-        if (!isTestableProject(params, project, virtualDir)) return false;
-
+        if (!isTestableProject(params, project, virtualDir)) {
+            return false;
+        }
         // whatever directory we are in has some gherkin files
         if (dir.isDirectory()) {
             if (!FileTypeIndex.containsFileOfType(GherkinFileType.INSTANCE, GlobalSearchScopesCore.directoryScope(project, virtualDir, true))) {
                 return false;
             }
         }
-
-//    if (ensureRunnableDartFile(params, project, virtualDir)) return false;
-
         setScope(params);
         params.setCucumberFilePath(virtualDir.getPath());
-
         return true;
     }
 
@@ -145,38 +134,16 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
         if (file.getContainingFile() == null || !(file.getContainingFile().getFileType() instanceof GherkinFileType)) {
             return false;
         }
-
         Project project = context.getProject();
         VirtualFile sourceFile = file.getVirtualFile();
-
-        if (!isTestableProject(params, project, sourceFile)) return false;
-
-//    if (ensureRunnableDartFile(params, project, sourceFile)) return false;
-
+        if (!isTestableProject(params, project, sourceFile)) {
+            return false;
+        }
         params.setCucumberFilePath(sourceFile.getPath());
         params.setNameFilter(getNameFilter(context));
-
         setScope(params);
-
         return true;
     }
-
-//  private boolean ensureRunnableDartFile(@NotNull CucumberDartRunnerParameters params, Project project, VirtualFile sourceFile) {
-//    // if there is no dart run file or the dart run file is auto-generated, always auto-generate it.
-//
-//    if (params.getDartFilePath() == null ||
-//        (params.getDartFilePath().endsWith(OGURETS_DART_RUNNER) || params.getDartFilePath().endsWith(OGURETS_FLUTTER_TEST_RUNNER))) {
-//      PsiFile dartFile = generateRunnableFile(project, sourceFile);
-//
-//      if (dartFile == null) {
-//        return true;
-//      }
-//
-//      params.setDartFilePath(dartFile.getVirtualFile().getPath());
-//    }
-//
-//    return false;
-//  }
 
     protected abstract void setScope(CucumberDartRunnerParameters parameters);
 
@@ -184,13 +151,10 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
 
     private boolean isTestableProject(@NotNull final CucumberDartRunnerParameters params, @NotNull Project project, @NotNull final VirtualFile file) {
         final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
-
         final VirtualFile oguretsTestLib = urlResolver.findFileByDartUrl("package:ogurets/ogurets.dart");
-
         if (oguretsTestLib == null) {
             return false;
         }
-
         if (isFileInTestDirAndTestPackageExists(project, file, "package:flutter_test/flutter_test.dart", "test")) {
             params.setFlutterEnabled(true);
             params.setTestType(CucumberDartRunnerParameters.TestType.Test);
@@ -201,19 +165,17 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
             params.setFlutterEnabled(false);
             params.setTestType(CucumberDartRunnerParameters.TestType.Test);
         }
-
         return true;
     }
 
     public static boolean isFileInTestDirAndTestPackageExists(@NotNull final Project project, @NotNull final VirtualFile file, @NotNull final String packageName, @NotNull final String rootDirChild) {
         final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, file);
-
         final VirtualFile dartTestLib = urlResolver.findFileByDartUrl(packageName);
-        if (dartTestLib == null) return false;
-
+        if (dartTestLib == null) {
+            return false;
+        }
         final VirtualFile pubspec = urlResolver.getPubspecYamlFile();
         final VirtualFile rootDir = pubspec == null ? null : pubspec.getParent();
-//    final VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
         final VirtualFile testDir = rootDir == null ? null : rootDir.findChild(rootDirChild);
         return testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, file, true);
     }
@@ -223,29 +185,22 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
         List<String> stepClasses = new ArrayList<>();
         List<String> instances = new ArrayList<>();
         String features;
-
         Project project;
     }
 
     public static PsiFile generateRunnableFile(@NotNull final Project project, final VirtualFile featureFileOrDir) throws IOException {
-
         // make sure that all the documents in memory have been saved
         PsiDocumentManager.getInstance(project).commitAllDocuments();
-
-        // now find our pubspec.yaml so we can determine the project directory root
+        // now find our pubspec.yaml, so we can determine the project directory root
         final DartUrlResolver urlResolver = DartUrlResolver.getInstance(project, featureFileOrDir);
-
         final VirtualFile pubspec = urlResolver.getPubspecYamlFile();
         final VirtualFile rootDir = pubspec == null ? null : pubspec.getParent();
-
         // start our config gathering, adding ogurets as the base requirement
         final RunfileConfig config = new RunfileConfig();
-//    config.imports.add("import 'package:ogurets/ogurets.dart';");
+        // config.imports.add("import 'package:ogurets/ogurets.dart';");
         config.project = project;
         config.features = featureFileOrDir.getPath().substring(rootDir.getPath().length() + 1);
-
-        // we can be a sub-folder in a project and thus this gets complicated, quickly.
-
+        // we can be in a sub-folder in a project and thus this gets complicated, quickly.
         VirtualFile testDir = rootDir == null ? null : rootDir.findChild("test");
         PsiFile runFile = null;
         if (testDir != null && testDir.isDirectory() && VfsUtilCore.isAncestor(testDir, featureFileOrDir, true)) {
@@ -270,15 +225,12 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
                 // now we have to recreate the single ogurets_run.dart file
                 PsiDirectory testDirectory = PsiManager.getInstance(project).findDirectory(featureFolder);
                 runFile = createRunFile(testDirectory, OGURETS_DART_RUNNER, config, featureFolder);
-
             }
         }
-
         if (runFile != null) {
             PsiDocumentManager.getInstance(project).commitAllDocuments();
             return runFile;
         }
-
         return null;
     }
 
@@ -325,9 +277,7 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
             }
             dartFileAlias.append(Character.toLowerCase(c));
         }
-
         String alias = dartFileAlias.toString();
-
         return alias.startsWith("_") ? alias.substring(1) : alias;
     }
 
@@ -347,20 +297,12 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
         }
         FileTemplateDescriptor fileTemplateDescriptor = new FileTemplateDescriptor(template);
         FileTemplate fileTemplate = FileTemplateManager.getInstance(dir.getProject()).getCodeTemplate(fileTemplateDescriptor.getFileName());
-
         try {
             Properties properties = new Properties();
-
             properties.put("IMPORTS", String.join("\n", config.imports));
             properties.put("STEPS", config.stepClasses.stream().map(s -> String.format("  ..step(%s)\n", s)).collect(Collectors.joining()));
             properties.put("FLUTTER_TEST", config.features);
-
             PsiFile file = FileTemplateUtil.createFromTemplate(fileTemplate, template, properties, dir).getContainingFile();
-//      VirtualFile virtualFile = file.getVirtualFile();
-//      if (virtualFile != null) {
-//        FileEditorManager.getInstance(file.getProject()).openFile(virtualFile, true);
-//      }
-
             return file;
         } catch (Exception e) {
             throw new RuntimeException(e);

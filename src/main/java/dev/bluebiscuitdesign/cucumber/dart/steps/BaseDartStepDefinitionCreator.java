@@ -63,16 +63,7 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
                 properties.put(IMPORTS, "");
                 properties.put(CONSTRUCTOR, "");
             }
-
-            PsiFile file = FileTemplateUtil.createFromTemplate(fileTemplate, name, properties, dir).getContainingFile();
-
-            // stop focusing on this file, it drives me crazy!
-//      VirtualFile virtualFile = file.getVirtualFile();
-//      if (virtualFile != null) {
-//        FileEditorManager.getInstance(file.getProject()).openFile(virtualFile, true);
-//      }
-
-            return file;
+            return FileTemplateUtil.createFromTemplate(fileTemplate, name, properties, dir).getContainingFile();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -124,10 +115,8 @@ abstract public class BaseDartStepDefinitionCreator extends AbstractStepDefiniti
                             dirRef.set(featureParentDir.createSubdirectory("steps"));
                         });
             }
-
             return stepDefs.getName();
         }
-
         return featureFile.getParent().getName();
     }
 

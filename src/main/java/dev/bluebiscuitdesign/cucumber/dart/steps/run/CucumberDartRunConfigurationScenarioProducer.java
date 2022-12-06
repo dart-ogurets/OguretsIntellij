@@ -20,7 +20,6 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
     @Override
     protected String getNameFilter(@NotNull ConfigurationContext context) {
         final PsiElement sourceElement = context.getPsiLocation();
-
         final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
         return scenario.getScenarioName();
     }
@@ -29,7 +28,6 @@ public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRu
     protected String getConfigurationName(@NotNull ConfigurationContext context) {
         final PsiElement sourceElement = context.getPsiLocation();
         final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
-
         return "Ogurets: " + (scenario != null ? scenario.getScenarioName() : "");
     }
 

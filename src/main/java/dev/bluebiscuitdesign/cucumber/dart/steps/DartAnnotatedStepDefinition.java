@@ -20,11 +20,9 @@ public class DartAnnotatedStepDefinition extends AbstractDartStepDefinition {
         if (element == null) {
             return null;
         }
-
         if (!(element instanceof DartMethodDeclaration)) {
             return null;
         }
-
         return CucumberDartUtil.findDartAnnotationText((DartMethodDeclaration) element);
     }
 }

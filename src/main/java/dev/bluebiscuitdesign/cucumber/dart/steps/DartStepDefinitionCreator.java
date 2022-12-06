@@ -50,55 +50,13 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
         PsiDocumentManager.getInstance(project).commitAllDocuments();
 
         final PsiElement stepDef = buildStepDefinitionByStep(step, file.getLanguage());
-
         PsiElement addedStepDef = clazz.getClassBody().getClassMembers().add(stepDef);
-
-//    final PsiMethod constructor = getConstructor(clazz);
-//    final PsiCodeBlock constructorBody = constructor.getBody();
-//    if (constructorBody == null) {
-//      return false;
-//    }
-//
-//    PsiElement anchor = constructorBody.getFirstChild();
-//    if (constructorBody.getStatements().length > 0) {
-//      anchor = constructorBody.getStatements()[constructorBody.getStatements().length - 1];
-//    }
-//    PsiElement addedStepDef = constructorBody.addAfter(stepDef, anchor);
-
         addedStepDef = CodeInsightUtilCore.forcePsiPostprocessAndRestoreElement(addedStepDef);
-//
-//    JavaCodeStyleManager.getInstance(project).shortenClassReferences(addedStepDef);
-//
+        // JavaCodeStyleManager.getInstance(project).shortenClassReferences(addedStepDef);
+
         Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
         assert editor != null;
-
         ((Navigatable) clazz.getClassBody().getClassMembers().getLastChild()).navigate(true);
-
-//
-//    if (!(addedStepDef instanceof PsiMethodCallExpression)) {
-//      return false;
-//    }
-//    PsiMethodCallExpression stepDefCall = (PsiMethodCallExpression)addedStepDef;
-//    if (stepDefCall.getArgumentList().getExpressions().length < 2) {
-//      return false;
-//    }
-//
-//    final PsiExpression regexpElement = stepDefCall.getArgumentList().getExpressions()[0];
-//
-//    final PsiExpression secondArgument = stepDefCall.getArgumentList().getExpressions()[1];
-//    if (!(secondArgument instanceof PsiLambdaExpression)) {
-//      return false;
-//    }
-//    PsiLambdaExpression lambda = (PsiLambdaExpression)secondArgument;
-//    final PsiParameterList blockVars = lambda.getParameterList();
-//    PsiElement lambdaBody = lambda.getBody();
-//    if (!(lambdaBody instanceof PsiCodeBlock)) {
-//      return false;
-//    }
-//    final PsiCodeBlock body = (PsiCodeBlock)lambdaBody;
-//
-//    runTemplateBuilderOnAddedStep(editor, addedStepDef, regexpElement, blockVars, body);
-
         return true;
     }
 
@@ -112,8 +70,6 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
         String snippet = processGeneratedStepDefinition(snippetTemplate, step);
 
         PsiElement expression = createMethodFromText(step.getProject(), snippet);
-//    JVMElementFactory factory = JVMElementFactories.requireFactory(language, step.getProject());
-//    PsiElement expression =  factory.createExpressionFromText(snippet, step);
         return expression;
     }
 
@@ -154,12 +110,6 @@ public class DartStepDefinitionCreator extends BaseDartStepDefinitionCreator {
     public static PsiElement createMethodFromText(Project myProject, String text) {
         final PsiFile file = createDummyFile(myProject, text);
         final PsiElement child = file.getFirstChild();
-//    if (child instanceof DartFunctionDeclarationWithBodyOrNative) {
-//      final DartFunctionBody functionBody = ((DartFunctionDeclarationWithBodyOrNative)child).getFunctionBody();
-//      final IDartBlock block = PsiTreeUtil.getChildOfType(functionBody, IDartBlock.class);
-//      final DartStatements statements = block == null ? null : block.getStatements();
-//      return statements == null ? null : statements.getFirstChild();
-//    }
         return child;
     }
 }

@@ -25,23 +25,24 @@ import dev.bluebiscuitdesign.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.CucumberUtil;
 
+/**
+ * Takes care of linking steps in ".feature" files to their matching ".dart" StepDefinitions.
+ * This way we can "ctrl + left mouse click" through the steps.
+ */
 public class CucumberJavaStepDefinitionSearch implements QueryExecutor<PsiReference, ReferencesSearch.SearchParameters> {
     @Override
     public boolean execute(@NotNull final ReferencesSearch.SearchParameters queryParameters,
                            @NotNull final Processor<? super PsiReference> consumer) {
-        return ApplicationManager.getApplication().runReadAction(new Computable<Boolean>() {
-            @Override
-            public Boolean compute() {
-                final PsiElement myElement = queryParameters.getElementToSearch();
-                if (myElement.getParent() instanceof DartMethodDeclaration) {
-                    DartMethodDeclaration dc = (DartMethodDeclaration) myElement.getParent();
-                    String regexp = CucumberDartUtil.findDartAnnotationText(dc);
-                    if (regexp != null) {
-                        return CucumberUtil.findGherkinReferencesToElement(myElement, regexp, consumer, queryParameters.getEffectiveSearchScope());
-                    }
+        return ApplicationManager.getApplication().runReadAction((Computable<Boolean>) () -> {
+            final PsiElement myElement = queryParameters.getElementToSearch();
+            if (myElement.getParent() instanceof DartMethodDeclaration) {
+                DartMethodDeclaration dc = (DartMethodDeclaration) myElement.getParent();
+                String regexp = CucumberDartUtil.findDartAnnotationText(dc);
+                if (regexp != null) {
+                    return CucumberUtil.findGherkinReferencesToElement(myElement, regexp, consumer, queryParameters.getEffectiveSearchScope());
                 }
-                return true;
             }
+            return true;
         });
     }
 }

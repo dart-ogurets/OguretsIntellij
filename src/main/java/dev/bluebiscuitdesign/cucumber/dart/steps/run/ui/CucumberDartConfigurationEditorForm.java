@@ -50,8 +50,6 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
 
     public CucumberDartConfigurationEditorForm(@NotNull final Project project) {
         try {
-
-
             // show how to select the dart files
             DartCommandLineConfigurationEditorForm.initDartFileTextWithBrowse(project, myDartFile);
 

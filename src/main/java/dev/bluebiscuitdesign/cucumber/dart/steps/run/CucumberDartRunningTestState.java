@@ -13,7 +13,12 @@ import com.intellij.execution.filters.Filter;
 import com.intellij.execution.filters.TextConsoleBuilder;
 import com.intellij.execution.filters.TextConsoleBuilderImpl;
 import com.intellij.execution.filters.UrlFilter;
-import com.intellij.execution.process.*;
+import com.intellij.execution.process.ColoredProcessHandler;
+import com.intellij.execution.process.OSProcessHandler;
+import com.intellij.execution.process.ProcessAdapter;
+import com.intellij.execution.process.ProcessEvent;
+import com.intellij.execution.process.ProcessHandler;
+import com.intellij.execution.process.ProcessTerminatedListener;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.execution.testframework.TestConsoleProperties;
@@ -53,7 +58,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
 
 // we have to copy a bunch of stuff form DartCommandLineRunningState because it is
 // written to force us to use an existing Dart File, which we don't want, we want to be able to generate one.
@@ -107,7 +116,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
             assert runConfig.getRunnerParameters().getCucumberFilePath() != null;
             PsiFile generatedRunnableFile = null;
             try {
-                generatedRunnableFile = CucumberDartRunConfigurationProducer.generateRunnableFile(runConfig.getProject(), LocalFileSystem.getInstance().findFileByPath(runConfig.getRunnerParameters().getCucumberFilePath()));
+                VirtualFile cucumberFile = LocalFileSystem.getInstance().findFileByPath(runConfig.getRunnerParameters().getCucumberFilePath());
+                generatedRunnableFile = CucumberDartRunConfigurationProducer.generateRunnableFile(runConfig.getProject(), cucumberFile);
             } catch (IOException e) {
                 throw new RuntimeConfigurationError(DartBundle.message("not.a.dart.file.or.directory", "generated-file"));
             }
@@ -154,7 +164,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
     @NotNull
     public ExecutionResult execute(final @NotNull Executor executor, final @NotNull ProgramRunner runner) throws ExecutionException {
         final ProcessHandler processHandler = startProcess();
-        final ConsoleView consoleView = createConsole(getEnvironment(), processHandler, myConsoleFilters);
+        final ConsoleView consoleView = createConsole(getEnvironment(), myConsoleFilters);
         consoleView.attachToProcess(processHandler);
         final DefaultExecutionResult executionResult = new DefaultExecutionResult(consoleView, processHandler, createActions(consoleView, processHandler, executor));
         executionResult.setRestartActions(new ToggleAutoTestAction());
@@ -166,7 +176,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
         myConsoleFilters.addAll(Arrays.asList(filters));
     }
 
-    private static ConsoleView createConsole(@NotNull ExecutionEnvironment env, ProcessHandler processHandler, Collection<Filter> myConsoleFilters) throws ExecutionException {
+    private static ConsoleView createConsole(@NotNull ExecutionEnvironment env, Collection<Filter> myConsoleFilters) {
         final Project project = env.getProject();
         final DartRunConfiguration runConfiguration = (DartRunConfiguration) env.getRunProfile();
         final CucumberDartRunnerParameters runnerParameters = (CucumberDartRunnerParameters) runConfiguration.getRunnerParameters();
@@ -176,8 +186,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
             final VirtualFile dartFile = runnerParameters.getDartFileOrDirectory();
             consoleView.addMessageFilter(new DartConsoleFilter(project, dartFile));
             myConsoleFilters.forEach((filter) -> consoleView.addMessageFilter(filter));
-//			consoleView.addMessageFilter(new DartRelativePathsConsoleFilter(project, runnerParameters.computeProcessWorkingDirectory(project)));
-//			consoleView.addMessageFilter(new UrlFilter());
+            // consoleView.addMessageFilter(new DartRelativePathsConsoleFilter(project, runnerParameters.computeProcessWorkingDirectory(project)));
+            // consoleView.addMessageFilter(new UrlFilter());
         } catch (RuntimeConfigurationError ignore) {/* can't happen because already checked */}
 
         Disposer.register(project, consoleView);
@@ -266,11 +276,16 @@ public class CucumberDartRunningTestState extends CommandLineState {
             throw new ExecutionException(DartBundle.message("dart.sdk.is.not.configured"));
         }
 
-        final GeneralCommandLine commandLine = new GeneralCommandLine().withWorkDirectory(myRunnerParameters.computeProcessWorkingDirectory(getEnvironment().getProject()));
+        String pwd = myRunnerParameters.computeProcessWorkingDirectory(getEnvironment().getProject());
+        final GeneralCommandLine commandLine = new GeneralCommandLine().withWorkDirectory(pwd);
         commandLine.setCharset(StandardCharsets.UTF_8);
         commandLine.setExePath(FileUtil.toSystemDependentName(getExePath(sdk)));
         commandLine.getEnvironment().putAll(myRunnerParameters.getEnvs());
-        commandLine.withParentEnvironmentType(myRunnerParameters.isIncludeParentEnvs() ? GeneralCommandLine.ParentEnvironmentType.CONSOLE : GeneralCommandLine.ParentEnvironmentType.NONE);
+        GeneralCommandLine.ParentEnvironmentType type =
+                myRunnerParameters.isIncludeParentEnvs() ?
+                        GeneralCommandLine.ParentEnvironmentType.CONSOLE :
+                        GeneralCommandLine.ParentEnvironmentType.NONE;
+        commandLine.withParentEnvironmentType(type);
         setupParameters(sdk, commandLine);
 
         return commandLine;
@@ -342,9 +357,8 @@ public class CucumberDartRunningTestState extends CommandLineState {
         } catch (RuntimeConfigurationError e) {
             throw new ExecutionException(e);
         }
-
-        // this one just doesn't work via the environment options and we only want it on our app, we don't
-        // want to pass it through to any app we run
+        // this one just doesn't work via the environment options, and we only want it on our app,
+        // we don't want to pass it through to any app we run
         if (myRunnerParameters.isCheckedModeOrEnableAsserts()) {
             commandLine.addParameter("--enable-asserts");
         }
@@ -390,24 +404,13 @@ public class CucumberDartRunningTestState extends CommandLineState {
 
         @Override
         public OutputToGeneralTestEventsConverter createTestEventsConverter(@NotNull String testFrameworkName, @NotNull TestConsoleProperties consoleProperties) {
-//			final DartRunConfiguration runConfiguration = (DartRunConfiguration) getConfiguration();
-//			try {
-//				final VirtualFile file = runConfiguration.getRunnerParameters().getDartFileOrDirectory();
             return new OutputToGeneralTestEventsConverter(testFrameworkName, consoleProperties);
-//			} catch (RuntimeConfigurationError error) {
-//				throw new RuntimeException(error); // can't happen, already checked
-//			}
         }
 
         @Nullable
         @Override
         public AbstractRerunFailedTestsAction createRerunFailedTestsAction(ConsoleView consoleView) {
             return null;
-//			if (ActionManager.getInstance().getAction("RerunFailedTests") == null) return null; // backward compatibility
-//
-//			DartTestRerunnerAction action = new DartTestRerunnerAction(consoleView);
-//			action.init(this);
-//			return action;
         }
     }
 }

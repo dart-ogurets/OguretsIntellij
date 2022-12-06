@@ -44,7 +44,6 @@ public class CucumberDartRunner extends GenericProgramRunner {
             CucumberDartRunConfiguration p = (CucumberDartRunConfiguration) profile;
             canRun = !(CucumberDartRunnerParameters.isFlutterDriverExecutable(p.getRunnerParameters()));
         }
-
         return canRun;
     }
 
@@ -58,7 +57,6 @@ public class CucumberDartRunner extends GenericProgramRunner {
 
         try {
             final String dasExecutionContextId;
-
             final RunProfile runConfig = env.getRunProfile();
             if (state instanceof CucumberDartRunningTestState && runConfig instanceof DartRunConfigurationBase &&
                     DartAnalysisServerService.getInstance(env.getProject()).serverReadyForRequest()) {
@@ -94,8 +92,6 @@ public class CucumberDartRunner extends GenericProgramRunner {
         final VirtualFile contextFileOrDir;
         VirtualFile currentWorkingDirectory;
         final ExecutionResult executionResult;
-        final String debuggingHost;
-        final int observatoryPort;
 
         if (runConfiguration instanceof CucumberDartRunConfiguration && state instanceof CucumberDartRunningTestState) {
             CucumberDartRunnerParameters runParams = ((CucumberDartRunningTestState) state).myRunnerParameters;

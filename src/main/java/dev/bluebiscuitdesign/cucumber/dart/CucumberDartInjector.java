@@ -16,9 +16,9 @@ import java.util.List;
 
 
 /**
- * This is intended to tell IDEA that the Given/When/etc tags are regexes.
+ * This is intended to tell IDEA that the Given/When/Then/... tags are regexes.
+ * This way, IDEA should be able to treat those strings appropriately.
  */
-
 public class CucumberDartInjector implements MultiHostInjector {
     private static Logger log = Logger.getInstance(CucumberDartInjector.class);
     public static final Language regexpLanguage = Language.findLanguageByID("RegExp");

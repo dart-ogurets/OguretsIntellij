@@ -139,7 +139,7 @@ public class CucumberDartUtil {
             str = str.substring(1, str.length() - 1);
         }
         str = str.replace("\n", " ").replace("\r", "").trim();
-        System.out.println(String.format("`%s` vs `%s`", original, str));
+        // System.out.println(String.format("`%s` vs `%s`", original, str));
         // raw string?
         if (str.startsWith("r\"") || str.startsWith("r'")) {
             str = str.substring(2);

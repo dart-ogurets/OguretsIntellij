@@ -131,7 +131,7 @@ public class CucumberDartRunnerParameters extends DartCommandLineRunnerParameter
         this.testType = testType;
     }
 
-    // how do i make this a property that is not persisted?
+    // how do I make this a property that is not persisted?
     public static boolean isFlutterDriverExecutable(CucumberDartRunnerParameters runnerParameters) {
         return runnerParameters.getDartFilePath() != null &&
                 !runnerParameters.getDartFilePath().endsWith("_test.dart") &&

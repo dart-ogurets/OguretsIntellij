@@ -16,8 +16,8 @@ public class SnippetGenerator {
     private static final ArgumentPattern[] DEFAULT_ARGUMENT_PATTERNS = new ArgumentPattern[]{
             new ArgumentPattern(Pattern.compile("([-+]?\\d+)"), "{int}", Integer.TYPE),
             new ArgumentPattern(Pattern.compile("([+-]?([0-9]*[.])?[0-9]+)"), "{float}", Float.TYPE),
-            // new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
-            // new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}", Float.TYPE),
+			// new ArgumentPattern(Pattern.compile("([[-+]?\\d+|<\\w+?>])"), "{int}",Integer.TYPE),
+			// new ArgumentPattern(Pattern.compile("([[-+]?[0-9]*\\.?[0-9]+|<\\w+?>])"), "{float}", Float.TYPE),
             new ArgumentPattern(Pattern.compile("\"([^\"]*)\""), "{string}", String.class),
             new ArgumentPattern(Pattern.compile("<([^>]*)>"), "{string}", String.class)
     };
@@ -116,24 +116,18 @@ public class SnippetGenerator {
                 if (m.lookingAt()) {
                     Class<?> typeForSignature = argumentPatterns()[i].type();
                     matchedLength = m.group().length();
-
                     String pName = name.subSequence(pos, pos + matchedLength).toString();
-
                     final ParamSnippet.ArgumentParam.Builder param = new ParamSnippet.ArgumentParam.Builder().clazz(typeForSignature);
                     if (pName.startsWith("\"<")) {
                         param.name(pName.substring(2, pName.length() - 2));
                     } else if (pName.startsWith("<")) {
                         param.name(pName.substring(1, pName.length() - 1));
                     }
-
                     argTypes.add(param.build());
-
                     break;
                 }
             }
-
             pos += matchedLength;
-
             if (pos == name.length()) {
                 break;
             }

@@ -37,13 +37,11 @@ public abstract class AbstractDartStepDefinition extends AbstractStepDefinition 
                 return buildRegexpFromCucumberExpression(definitionText, parameterTypes);
             }
         }
-
         return definitionText;
     }
 
     @Override
     public List<String> getVariableNames() {
-//    PsiElement element = getElement();
         return Collections.emptyList();
     }
 }
