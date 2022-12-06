@@ -1,4 +1,7 @@
 target
-.idea/cucumber-dart.zip
+.gradle
 .idea
-
+.qodana
+build
+out
+gradle
