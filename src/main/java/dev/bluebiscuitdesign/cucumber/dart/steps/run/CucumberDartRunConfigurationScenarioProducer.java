@@ -12,32 +12,32 @@ import org.jetbrains.plugins.cucumber.psi.GherkinStepsHolder;
 
 public class CucumberDartRunConfigurationScenarioProducer extends CucumberDartRunConfigurationProducer {
 
-  @Override
-  protected void setScope(CucumberDartRunnerParameters parameters) {
-    parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.SCENARIO);
-  }
+    @Override
+    protected void setScope(CucumberDartRunnerParameters parameters) {
+        parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.SCENARIO);
+    }
 
-  @Override
-  protected String getNameFilter(@NotNull ConfigurationContext context) {
-    final PsiElement sourceElement = context.getPsiLocation();
+    @Override
+    protected String getNameFilter(@NotNull ConfigurationContext context) {
+        final PsiElement sourceElement = context.getPsiLocation();
 
-    final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
-    return scenario.getScenarioName();
-  }
+        final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
+        return scenario.getScenarioName();
+    }
 
-  @Override
-  protected String getConfigurationName(@NotNull ConfigurationContext context) {
-    final PsiElement sourceElement = context.getPsiLocation();
-    final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
+    @Override
+    protected String getConfigurationName(@NotNull ConfigurationContext context) {
+        final PsiElement sourceElement = context.getPsiLocation();
+        final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(sourceElement, GherkinScenario.class, GherkinScenarioOutline.class);
 
-    return "Ogurets: " + (scenario != null ? scenario.getScenarioName() : "");
-  }
+        return "Ogurets: " + (scenario != null ? scenario.getScenarioName() : "");
+    }
 
-  @Nullable
-  protected PsiFile getPsiFileToRun(ConfigurationContext context) {
-    final PsiElement element = context.getPsiLocation();
-    final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
-    return scenario != null ? scenario.getContainingFile() : null;
+    @Nullable
+    protected PsiFile getPsiFileToRun(ConfigurationContext context) {
+        final PsiElement element = context.getPsiLocation();
+        final GherkinStepsHolder scenario = PsiTreeUtil.getParentOfType(element, GherkinScenario.class, GherkinScenarioOutline.class);
+        return scenario != null ? scenario.getContainingFile() : null;
 
-  }
+    }
 }

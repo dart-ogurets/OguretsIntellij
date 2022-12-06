@@ -9,24 +9,24 @@ import static dev.bluebiscuitdesign.cucumber.dart.CucumberDartUtil.isStepDefinit
 import static dev.bluebiscuitdesign.cucumber.dart.CucumberDartUtil.isStepDefinitionClass;
 
 public class CucumberJavaImplicitUsageProvider implements ImplicitUsageProvider {
-  @Override
-  public boolean isImplicitUsage(PsiElement element) {
-    if(element instanceof DartMethodDeclaration) {
-      return isStepDefinition((DartMethodDeclaration)element);
-    } else if (element instanceof DartClassDefinition) {
-      return isStepDefinitionClass((DartClassDefinition)element);
+    @Override
+    public boolean isImplicitUsage(PsiElement element) {
+        if (element instanceof DartMethodDeclaration) {
+            return isStepDefinition((DartMethodDeclaration) element);
+        } else if (element instanceof DartClassDefinition) {
+            return isStepDefinitionClass((DartClassDefinition) element);
+        }
+
+        return false;
     }
 
-    return false;
-  }
+    @Override
+    public boolean isImplicitRead(PsiElement element) {
+        return false;
+    }
 
-  @Override
-  public boolean isImplicitRead(PsiElement element) {
-    return false;
-  }
-
-  @Override
-  public boolean isImplicitWrite(PsiElement element) {
-    return false;
-  }
+    @Override
+    public boolean isImplicitWrite(PsiElement element) {
+        return false;
+    }
 }

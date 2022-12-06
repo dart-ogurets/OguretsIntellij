@@ -9,29 +9,29 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.CucumberBundle;
 
 public class CucumberDartRunConfigurationFolderProducer extends CucumberDartRunConfigurationProducer {
-  @Override
-  protected String getConfigurationName(@NotNull ConfigurationContext context) {
-    final PsiElement element = context.getPsiLocation();
-    return CucumberBundle.message("cucumber.run.all.features", ((PsiDirectory)element).getVirtualFile().getName());
-  }
-
-  @Nullable
-  @Override
-  protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
-    final PsiElement element = context.getPsiLocation();
-    if (element instanceof PsiDirectory) {
-      return ((PsiDirectory) element);
+    @Override
+    protected String getConfigurationName(@NotNull ConfigurationContext context) {
+        final PsiElement element = context.getPsiLocation();
+        return CucumberBundle.message("cucumber.run.all.features", ((PsiDirectory) element).getVirtualFile().getName());
     }
-    return null;
-  }
 
-  @Override
-  protected void setScope(CucumberDartRunnerParameters parameters) {
-    parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.FOLDER);
-  }
+    @Nullable
+    @Override
+    protected PsiFileSystemItem getPsiFileToRun(ConfigurationContext context) {
+        final PsiElement element = context.getPsiLocation();
+        if (element instanceof PsiDirectory) {
+            return ((PsiDirectory) element);
+        }
+        return null;
+    }
 
-  @Override
-  protected String getNameFilter(@NotNull ConfigurationContext context) {
-    return "";
-  }
+    @Override
+    protected void setScope(CucumberDartRunnerParameters parameters) {
+        parameters.setCucumberScope(CucumberDartRunnerParameters.Scope.FOLDER);
+    }
+
+    @Override
+    protected String getNameFilter(@NotNull ConfigurationContext context) {
+        return "";
+    }
 }

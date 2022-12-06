@@ -5,7 +5,7 @@ import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
 public class DartStep2XDefinition extends DartAnnotatedStepDefinition {
-  public DartStep2XDefinition(@NotNull PsiElement element, @NotNull String annotationClassName) {
-    super(element, annotationClassName);
-  }
+    public DartStep2XDefinition(@NotNull PsiElement element, @NotNull String annotationClassName) {
+        super(element, annotationClassName);
+    }
 }

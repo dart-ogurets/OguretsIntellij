@@ -2,13 +2,13 @@
 package dev.bluebiscuitdesign.cucumber.dart.steps.factory;
 
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
 import dev.bluebiscuitdesign.cucumber.dart.steps.AbstractDartStepDefinition;
 import dev.bluebiscuitdesign.cucumber.dart.steps.DartStep2XDefinition;
+import org.jetbrains.annotations.NotNull;
 
 public class DartStep2xDefinitionFactory extends DartStepDefinitionFactory {
-  @Override
-  public AbstractDartStepDefinition buildStepDefinition(@NotNull PsiElement element, @NotNull String annotationClassName) {
-    return new DartStep2XDefinition(element, annotationClassName);
-  }
+    @Override
+    public AbstractDartStepDefinition buildStepDefinition(@NotNull PsiElement element, @NotNull String annotationClassName) {
+        return new DartStep2XDefinition(element, annotationClassName);
+    }
 }

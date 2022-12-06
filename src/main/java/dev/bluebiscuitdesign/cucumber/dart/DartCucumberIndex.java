@@ -19,7 +19,7 @@ public class DartCucumberIndex extends CucumberStepIndex {
 
     @Override
     protected String[] getPackagesToScan() {
-        return new String[] {"package:ogurets/ogurets.dart"};
+        return new String[]{"package:ogurets/ogurets.dart"};
     }
 
     @Override
