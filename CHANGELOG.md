@@ -3,6 +3,10 @@
 # dart-ogurets-intellij-plugin Changelog
 
 ## [Unreleased]
+### Added
+- the generated `ogurets_run.dart` file will include required step defs from imported packages, enabling reuse of step definitions across multiple packages (#16)
+
+## [2.0.0]
 ### Changed
 - converted project to build using gradle 
 - upgraded minimal compatibility from 2021.3 to 2022.3
