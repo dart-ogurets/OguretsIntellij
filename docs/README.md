@@ -68,7 +68,7 @@ This plugin depends on 2 other plugins:
 
 This is configured in `gradle.properties`
 ```.properties
-platformPlugins = gherkin:223.7571.113, dart:223.7571.203
+platformPlugins = gherkin:223.7571.113, Dart:223.7571.203
 ```
 
 Please note that the 2 dependencies from `platformPlugins` will also result in the defined classes to be included as dependencies in our project.
