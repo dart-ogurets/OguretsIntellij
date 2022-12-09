@@ -1,27 +1,42 @@
 package dev.bluebiscuitdesign.cucumber.dart;
 
 import com.intellij.openapi.module.Module;
+import com.intellij.openapi.module.ModuleUtilCore;
+import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
+import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.CachedValueProvider;
 import com.intellij.psi.util.CachedValuesManager;
 import com.intellij.psi.util.PsiModificationTracker;
+import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.util.indexing.FileBasedIndex;
 import com.jetbrains.lang.dart.psi.DartClassDefinition;
+import com.jetbrains.lang.dart.psi.DartFile;
 import com.jetbrains.lang.dart.psi.DartMetadata;
 import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
 import com.jetbrains.lang.dart.psi.DartStringLiteralExpression;
+import dev.bluebiscuitdesign.cucumber.dart.steps.DartAnnotatedStepDefinition;
 import dev.bluebiscuitdesign.cucumber.dart.steps.reference.CucumberJavaAnnotationProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.plugins.cucumber.MapParameterTypeManager;
+import org.jetbrains.plugins.cucumber.psi.GherkinFile;
+import org.jetbrains.plugins.cucumber.steps.AbstractStepDefinition;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -198,4 +213,61 @@ public class CucumberDartUtil {
     public static boolean isCucumberExpressionsAvailable(@NotNull PsiElement context) {
         return true;
     }
+
+    public static List<AbstractStepDefinition> loadStepsFor(@Nullable PsiFile featureFile, @NotNull Module module) {
+        final List<AbstractStepDefinition> result = new ArrayList<>();
+        final FileBasedIndex fileBasedIndex = FileBasedIndex.getInstance();
+
+        Project project = module.getProject();
+        fileBasedIndex.processValues(DartCucumberIndex.INDEX_ID, true, null,
+                (file, value) -> {
+                    ProgressManager.checkCanceled();
+                    PsiFile psiFile = PsiManager.getInstance(project).findFile(file);
+                    if (psiFile == null) {
+                        return true;
+                    }
+                    for (Integer offset : value) {
+                        PsiElement element = psiFile.findElementAt(offset + 1);
+                        DartMethodDeclaration member = PsiTreeUtil.getParentOfType(element, DartMethodDeclaration.class);
+                        if (member == null) {
+                            continue;
+                        }
+                        String annotation = CucumberDartUtil.findDartCucumberAnnotation(member);
+                        if (annotation != null) {
+                            result.add(new DartAnnotatedStepDefinition(member, annotation));
+                        }
+                    }
+                    return true;
+                }, GlobalSearchScope.projectScope(project));
+        return result;
+    }
+
+    public static Collection<? extends PsiFile> getStepDefinitionContainers(@NotNull GherkinFile featureFile) {
+        final Module module = ModuleUtilCore.findModuleForPsiElement(featureFile);
+        if (module == null) {
+            return Collections.emptySet();
+        }
+        List<AbstractStepDefinition> stepDefs = loadStepsFor(featureFile, module);
+        Set<PsiFile> result = new HashSet<>();
+        for (AbstractStepDefinition stepDef : stepDefs) {
+            PsiElement stepDefElement = stepDef.getElement();
+            if (stepDefElement != null) {
+                final PsiFile psiFile = stepDefElement.getContainingFile();
+                PsiDirectory psiDirectory = psiFile.getParent();
+                if (psiDirectory != null && isWritableStepLikeFile(psiFile, psiDirectory)) {
+                    result.add(psiFile);
+                }
+            }
+        }
+        return result;
+    }
+
+    public static boolean isStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
+        return child instanceof DartFile && ((DartFile) child).getName().endsWith(".dart");
+    }
+
+    public static boolean isWritableStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
+        return isStepLikeFile(child, parent);
+    }
+
 }
