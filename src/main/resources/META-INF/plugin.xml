@@ -1,0 +1,41 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>cogurets</id>
+    <name>Ogurets - Cucumber for Dart</name>
+    <vendor>Blue Biscuit Design</vendor>
+    <description>
+        <![CDATA[
+        <p>This plugin enables Cucumber and Gherkin support with step definitions written in Dart.</p>
+        <p>The following coding assistance features are available:</p>
+        <ul>
+            <li>Code completion</li>
+            <li>Search for usages</li>
+            <li>Run configurations</li>
+            <li>Debugging</li>
+        </ul>
+        <p>It is available on Github (source) at Ogurets <a href="https://github.com/dart-ogurets/OguretsIntellij">Intellij</a>.</p>
+      ]]></description>
+
+    <depends>Dart</depends>
+    <depends>gherkin</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xdebugger</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <programRunner implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunner"/>
+        <referencesSearch implementation="dev.bluebiscuitdesign.cucumber.dart.steps.search.CucumberJavaStepDefinitionSearch"/>
+        <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationScenarioProducer"/>
+        <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationFeatureProducer"/>
+        <runConfigurationProducer implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationFolderProducer"/>
+        <configurationType implementation="dev.bluebiscuitdesign.cucumber.dart.steps.run.CucumberDartRunConfigurationType"/>
+        <implicitUsageProvider implementation="dev.bluebiscuitdesign.cucumber.dart.steps.reference.CucumberJavaImplicitUsageProvider"/>
+        <multiHostInjector implementation="dev.bluebiscuitdesign.cucumber.dart.CucumberDartInjector"/>
+        <fileBasedIndex implementation="dev.bluebiscuitdesign.cucumber.dart.DartCucumberIndex"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
+        <cucumberJvmExtensionPoint implementation="dev.bluebiscuitdesign.cucumber.dart.CucumberDartNIExtension"/>
+    </extensions>
+
+</idea-plugin>
