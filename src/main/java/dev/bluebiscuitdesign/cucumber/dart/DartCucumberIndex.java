@@ -36,7 +36,8 @@ public class DartCucumberIndex extends CucumberStepIndex {
                         return;
                     }
                     LighterASTNode methodNameNode = methodNameAndArgumentList.get(1);
-                    if (methodNameNode != null && isStepDefinitionCall(methodNameNode, text)) {
+                    // Include both step defs and hook methods...
+                    if (methodNameNode != null && (isStepDefinitionCall(methodNameNode, text) || isHookDefinitionCall(methodNameNode, text))) {
                         LighterASTNode expressionList = methodNameAndArgumentList.get(2);
                         if (expressionList.getTokenType() == DartTokenTypes.ARGUMENTS) {
                             LighterASTNode argumentList = LightTreeUtil.firstChildOfType(lighterAst, expressionList, DartTokenTypes.ARGUMENT_LIST);

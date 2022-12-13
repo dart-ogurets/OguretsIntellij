@@ -298,7 +298,7 @@ abstract public class CucumberDartRunConfigurationProducer extends LazyRunConfig
      */
     private static String getImportPackage(PsiDirectory containingDir, String exportFileMatch, Set<VirtualFile> knownPackages) {
         for (PsiFile dirFile : containingDir.getFiles()) {
-            System.out.println(knownPackages);
+            // System.out.println(knownPackages);
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(dirFile.getVirtualFile().getInputStream()))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
