@@ -18,6 +18,8 @@ import java.io.DataOutput;
 import java.io.IOException;
 import java.util.*;
 
+import static dev.bluebiscuitdesign.cucumber.dart.steps.reference.CucumberJavaAnnotationProvider.HOOK_MARKERS;
+
 public abstract class CucumberStepIndex extends FileBasedIndexExtension<Boolean, List<Integer>> {
     private static final List<String> STEP_KEYWORDS = Arrays.asList(
             "Әмма", "Нәтиҗәдә", "Вә", "Әйтик", "Һәм", "Ләкин", "Әгәр", "Und",
@@ -136,6 +138,10 @@ public abstract class CucumberStepIndex extends FileBasedIndexExtension<Boolean,
 
     protected static boolean isStepDefinitionCall(@NotNull LighterASTNode methodName, @NotNull CharSequence text) {
         return STEP_KEYWORDS.contains(text.subSequence(methodName.getStartOffset(), methodName.getEndOffset()).toString());
+    }
+
+    protected static boolean isHookDefinitionCall(@NotNull LighterASTNode methodName, @NotNull CharSequence text) {
+        return HOOK_MARKERS.contains(text.subSequence(methodName.getStartOffset(), methodName.getEndOffset()).toString());
     }
 
     protected static boolean isStringLiteral(@NotNull LighterASTNode element, @NotNull CharSequence text) {
