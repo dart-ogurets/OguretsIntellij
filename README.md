@@ -1,8 +1,18 @@
 # Ogurets for Jetbrains IDE's
 <!-- Plugin description -->
-This plugin brings full support for Ogurets to IntelliJ IDEA - piggybacking on Jetbrains existing Cucumber plugins.
-It should work in any variant that has Cucumber (including Android Studio) and at least Dart installed,
+This plugin brings full support for [Ogurets](https://github.com/dart-ogurets/Ogurets) (Cucumber for Dart) to IntelliJ IDEA,
+piggybacking on JetBrains' existing Cucumber plugins: Gherkin feature files with step definitions written in Dart.
+It should work in any variant that has the Gherkin and Dart plugins installed (including Android Studio),
 and if it detects Flutter, it will also support Flutter FlutterDriver tests.
+
+The following coding assistance features are available:
+
+- Code completion
+- Search for usages
+- Run configurations
+- Debugging
+
+The source is available on GitHub at [OguretsIntellij](https://github.com/dart-ogurets/OguretsIntellij).
 <!-- Plugin description end -->
 
 
