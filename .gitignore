@@ -5,3 +5,5 @@ target
 build
 out
 
+.intellijPlatform
+.kotlin
