@@ -20,7 +20,7 @@ import com.intellij.psi.PsiReference;
 import com.intellij.psi.search.searches.ReferencesSearch;
 import com.intellij.util.Processor;
 import com.intellij.util.QueryExecutor;
-import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
+import com.jetbrains.lang.dart.psi.DartComponent;
 import dev.bluebiscuitdesign.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.cucumber.CucumberUtil;
@@ -35,8 +35,8 @@ public class CucumberJavaStepDefinitionSearch implements QueryExecutor<PsiRefere
                            @NotNull final Processor<? super PsiReference> consumer) {
         return ApplicationManager.getApplication().runReadAction((Computable<Boolean>) () -> {
             final PsiElement myElement = queryParameters.getElementToSearch();
-            if (myElement.getParent() instanceof DartMethodDeclaration) {
-                DartMethodDeclaration dc = (DartMethodDeclaration) myElement.getParent();
+            if (CucumberDartUtil.isStepDefinitionOwner(myElement.getParent())) {
+                DartComponent dc = (DartComponent) myElement.getParent();
                 String regexp = CucumberDartUtil.findDartAnnotationText(dc);
                 if (regexp != null) {
                     return CucumberUtil.findGherkinReferencesToElement(myElement, regexp, consumer, queryParameters.getEffectiveSearchScope());

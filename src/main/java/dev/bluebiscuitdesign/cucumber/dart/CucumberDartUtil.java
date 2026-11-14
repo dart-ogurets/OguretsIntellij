@@ -20,6 +20,8 @@ import com.jetbrains.lang.dart.psi.DartClassDefinition;
 import com.jetbrains.lang.dart.psi.DartFile;
 import com.jetbrains.lang.dart.psi.DartMetadata;
 import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
+import com.jetbrains.lang.dart.psi.DartFunctionDeclarationWithBodyOrNative;
+import com.jetbrains.lang.dart.psi.DartComponent;
 import com.jetbrains.lang.dart.psi.DartStringLiteralExpression;
 import dev.bluebiscuitdesign.cucumber.dart.steps.DartAnnotatedStepDefinition;
 import dev.bluebiscuitdesign.cucumber.dart.steps.reference.CucumberJavaAnnotationProvider;
@@ -106,11 +108,26 @@ public class CucumberDartUtil {
         return "PendingException";
     }
 
-    public static boolean isStepDefinition(@NotNull final DartMethodDeclaration method) {
+    /**
+     * Step definitions can be class methods or top-level functions.
+     */
+    public static boolean isStepDefinitionOwner(@Nullable PsiElement element) {
+        return element instanceof DartMethodDeclaration || element instanceof DartFunctionDeclarationWithBodyOrNative;
+    }
+
+    /**
+     * The class method or top-level function enclosing the element (e.g. one of its annotations), or null.
+     */
+    @Nullable
+    public static DartComponent findStepDefinitionOwner(@Nullable PsiElement element) {
+        return (DartComponent) PsiTreeUtil.getParentOfType(element, DartMethodDeclaration.class, DartFunctionDeclarationWithBodyOrNative.class);
+    }
+
+    public static boolean isStepDefinition(@NotNull final DartComponent method) {
         return findDartCucumberAnnotation(method) != null;
     }
 
-    public static boolean isHook(@NotNull final DartMethodDeclaration method) {
+    public static boolean isHook(@NotNull final DartComponent method) {
         return CucumberJavaAnnotationProvider.HOOK_MARKERS.contains(findDartCucumberAnnotation(method));
     }
 
@@ -121,7 +138,7 @@ public class CucumberDartUtil {
     }
 
     @Nullable
-    public static String findDartAnnotationText(DartMethodDeclaration dc) {
+    public static String findDartAnnotationText(DartComponent dc) {
         return dc.getMetadataList().stream()
                 .filter(CucumberDartUtil::isDartMetadataCucumberAnnotation)
                 .map(meta -> stripQuotes(refExpression(meta)))
@@ -173,7 +190,7 @@ public class CucumberDartUtil {
     }
 
     @Nullable
-    public static String findDartCucumberAnnotation(DartMethodDeclaration dc) {
+    public static String findDartCucumberAnnotation(DartComponent dc) {
         return dc.getMetadataList().stream().filter(CucumberDartUtil::isDartMetadataCucumberAnnotation)
                 .map(meta -> meta.getReferenceExpression().getFirstChild().getText())
                 .findFirst()
@@ -228,7 +245,7 @@ public class CucumberDartUtil {
                     }
                     for (Integer offset : value) {
                         PsiElement element = psiFile.findElementAt(offset + 1);
-                        DartMethodDeclaration member = PsiTreeUtil.getParentOfType(element, DartMethodDeclaration.class);
+                        DartComponent member = findStepDefinitionOwner(element);
                         if (member == null) {
                             continue;
                         }

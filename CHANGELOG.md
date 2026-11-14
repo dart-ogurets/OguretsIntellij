@@ -11,6 +11,9 @@
 - migrated build to IntelliJ Platform Gradle Plugin 2.x, Gradle 9 and Java 21
 - updated to current Dart plugin APIs (the Dart coverage runner no longer exists)
 
+### Fixed
+- step definitions written as top-level functions (not inside a class) are now matched from `.feature` files
+
 ## [2.0.0]
 ### Changed
 - converted project to build using gradle 

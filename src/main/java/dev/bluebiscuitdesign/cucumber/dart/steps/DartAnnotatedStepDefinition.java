@@ -1,7 +1,7 @@
 package dev.bluebiscuitdesign.cucumber.dart.steps;
 
 import com.intellij.psi.PsiElement;
-import com.jetbrains.lang.dart.psi.DartMethodDeclaration;
+import com.jetbrains.lang.dart.psi.DartComponent;
 import dev.bluebiscuitdesign.cucumber.dart.CucumberDartUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -20,9 +20,9 @@ public class DartAnnotatedStepDefinition extends AbstractDartStepDefinition {
         if (element == null) {
             return null;
         }
-        if (!(element instanceof DartMethodDeclaration)) {
+        if (!CucumberDartUtil.isStepDefinitionOwner(element)) {
             return null;
         }
-        return CucumberDartUtil.findDartAnnotationText((DartMethodDeclaration) element);
+        return CucumberDartUtil.findDartAnnotationText((DartComponent) element);
     }
 }
