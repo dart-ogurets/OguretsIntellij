@@ -254,7 +254,7 @@ public class CucumberDartUtil {
             if (stepDefElement != null) {
                 final PsiFile psiFile = stepDefElement.getContainingFile();
                 PsiDirectory psiDirectory = psiFile.getParent();
-                if (psiDirectory != null && isWritableStepLikeFile(psiFile, psiDirectory)) {
+                if (psiDirectory != null && isStepLikeFile(psiFile)) {
                     result.add(psiFile);
                 }
             }
@@ -262,12 +262,8 @@ public class CucumberDartUtil {
         return result;
     }
 
-    public static boolean isStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
+    public static boolean isStepLikeFile(@NotNull PsiElement child) {
         return child instanceof DartFile && ((DartFile) child).getName().endsWith(".dart");
-    }
-
-    public static boolean isWritableStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
-        return isStepLikeFile(child, parent);
     }
 
 }

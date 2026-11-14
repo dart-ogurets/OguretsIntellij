@@ -15,7 +15,7 @@ import com.intellij.execution.filters.TextConsoleBuilderImpl;
 import com.intellij.execution.filters.UrlFilter;
 import com.intellij.execution.process.ColoredProcessHandler;
 import com.intellij.execution.process.OSProcessHandler;
-import com.intellij.execution.process.ProcessAdapter;
+import com.intellij.execution.process.ProcessListener;
 import com.intellij.execution.process.ProcessEvent;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.process.ProcessTerminatedListener;
@@ -43,7 +43,6 @@ import com.intellij.util.Consumer;
 import com.intellij.util.net.NetUtils;
 import com.jetbrains.lang.dart.DartBundle;
 import com.jetbrains.lang.dart.DartFileType;
-import com.jetbrains.lang.dart.coverage.DartCoverageProgramRunner;
 import com.jetbrains.lang.dart.ide.errorTreeView.DartProblemsView;
 import com.jetbrains.lang.dart.ide.runner.DartConsoleFilter;
 import com.jetbrains.lang.dart.ide.runner.DartExecutionHelper;
@@ -220,9 +219,9 @@ public class CucumberDartRunningTestState extends CommandLineState {
             }
             commands.add("--enable-vm-service:" + myObservatoryPort);
             params.setVMOptions(String.join(" ", commands));
-            params.setCheckedModeOrEnableAsserts(true);
+            params.setAssertsEnabled(true);
         } else {
-            params.setCheckedModeOrEnableAsserts(true);
+            params.setAssertsEnabled(true);
         }
 
         // working directory is not configurable in UI because there's only one valid value that we calculate ourselves
@@ -241,7 +240,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
             }
         };
 
-        processHandler.addProcessListener(new ProcessAdapter() {
+        processHandler.addProcessListener(new ProcessListener() {
             @Override
             public void onTextAvailable(@NotNull final ProcessEvent event, @NotNull final Key outputType) {
                 final String prefix = DartConsoleFilter.OBSERVATORY_LISTENING_ON + "http://";
@@ -327,10 +326,6 @@ public class CucumberDartRunningTestState extends CommandLineState {
             }
 
             addVmOption(commandLine, "--enable-vm-service:" + myObservatoryPort);
-
-            if (getEnvironment().getRunner() instanceof DartCoverageProgramRunner) {
-                addVmOption(commandLine, "--pause-isolates-on-exit");
-            }
         }
 
         appendParamsAfterVmOptionsBeforeArgs(commandLine);
@@ -359,7 +354,7 @@ public class CucumberDartRunningTestState extends CommandLineState {
         }
         // this one just doesn't work via the environment options, and we only want it on our app,
         // we don't want to pass it through to any app we run
-        if (myRunnerParameters.isCheckedModeOrEnableAsserts()) {
+        if (myRunnerParameters.areAssertsEnabled()) {
             commandLine.addParameter("--enable-asserts");
         }
         vmOptions.forEach(commandLine::addParameter);

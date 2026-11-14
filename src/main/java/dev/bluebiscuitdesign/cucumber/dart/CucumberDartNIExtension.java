@@ -17,14 +17,25 @@ import java.util.Collection;
 import java.util.List;
 
 public class CucumberDartNIExtension extends AbstractCucumberExtension {
+    // Gherkin plugin 261+ API. No @Override: these don't exist in the 253 API we compile against,
+    // but they implement the abstract interface methods at runtime on newer IDEs.
+    public boolean isStepLikeFile(@NotNull PsiElement child) {
+        return CucumberDartUtil.isStepLikeFile(child);
+    }
+
+    public boolean isWritableStepLikeFile(@NotNull PsiElement child) {
+        return CucumberDartUtil.isStepLikeFile(child);
+    }
+
+    // Gherkin plugin 253 API (removed in 263)
     @Override
     public boolean isStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
-        return CucumberDartUtil.isStepLikeFile(child, parent);
+        return isStepLikeFile(child);
     }
 
     @Override
     public boolean isWritableStepLikeFile(@NotNull PsiElement child, @NotNull PsiElement parent) {
-        return CucumberDartUtil.isWritableStepLikeFile(child, parent);
+        return isWritableStepLikeFile(child);
     }
 
     @NotNull
@@ -39,6 +50,12 @@ public class CucumberDartNIExtension extends AbstractCucumberExtension {
         return new DartStepDefinitionCreator();
     }
 
+    // Gherkin plugin 262+ API (no @Override, see above)
+    public List<AbstractStepDefinition> loadStepsFor(@NotNull Module module) {
+        return CucumberDartUtil.loadStepsFor(null, module);
+    }
+
+    // Gherkin plugin 253 API (deprecated in 262+)
     @Override
     public List<AbstractStepDefinition> loadStepsFor(@Nullable PsiFile featureFile, @NotNull Module module) {
         return CucumberDartUtil.loadStepsFor(featureFile, module);

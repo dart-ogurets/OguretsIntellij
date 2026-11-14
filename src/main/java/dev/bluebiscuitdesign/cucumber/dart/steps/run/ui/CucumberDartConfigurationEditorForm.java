@@ -53,9 +53,9 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
             // show how to select the dart files
             DartCommandLineConfigurationEditorForm.initDartFileTextWithBrowse(project, myDartFile);
 
-            myDartFile.addBrowseFolderListener(DartBundle.message("choose.dart.directory"), null, project,
-                    // Unfortunately, withFileFilter() only works for files, not directories.
-                    FileChooserDescriptorFactory.createSingleFolderDescriptor());
+            myDartFile.addBrowseFolderListener(project,
+                    FileChooserDescriptorFactory.createSingleFolderDescriptor()
+                            .withTitle(DartBundle.message("choose.dart.directory")));
             myDartFile.addActionListener(e -> onTestDirChanged(project));
 
             final DocumentListener dirListener = new DocumentListener() {
@@ -76,13 +76,13 @@ public class CucumberDartConfigurationEditorForm extends SettingsEditor<Cucumber
             };
 
             myDirField.getTextField().getDocument().addDocumentListener(dirListener);
-            myDirField.addBrowseFolderListener("Choose feature dir", null, project,
-                    // Unfortunately, withFileFilter() only works for files, not directories.
-                    FileChooserDescriptorFactory.createSingleFolderDescriptor());
+            myDirField.addBrowseFolderListener(project,
+                    FileChooserDescriptorFactory.createSingleFolderDescriptor()
+                            .withTitle("Choose feature dir"));
 
-            myFileField.addBrowseFolderListener("Choose feature file", null, project,
-                    // Unfortunately, withFileFilter() only works for files, not directories.
-                    FileChooserDescriptorFactory.createSingleFileDescriptor("feature"));
+            myFileField.addBrowseFolderListener(project,
+                    FileChooserDescriptorFactory.createSingleFileDescriptor("feature")
+                            .withTitle("Choose feature file"));
 
             // 'Environment variables' is the widest label, anchored by myTestFileLabel
             myTestFileLabel.setPreferredSize(myEnvironmentVariables.getLabel().getPreferredSize());

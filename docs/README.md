@@ -8,27 +8,15 @@ The steps required to do so can be found at https://plugins.jetbrains.com/docs/i
 
 To get the hang of it, we recommend you first go and try to set up a simple sample plugin from scratch before continuing.
 
-## IDEA Project Structure settings
-Since our plugin is built for IDEA version `223+`, `Java 17` is required (more info further down this doc),
-we need to make sure our development IDEA is configured to use `JDK 17` as well:
- - `File` > `Project Structure` 
-   - `Project Settings`:
-     - `Modules`:
-        - Set `Module SDK` to version `17`
-     - `Libraries`:
-       - Make sure the following libraries are present:
-         - `Gradle: io.cucumber:gherkin:*.*.*`
-         - `Gradle: io.cucumber:messages:*.*.*`
-         - `Gradle: org.jetbrains:annotations:*.*.*`
-         - `Gradle: unzipped.com.jetbrains.plugins:Dart:unzipped.com.jetbrains.plugins:*.*.*`
-         - `Gradle: unzipped.com.jetbrains.plugins:gherkin:unzipped.com.jetbrains.plugins:*.*.*`
-       - If the latter 2 aren't present, reload the Gradle project in your IDE
-   - `Platform settings`
-     - `SDKs`
-        - Set `IntelliJ IDEA IU-22.*.*` > `Internal Java Platform` to version `17`
+## JDK
+The plugin is built for IDEA `253+` (2025.3 and later), which requires `Java 21`.
+The Gradle build uses a Java toolchain, so a JDK 21 is downloaded automatically (via the foojay resolver) if you don't have one installed.
+Gradle itself can run on any JDK from 17 upwards.
 
+After cloning, open the `Gradle tool window` and click `Reload All Gradle Projects`; the IntelliJ Platform, Dart and Gherkin
+plugins are resolved by the [IntelliJ Platform Gradle Plugin](https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html).
 
-## Build and test using Gradle and Kotlin
+## Build and test using Gradle
 This seems to be the preferred way for IntelliJ plugin development, so we just go with the flow.
 We started from the [GitHub template](https://plugins.jetbrains.com/docs/intellij/plugin-github-template.html) 
 ([repository](https://github.com/JetBrains/intellij-platform-plugin-template)), 
@@ -41,59 +29,41 @@ which provides a bunch of setup that will enable us to focus on plugin developme
 When you run the `Run Plugin` Gradle run configuration, a new IDEA will start, with the current plugin (and dependency plugins) enabled.
 
 ## IDEA versions
-Plugins need to define their `since` and `until` IDEA versions.
-This is done in the `gradle.properties` file using `pluginSinceBuild` and `pluginUntilBuild` properties.
+The minimum supported IDEA build is set in `gradle.properties` using `pluginSinceBuild`. No `until-build` is set, so the plugin
+stays installable on newer IDEs; the `verifyPlugin` task (also run in CI) checks binary compatibility against the recommended IDE releases.
 
-The version of IDEA in which you want to run the plugin during development, can also be configured in `gradle.properties`:
+The version of IDEA the plugin is compiled against, and run with during development, is also configured in `gradle.properties`.
+Build against the lowest supported version so you don't accidentally use newer APIs:
 ```.properties
-platformType = IC
-platformVersion = 2022.3
+pluginSinceBuild = 253
+platformVersion = 2025.3.6.2
 ```
-More info can be found at [Gradle IntelliJ Plugin Configuration](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#configuration-intellij-extension).
+More info can be found at [IntelliJ Platform Gradle Plugin](https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html).
 
 Some notes:
  - https://www.jetbrains.com/idea/download/other.html contains an overview of all IDEA versions
- - the build numbers used in `pluginSinceBuild` and `pluginUntilBuild` are a sort of "short-hand" for the actual release numbers, eg:
-   - eg: `211.*` == `2021.1.*`
+ - from 2025.3 onwards there is a single unified `IntelliJ IDEA` distribution (no separate Community/Ultimate), referenced in `build.gradle.kts` via `intellijIdea(...)`
+ - the build numbers used in `pluginSinceBuild` are a sort of "short-hand" for the actual release numbers, eg:
    - eg: `223.*` == `2022.3.*`
+   - eg: `253.*` == `2025.3.*`
    - See [Build Number Ranges](https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html#build-number-format) for more on this
- - depending on the IDEA you are targetting, you'll also need to make sure you compile using the correct Java version.
-   - the release notes in [Build Number Ranges](https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html#intellij-platform-based-products-of-recent-ide-versions) will tell you which Java version is required
-   - in `build.gradle.kts` make sure to adjust `jvmToolchain` to reflect the correct Java version
+ - depending on the IDEA you are targeting, you'll also need to compile using the correct Java version (see the release notes in
+   [Build Number Ranges](https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html#intellij-platform-based-products-of-recent-ide-versions)),
+   adjust the `java.toolchain` block in `build.gradle.kts` accordingly
 
 ## Plugin dependencies
 This plugin depends on 2 other plugins:
  - [Gherkin](https://plugins.jetbrains.com/plugin/9164-gherkin/versions)
  - [Dart](https://plugins.jetbrains.com/plugin/6351-dart/versions)
 
-This is configured in `gradle.properties`
+This is configured in `gradle.properties`; pick versions compatible with `platformVersion`:
 ```.properties
-platformPlugins = gherkin:223.7571.113, Dart:223.7571.203
+platformPlugins = gherkin:253.28294.218, Dart:507.0.0
 ```
 
-Please note that the 2 dependencies from `platformPlugins` will also result in the defined classes to be included as dependencies in our project.
-If you don't add them there, you would have to add them manually in the `build.gradle.kts` file, like this:
-```.kts
-  ...
-  dependencies {
-    ...
-    // https://plugins.jetbrains.com/plugin/6351-dart/versions
-    api(files("lib/Dart-223.7571.203.jar"))
-    // https://plugins.jetbrains.com/plugin/9164-gherkin/versions
-    api(files("lib/gherkin-223.7571.113.jar"))
-    ...
-  }
-  ...
-```
-When set up correctly, these plugins are also downloaded and enabled when running the `Run Plugin` Gradle run configuration.
-
-However, when you do define them in your `build.gradle.kts` depdencies, then you'll get `LinkageError`s because they are loaded by two different classloaders:
- - `PluginClassLoader` (because of plugin dependency)
- - `PathClassLoader` (because `build.gradle.kts` dependency)
-
-Important to note here is that the versions of the plugins should be compatible, but you'll notice that soon enough when running the plugin.
-
-
+These are added to the compile classpath and installed into the sandbox IDE by the IntelliJ Platform Gradle Plugin.
+Do not add their jars as regular `implementation` dependencies, otherwise you'll get `LinkageError`s because the classes are loaded
+by two different classloaders (`PluginClassLoader` and `PathClassLoader`).
 
 ## Releasing plugin
  - environment variables:
